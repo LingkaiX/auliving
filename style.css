@@ -1,0 +1,21 @@
+/*
+Theme Name: auliving
+Author: Simon & Raymond
+Description: auliving.com.au
+Version: 0.0.1
+Text Domain: aulv
+*/
+* {
+  font-family: "lucida grande", "lucida sans unicode", lucida, Helvetica, Tahoma,
+    Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", sans-serif, Ionicons;
+}
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400;
+}
+[v-cloak] {
+  display: none;
+}
