@@ -1,0 +1,32 @@
+body.home {
+  background-color: yellow;
+
+  .pic {
+    margin: 0 10px 0 10px;
+    display: inline-block;
+  }
+  .left {
+    width: 305px;
+    height: 360px;
+    background-color: #e3e3e3;
+  }
+  .right {
+    width: 175px;
+    height: 360px;
+    background-color: #e3e3e3;
+  }
+  .b1 {
+    width: 305px;
+    height: 110px;
+    background-color: lightblue;
+    display: inline-block;
+  }
+  .b2 {
+    width: 175px;
+    height: 175px;
+    background-color: lightblue;
+    display: inline-block;
+  }
+  .center {
+  }
+}
