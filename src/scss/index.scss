@@ -1,6 +1,9 @@
 body.home {
   background-color: yellow;
 
+  main {
+    margin: 10px auto;
+  }
   .pic {
     margin: 0 10px 0 10px;
     display: inline-block;
@@ -28,5 +31,13 @@ body.home {
     display: inline-block;
   }
   .center {
+  }
+
+  @include laptop {
+    .right {
+      width: 175px;
+      height: 360px;
+      background-color: #e3e3e3;
+    }
   }
 }

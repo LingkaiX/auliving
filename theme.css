@@ -298,7 +298,9 @@ template {
   display: none; }
 
 .container {
-  display: flex; }
+  display: flex;
+  margin: 0 auto;
+  position: relative; }
 
 @media (min-width: 1200px) {
   .container {
@@ -314,6 +316,8 @@ template {
 
 body.home {
   background-color: yellow; }
+  body.home main {
+    margin: 10px auto; }
   body.home .pic {
     margin: 0 10px 0 10px;
     display: inline-block; }
@@ -335,3 +339,155 @@ body.home {
     height: 175px;
     background-color: lightblue;
     display: inline-block; }
+  @media (min-width: 992px) and (max-width: 1199.99px) {
+    body.home .right {
+      width: 175px;
+      height: 360px;
+      background-color: #e3e3e3; } }
+
+header {
+  height: 48px;
+  background-color: white; }
+  header i {
+    font-size: 18px; }
+  header .header-logo {
+    min-width: 144px;
+    max-width: 144px;
+    flex-grow: 0; }
+  header .menu-and-search {
+    width: auto;
+    flex-grow: 1;
+    font-size: 16px;
+    margin: 0 10px;
+    position: relative; }
+  header .submenu-header {
+    display: none; }
+  header .header-menu-container a {
+    text-decoration: none;
+    color: #003366; }
+  header .header-menu {
+    list-style: none;
+    margin: 0;
+    padding-left: 10px; }
+  header .header-menu li {
+    float: left;
+    padding: 14px 5px;
+    border-right: 1px solid #eee; }
+  header .header-menu li:first-child {
+    border-left: 1px solid #eee; }
+  header .search-container {
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: white;
+    opacity: 0; }
+  header .search-container-open {
+    z-index: 9;
+    opacity: 1; }
+  header .search-form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 64px;
+    color: #888;
+    font-size: 18px; }
+  header .search-form .fa-search {
+    border-left: 1px solid #eee;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 0; }
+  header .search-form .input-group {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-left: 48px; }
+  header .search-form input {
+    border: none;
+    line-height: 46px;
+    color: #888;
+    width: 100%; }
+  header .search-form input:focus {
+    outline: none; }
+  header .search-button-open,
+  header .search-button-close {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    right: 0; }
+  header .cn-switch {
+    min-width: 48px;
+    max-width: 48px;
+    flex-grow: 0;
+    height: 48px;
+    text-align: center;
+    font-size: 18px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 14px 0; }
+  header .menu-button {
+    display: none; }
+  @media (max-width: 991.99px) {
+    header .header-logo {
+      margin: 0 auto;
+      position: relative;
+      left: -8px; }
+    header .menu-and-search {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      z-index: 9;
+      transform: translateY(-100%);
+      transition: transform 0.2s ease-out; }
+    header .menu-and-search-open {
+      transform: none; }
+    header .cn-switch {
+      position: absolute;
+      right: 4px;
+      border: none;
+      top: 0; }
+    header .menu-button {
+      display: inline-block;
+      flex-grow: 0;
+      position: absolute;
+      left: 0; }
+    header .header-menu li {
+      float: none;
+      padding: 14px 5px;
+      border: none !important;
+      margin: 0 auto;
+      text-align: center; }
+    header .submenu-header {
+      display: block; }
+    header .search-button-open,
+    header .search-button-close {
+      display: none; }
+    header .search-container {
+      position: relative;
+      opacity: 1; }
+    header .search-form {
+      position: relative;
+      margin: auto 48px; }
+    header .search-form .fa-search {
+      border: none; }
+    header .search-form .input-group {
+      padding-right: 48px;
+      border-bottom: 1px solid #eee; } }
+
+@media (max-width: 991.99px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; }
+  .for-header {
+    content: "";
+    height: 48px; } }
