@@ -1,0 +1,182 @@
+header {
+  height: 48px;
+  background-color: white;
+
+  i {
+    font-size: 18px;
+  }
+  .header-logo {
+    min-width: 144px;
+    max-width: 144px;
+    flex-grow: 0;
+  }
+  .menu-and-search {
+    width: auto;
+    flex-grow: 1;
+    font-size: 16px;
+    //font-weight: 700;
+    margin: 0 10px;
+    position: relative;
+  }
+  .submenu-header {
+    display: none;
+  }
+  .header-menu-container a {
+    text-decoration: none;
+    color: $theme-blue;
+  }
+  .header-menu {
+    list-style: none;
+    margin: 0;
+    padding-left: 10px;
+  }
+  .header-menu li {
+    float: left;
+    padding: 14px 5px;
+    border-right: 1px solid #eee;
+  }
+  .header-menu li:first-child {
+    border-left: 1px solid #eee;
+  }
+  .search-container {
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: white;
+    opacity: 0;
+  }
+  .search-container-open {
+    z-index: 9;
+    opacity: 1;
+  }
+  .search-form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 64px;
+    color: #888;
+    font-size: 18px;
+  }
+  .search-form .fa-search {
+    border-left: 1px solid #eee;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 0;
+  }
+  .search-form .input-group {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-left: 48px;
+  }
+  .search-form input {
+    border: none;
+    line-height: 46px;
+    color: #888;
+    width: 100%;
+  }
+  .search-form input:focus {
+    outline: none;
+  }
+  .search-button-open,
+  .search-button-close {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    right: 0;
+  }
+  .cn-switch {
+    min-width: 48px;
+    max-width: 48px;
+    flex-grow: 0;
+    height: 48px;
+    text-align: center;
+    font-size: 18px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 14px 0;
+  }
+  .menu-button {
+    display: none;
+  }
+  @include mobile {
+    .header-logo {
+      margin: 0 auto;
+      position: relative;
+      left: -8px;
+    }
+    .menu-and-search {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 1);
+      z-index: 9;
+      transform: translateY(-100%);
+      transition: transform 0.2s ease-out;
+    }
+    .menu-and-search-open {
+      transform: none;
+    }
+    .cn-switch {
+      position: absolute;
+      right: 4px;
+      border: none;
+      top: 0;
+    }
+    .menu-button {
+      display: inline-block;
+      flex-grow: 0;
+      position: absolute;
+      left: 0;
+    }
+    .header-menu li {
+      float: none;
+      padding: 14px 5px;
+      border: none !important;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .submenu-header {
+      display: block;
+    }
+    .search-button-open,
+    .search-button-close {
+      display: none;
+    }
+    .search-container {
+      position: relative;
+      opacity: 1;
+    }
+    .search-form {
+      position: relative;
+      margin: auto 48px;
+    }
+    .search-form .fa-search {
+      border: none;
+    }
+    .search-form .input-group {
+      padding-right: 48px;
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
+@include mobile {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .for-header {
+    content: "";
+    height: 48px;
+  }
+}

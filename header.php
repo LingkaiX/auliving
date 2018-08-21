@@ -16,3 +16,74 @@
 
 </head>
 <body <?php body_class(); ?>>
+<header>
+    <div class="container">
+        <div id="menu-button-open" class="menu-button">
+            <i class="fas fa-bars" style="padding: 15px;"></i>
+        </div>
+        <div class="header-logo">
+            <a style="" href="<?php echo get_site_url(); ?>">
+                <img src="<?php echo get_template_directory_uri();?>/img/logo.svg" alt="logo" style="height:32px; margin-top:8px;">
+            </a>
+        </div>
+        <div id="menu-and-search" class="menu-and-search">
+            <div class="container submenu-header">
+                <div id="menu-button-close" class="menu-button">
+                    <i class="fas fa-times" style="padding: 15px;"></i>
+                </div>
+                <div class="header-logo">
+                    <a style="" href="<?php echo get_site_url(); ?>">
+                        <img src="<?php echo get_template_directory_uri();?>/img/logo.svg" alt="logo" style="height:32px; margin-top:8px;">
+                    </a>
+                </div>
+                <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
+                    <span><?php echo isTCN()?'简体':'繁體';?></span>
+                </a><!--WPCC_NC_END--></div>
+            </div>
+            <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'header-menu',
+                    'container_class'=> 'header-menu-container',
+                    'depth'          => 1
+                    ) );
+            ?>
+            <div class="search-container" id="search-container">
+                <form role="search" method="get" id="search-form" class="search-form" action=<?php echo getBaseUrl();?>>
+                    <i class="fas fa-search" style="padding: 15px;"></i>   
+                    <div class="input-group">
+                        <input type="text" id="search-item" name="s" placeholder="搜索文章" autocomplete="off">
+                    </div>
+                </form>
+                <div class="search-button-close" id="search-button-close">
+                    <i class="fas fa-times" style="padding: 15px;font-size:18px"></i>
+                </div>           
+            </div>
+            <div class="search-button-open" id="search-button-open">
+                <i class="fas fa-search" style="padding: 15px;font-size:18px"></i>        
+            </div>
+        </div>
+        <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
+            <span><?php echo isTCN()?'简体':'繁體';?></span>
+        </a><!--WPCC_NC_END--></div>
+    </div>
+    <script>
+        jQuery(document).ready(function($){
+            $('#menu-button-open').click(function(){
+
+                    $('#menu-and-search').addClass('menu-and-search-open');
+
+            });
+            $('#menu-button-close').click(function(){
+                $('#menu-and-search').removeClass('menu-and-search-open');
+            });
+            $('#search-button-open').click(function(){
+                $('#search-container').addClass('search-container-open');
+            });
+            $('#search-button-close').click(function(){
+                $('#search-container').removeClass('search-container-open');
+            });
+        });
+    </script>
+</header>
+<div class="for-header"></div>

@@ -59,8 +59,9 @@ function aulv_setup() {
     add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 	register_nav_menus( array(
-		'top-menu'	=> 'Top Menu Navigation',
-		'primary'	=> 'Primary Navigation'
+		'primary'	=> 'Header Navigation',
+		'top-menu'	=> 'Top News List',
+
     ) );
     
     //Set image sizes (4:3, 16:9, 2:1)
@@ -77,4 +78,44 @@ function aulv_setup() {
     // update_option( 'medium_large_size_w', 160 );
     // update_option( 'medium_large_size_h', 160 );
     // update_option( 'image_default_size', 1 );
+}
+
+//拆分url,返回下一（plus+1）个/后的值
+//ex: parsePath($_SERVER['REQUEST_URI'],'category');
+function parsePath($path, $name, $plus=0){
+	$value='';
+	if(strpos($path, "?")) $path = substr($path, 0, strpos($path, "?"));
+	$array=explode('/', trim($path, "/"));
+	if($plus<-1) return $value;
+	if($plus==-1) return $array[0];
+	if(!in_array($name, $array)) return $value;
+	for($x=0; $x<(count($array)-1); $x++){
+		if($array[$x]==$name&&((count($array))>($x+1+$plus))){
+			return $array[$x+1+$plus];
+		}
+	}
+	return $value;
+}
+//判断是否是繁体地址
+function isTCN(){
+	if (isset($_GET['variant'])) {
+		if ($_GET["variant"]=='zh-tw') return true;
+	}
+	if (parsePath($_SERVER['REQUEST_URI'],'',-1)=='zh-tw') return true;
+	return false;
+}
+function getBaseUrl(){
+	$url=get_site_url();
+	if (isTCN()){
+		return $url.'/zh-tw';
+	}else{
+		return $url;
+	}
+}
+function switchCN(){
+	if (isTCN()){
+		return home_url().substr($_SERVER['REQUEST_URI'],6);
+	}else{
+		return home_url().'/zh-tw'.$_SERVER['REQUEST_URI'];
+	}
 }
