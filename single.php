@@ -1,4 +1,20 @@
 <?php get_header(); ?>
+<div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+<?php
+    if (current_time('timestamp') - get_the_time('U') < 86400*30){
+        $postTime=human_time_diff( get_the_time('U'), current_time('timestamp') ).'前';
+    }
+    else {
+        $postTime=get_the_date( 'Y年n月j日' );
+    }
+?>
 <main class="container single-body">
     <div class="main-content" >
         <?php while (have_posts()) : the_post(); ?>
@@ -24,7 +40,9 @@
                         }
                     }
                 ?>
-                <div class="post-date"><?php $post_date = get_the_date( 'Y年n月j日' ); echo $post_date;?></div> 
+                <div class="post-date">
+                    <?php echo $postTime;?>
+                </div> 
             </div>
             <div class="content">
                 <div class="e1-desktop">
@@ -48,10 +66,16 @@
                             }
                         ?>
                     </div>
-                    <div class="post-date"><?php $post_date = get_the_date( 'Y年n月j日' ); echo $post_date;?></div>
-                    <?php echo '<div class="fb-share-button" data-href="'.get_the_permalink().'" data-layout="button" data-size="small" data-mobile-iframe="true">'?>
-                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.auliving.com.au%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-                    </div>        
+                    <div class="post-date">
+                        <?php echo $postTime;?>
+                    </div> 
+                    <div style="display:block; height:18px;"><?php echo '<div class="fb-like" data-href="'.get_the_permalink().'"
+                        data-layout="button_count" 
+                        data-action="like" 
+                        data-size="small" 
+                        data-show-faces="true" 
+                        data-share="true">
+                    </div>'?></div>    
                 </div>
                 <div class="post-content">
                     <?php
@@ -93,20 +117,24 @@
                     ?>
                 </div>
             </div>
+            <div class="post-tag">
+                <?php
+                    $post_tags = get_the_tags();
+                    if ( $post_tags ) {
+                        foreach( $post_tags as $tag ) {
+                        echo '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>'. '&nbsp|&nbsp';
+                        }
+                    }
+                ?>
+            </div>
+            <div style="display:block; float:right; margin-bottom: 10px; height:18px;"><?php echo '<div class="fb-like" data-href="'.get_the_permalink().'"
+                data-layout="button_count" 
+                data-action="like" 
+                data-size="small" 
+                data-show-faces="true" 
+                data-share="true">
+            </div>'?></div>    
         <?php endwhile; ?>
-
-        <div class="social-links">
-
-        <div class="fb">
-        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-        <script type="text/javascript">
-        document.write('<fb:like layout="button_count" show_faces="false" width="100"></fb:like>')
-        </script></div>
-        <div class="tweet">
-        <a href="http://twitter.com/share" data-url="<?php the_permalink(); ?>" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>
-
-        </div>
-
     </div>
     <div class="sidebar" >
         <p>最新消息，俞琪终于找到了，新州警方刚刚公布了细节，她的尸体在Berowra附近的M1公路上被找到。</p>
