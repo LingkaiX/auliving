@@ -312,6 +312,100 @@ template {
   .container {
     max-width: 800px; } }
 
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+  margin: 5px 20px 20px 0; }
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto; }
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px; }
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0; }
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px; }
+
+a img.alignnone {
+  margin: 5px 20px 20px 0; }
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0; }
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.wp-caption {
+  max-width: 96%;
+  /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center; }
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0; }
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0; }
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px; }
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto; }
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px; }
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+
+.screen-reader-text:focus {
+  background-color: #eee;
+  clip: auto !important;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */ }
+
 body.home {
   background-color: yellow; }
   body.home .pic {
@@ -335,3 +429,118 @@ body.home {
     height: 175px;
     background-color: lightblue;
     display: inline-block; }
+
+.single-body {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  word-break: break-all; }
+
+.main-content {
+  flex-grow: 1; }
+
+.sidebar {
+  width: 300px;
+  margin-left: 20px;
+  min-width: 300px;
+  justify-content: center;
+  background: #2a86aa; }
+
+.title-section {
+  position: relative; }
+
+.title {
+  padding-left: 5px; }
+
+.featured-img {
+  display: none;
+  max-width: 100%;
+  margin: auto;
+  vertical-align: middle; }
+
+.featured-img img {
+  height: auto;
+  max-width: 100%; }
+
+.e1-desktop {
+  background: #2a86aa;
+  height: 250px;
+  width: 300px;
+  display: block;
+  float: left;
+  margin: auto 5px  5px 5px; }
+
+.post-meta {
+  text-align: center; }
+
+.post-meta-mobile {
+  display: none; }
+
+.cates {
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 0 10px;
+  border-radius: 5px;
+  color: white;
+  margin-right: 10px;
+  line-height: 1.5;
+  text-decoration: none; }
+
+.post-date {
+  display: inline-block;
+  color: #888;
+  font-size: 14px; }
+
+.post-content {
+  margin: auto 5px  auto 5px; }
+
+.post-content img {
+  width: 600px;
+  max-width: calc(100% - 0px);
+  height: auto; }
+
+@media (max-width: 991.99px) {
+  .sidebar {
+    width: 100%;
+    margin-left: 0;
+    min-width: 300px; }
+  .single-body {
+    flex-wrap: wrap; } }
+
+@media (max-width: 640px) {
+  .featured-img {
+    display: initial; }
+  .title {
+    position: absolute;
+    max-width: 90%;
+    bottom: -10%;
+    background-color: white; }
+  .title h2 {
+    font-size: 18px; }
+  .title-section {
+    margin-bottom: 5%; }
+  .post-meta {
+    display: none; }
+  .post-meta-mobile {
+    display: contents; }
+  .post-date, .cates {
+    margin: 2px 5px 5px 5px; }
+  .e1-desktop {
+    background: #2a86aa;
+    height: 50px;
+    width: 320px;
+    display: block;
+    float: none;
+    margin: auto auto 10px auto; } }
+
+.social-links {
+  margin: 20px 0px 10px 0px;
+  height: 35px; }
+
+.fb {
+  float: left;
+  margin-right: 10px; }
+
+.tweet {
+  float: left; }

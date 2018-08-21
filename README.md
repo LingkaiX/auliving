@@ -5,7 +5,7 @@ auliving.com.au
 ### How to use Parcel
 
 - Install and initialise
-  - npm intall -g parcel
+  - npm install -g parcel
   - cd ./src
   - npm init -y
   - npm install node-sass

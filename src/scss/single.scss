@@ -1,0 +1,121 @@
+.single-body{
+    display: flex; 
+    margin: 0 auto; 
+    justify-content: space-between;
+    word-break: break-all;
+}
+.main-content{
+    flex-grow: 1;
+}
+.sidebar{
+    width:300px;
+    margin-left: 20px;
+    min-width: 300px;
+    justify-content: center;
+    background:rgb(42, 134, 170);
+}
+.title-section{
+    position:relative;
+}
+.title{
+    padding-left: 5px;
+}
+.featured-img{
+    display: none;
+    max-width: 100%;
+    margin:  auto;
+    vertical-align: middle;
+}
+.featured-img img{
+    height: auto;
+    max-width: 100%;
+}
+.e1-desktop{
+    background:rgb(42, 134, 170); 
+    height:250px; 
+    width:300px;
+    display: block; 
+    float:left; 
+    margin: auto 5px  5px 5px;
+}
+.post-meta{
+    text-align: center;
+}
+.post-meta-mobile{
+    display: none;
+}
+.cates{
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    padding: 0 10px;
+    border-radius: 5px;
+    color:white;
+    margin-right: 10px;
+    line-height: 1.5;
+    text-decoration: none;
+}
+.post-date{
+    display: inline-block;
+    color: #888;
+    font-size: 14px;
+}
+.post-content{
+    margin: auto 5px  auto 5px;
+}
+.post-content img{
+    width: 600px;
+    max-width: calc(100% - 0px);
+    height: auto;
+}
+@include mobile {
+    .sidebar{
+        width: 100%;
+        margin-left: 0;
+        min-width: 300px;
+    }
+    .single-body{
+        flex-wrap: wrap;
+    }
+}
+@media (max-width:640px) {
+    .featured-img{
+        display: initial;
+    }
+    .title{
+        position:absolute;
+        max-width: 90%;
+        bottom: -10%;
+        background-color: white;
+    }
+    .title h2{
+        font-size: 18px;
+    }
+    .title-section{
+        margin-bottom: 5%;
+    }
+    .post-meta{
+        display: none;
+    }
+    .post-meta-mobile{
+        display: contents;
+    }
+    .post-date, .cates {
+        margin: 2px 5px 5px 5px;
+    }
+    .e1-desktop{
+        background:rgb(42, 134, 170); 
+        height:50px; 
+        width:320px;
+        display: block;
+        float: none;
+        margin: auto auto 10px auto;
+    }
+}
+@media (min-width:640px) {
+    
+}
+
+.social-links { margin:20px 0px 10px 0px; height:35px; }
+.fb { float: left; margin-right : 10px; }
+.tweet { float: left; }
