@@ -70,12 +70,12 @@
     <script>
         jQuery(document).ready(function($){
             $('#menu-button-open').click(function(){
-
-                    $('#menu-and-search').addClass('menu-and-search-open');
-
+                $('#menu-and-search').addClass('menu-and-search-open');
+                $('main').addClass('hide-main-content');
             });
             $('#menu-button-close').click(function(){
                 $('#menu-and-search').removeClass('menu-and-search-open');
+                $('main').removeClass('hide-main-content');
             });
             $('#search-button-open').click(function(){
                 $('#search-container').addClass('search-container-open');

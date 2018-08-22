@@ -433,6 +433,11 @@ body.home {
     height: 175px;
     background-color: lightblue;
     display: inline-block; }
+  @media (min-width: 992px) and (max-width: 1199.99px) {
+    body.home .right {
+      width: 175px;
+      height: 360px;
+      background-color: #e3e3e3; } }
 
 .single-body {
   display: flex;
@@ -537,22 +542,6 @@ body.home {
     display: block;
     float: none;
     margin: auto auto 10px auto; } }
-
-.social-links {
-  margin: 20px 0px 10px 0px;
-  height: 35px; }
-
-.fb {
-  float: left;
-  margin-right: 10px; }
-
-.tweet {
-  float: left; }
-  @media (min-width: 992px) and (max-width: 1199.99px) {
-    body.home .right {
-      width: 175px;
-      height: 360px;
-      background-color: #e3e3e3; } }
 
 header {
   height: 48px;
@@ -699,4 +688,6 @@ header {
     right: 0; }
   .for-header {
     content: "";
-    height: 48px; } }
+    height: 48px; }
+  .hide-main-content {
+    display: none; } }
