@@ -473,6 +473,7 @@ body.home {
     height: 250px;
     width: 300px;
     display: block;
+<<<<<<< HEAD
     float: left;
     margin: auto 5px  5px 5px; }
   .single-body .post-meta {
@@ -543,6 +544,10 @@ body.home {
       margin-left: 2px;
       margin-right: 2px;
       min-width: 300px; } }
+=======
+    float: none;
+    margin: auto auto 10px auto; } }
+>>>>>>> dev-20180821
 
 header {
   height: 48px;
@@ -690,4 +695,6 @@ header {
     z-index: 99; }
   .for-header {
     content: "";
-    height: 48px; } }
+    height: 48px; }
+  .hide-main-content {
+    display: none; } }
