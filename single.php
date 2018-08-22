@@ -8,6 +8,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 <?php
+    $video=get_field('video_info');
     if (current_time('timestamp') - get_the_time('U') < 86400*30){
         $postTime=human_time_diff( get_the_time('U'), current_time('timestamp') ).'前';
     }
@@ -19,6 +20,11 @@
     <div class="main-content" >
         <?php while (have_posts()) : the_post(); ?>
             <div class="title-section">
+                <div class="video">
+                    <?php echo implode(" ", $video);?>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/q2zj74iK1MI?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                    </iframe>
+                </div>
                 <div class="featured-img"><?php echo get_the_post_thumbnail( null, 'full' );?></div>
                 <div class="title">
                     <?php the_title('<h2>', '</h2>');?>

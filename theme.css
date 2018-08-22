@@ -456,6 +456,10 @@ body.home {
     position: relative; }
   .single-body .title {
     padding: 0 5px; }
+  .single-body .video {
+    max-width: 100%;
+    height: 400px;
+    text-align: center; }
   .single-body .featured-img {
     display: none;
     max-width: 100%;
@@ -511,6 +515,8 @@ body.home {
       max-width: 90%;
       bottom: -10%;
       background-color: white; }
+    .single-body .video {
+      height: 200px; }
     .single-body .title h2 {
       font-size: 18px; }
     .single-body .title-section {
