@@ -70,16 +70,21 @@ function aulv_setup() {
     update_option( 'thumbnail_crop', 1 );
 
     update_option( 'medium_size_w', 480 );
-    update_option( 'medium_size_h', 9999 );
+    update_option( 'medium_size_h', 0 );
 
-    update_option( 'large_size_w', 640 );
-    update_option( 'large_size_h', 9999 );
+    update_option( 'large_size_w', 820 );
+    update_option( 'large_size_h', 0 );
 
-    // update_option( 'medium_large_size_w', 160 );
-    // update_option( 'medium_large_size_h', 160 );
-    // update_option( 'image_default_size', 1 );
+    update_option( 'medium_large_size_w', 640 );
+    update_option( 'medium_large_size_h', 0 );
+    update_option( 'image_default_size', 'medium_large' );
 }
-
+add_filter( 'image_size_names_choose', 'fresh_custom_sizes' );
+function fresh_custom_sizes( $sizes ) {
+   return array_merge( $sizes, array(
+      'medium_large' => __( 'Medium Large' ),
+   ) );
+}
 //拆分url,返回下一（plus+1）个/后的值
 //ex: parsePath($_SERVER['REQUEST_URI'],'category');
 function parsePath($path, $name, $plus=0){
@@ -121,6 +126,7 @@ function switchCN(){
 }
 //output:4 months ago
 //full output: 4 months, 2 weeks, 3 days, 1 hour, 49 minutes, 15 seconds ago
+//$datetime: PLEASE input GMT TIME
 function timeElapsedString($datetime, $full = false) {
     $now = new DateTime('now', new DateTimeZone('UTC') );
 	$ago = new DateTime($datetime);
@@ -150,10 +156,61 @@ function timeElapsedString($datetime, $full = false) {
             unset($string[$k]);
         }
     }
-
 	if (!$full) $string = array_slice($string, 0, 1);
 	if($longerThanOneMonth){
 		return false;
 	}
     return $string ? implode(', ', $string) . '前' : '刚刚';
 }
+
+//Add *date_info* to posts rest api response
+add_action( 'rest_api_init', function () {
+    register_rest_field( 'post', 'date_info', array(
+        'get_callback' => function( $obj ) {
+            return (string)timeElapsedString($obj['date_gmt'], $full = false);
+        }
+	) );
+	register_rest_field( 'post', 'cover_img', array(
+        'get_callback' => function( $obj ) {
+			if ($obj['featured_media']!=0){
+				return  wp_get_attachment_image_src($obj['featured_media'],'thumbnail',false)[0];
+			}
+            return 0;
+        }
+    ) );
+	register_rest_field( 'post', 'categories', array(
+        'get_callback' => function( $obj ) {
+			$args = array('fields' => 'all');
+            return wp_get_post_categories($obj['id'], $args);
+        }
+	) );
+	register_rest_field( 'post', 'tags', array(
+        'get_callback' => function( $obj ) {
+            return wp_get_post_tags($obj['id']);
+        }
+	) );
+} );
+function convertRestPostToTCN( $response, $post, $request ) {
+	$response->data['excerpt']['rendered']=strip_tags($response->data['excerpt']['rendered']);
+	unset($response->data['content']);
+	if($request->get_param('variant')=="zh-tw"){
+		wpcc_load_conversion_table();
+		$response->data['title']['rendered']=zhconversion_tw($response->data['title']['rendered']);
+		//$response->data['content']['rendered']=zhconversion_tw($response->data['content']['rendered']);
+		$response->data['excerpt']['rendered']=zhconversion_tw($response->data['excerpt']['rendered']);
+		$response->data['link']=str_replace(home_url(),home_url().'/zh-tw',$response->data['link']);
+		if($response->data['categories']){
+			foreach ($response->data['categories'] as $value){
+				$value->name=zhconversion_tw($value->name);
+			}
+		}
+		if($response->data['tags']){
+			foreach ($response->data['tags'] as $value){
+				$value->name=zhconversion_tw($value->name);
+			}
+		}
+	}
+	
+		return $response;
+  }
+add_filter( 'rest_prepare_post', 'convertRestPostToTCN', 10, 3 );

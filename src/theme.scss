@@ -1,7 +1,13 @@
 @import "scss/normalize.scss";
 @import "scss/framework.scss";
-@import "scss/WordPress Core.scss";
+@import "scss/wordpress-core.scss";
+
+@import "scss/header.scss";
+@import "scss/footer.scss";
 @import "scss/index.scss";
 @import "scss/single.scss";
-@import "scss/header.scss";
+
+@import "scss/snippet/head-section.scss";
+@import "scss/snippet/listed-post.scss";
+
 @import "scss/relatedPost.scss";
