@@ -36,7 +36,7 @@
                         <img src="<?php echo get_template_directory_uri();?>/img/logo.svg" alt="logo" style="height:32px; margin-top:8px;">
                     </a>
                 </div>
-                <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
+               <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
                     <span><?php echo isTCN()?'简体':'繁體';?></span>
                 </a><!--WPCC_NC_END--></div>
             </div>

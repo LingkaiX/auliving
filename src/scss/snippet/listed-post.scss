@@ -1,0 +1,13 @@
+div.listed-post {
+  margin-bottom: 10px;
+  display: flex;
+  //background-color: wheat;
+  .cover-img {
+    height: 100%;
+    max-width: 37.5%;
+  }
+  .post-info {
+    flex-grow: 1;
+    max-width: 62.5%;
+  }
+}

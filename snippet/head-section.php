@@ -1,57 +1,72 @@
 <?php
-/* Need data: 
-    WP_Query: headSectionQuery；
-    Array<WP_Post>: stickyPosts;
+/* 
+Need data: 
+    WP_Query: $headSectionQuery；
+    Array<WP_Post>: $stickyPosts;
+Output data:
+    Array<Post_ID>: $headSectionPostIds;
+    JS: Array<Post_ID>: headSectionPostIds;
 */
-?>    
+if(count($headSectionQuery->posts)>=8):?>    
 <section class="container head-section">
-<?php 
-    $loopCount=0;
-    $topPosts=array($headSectionQuery->posts[3]->ID,$headSectionQuery->posts[4]->ID,$headSectionQuery->posts[5]->ID);
-    echo '<div class="left">';
-
-    echo '</div> <div class="center">';
-    
-    echo '</div> <div class="right">';
-
-    echo '</div>';
-    while ( $headSectionQuer->have_posts() ) {
-        $loopCount++;
-        if($stickyPosts){
-            if($loopCount==4&&(count($stickyPosts)>0)){
-                if(!in_array($stickyPosts[0]['sticky_post']->ID,$topPosts)){
-                    //
-                    continue;
-
-                }else{
-
-                }
-            }
-            if($loopCount==5&&(count($stickyPosts)>1)){
-
-                continue;
-            }
-            if($loopCount==6&&(count($stickyPosts)>2)){
-
-                continue;
+<?php
+    $stickyCount=count($stickyPosts);
+    $selectedPosts=$headSectionQuery->posts;
+    $stickyIDs=array();
+    //remove repeat posts in $headSectionQuery and $stickyPosts
+    if($stickyCount>0){
+        for($i=0; $i<$stickyCount; $i++){
+            array_splice($selectedPosts, 3, 0, array($stickyPosts[$i]['sticky_post']) ); 
+        }
+        for($i=0; $i<count($selectedPosts); $i++){
+            for($j=$i+1; $j<count($selectedPosts); $j++){
+                if($selectedPosts[$i]->ID==$selectedPosts[$j]->ID)
+                    array_splice($selectedPosts, $j, 1 ); 
             }
         }
-        //center *3
-        $headSectionQuer->the_post();
-        echo '<li>' . get_the_title() . '</li>';
+        for($i=0; $i<$stickyCount; $i++){
+            $stickyIDs[$i]=$stickyPosts[$i]['sticky_post']->ID;
+        }
+    }
+    $headSectionPostIds=array();
+    for($i=0; $i<count($selectedPosts); $i++){
+        array_push($headSectionPostIds, $selectedPosts[$i]->ID);
     }
 ?>
-    <div class="left">
-        <div class="b1" style="margin-bottom:10px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
-        <div class="b1" style="margin-bottom:10px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展1</div>
-        <div class="b1" style="height:120px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
-    </div>
+<script>
+    <?php echo "var headSectionPostIds = ". json_encode($headSectionPostIds) . ";\n"; ?>
+    //console.log(headSectionPostIds.toString());
+</script>
+<?php
+    function echoBlock($post, $isStickyPost=false){
+        echo get_the_post_thumbnail( $post->ID, 'thumbnail', ['class' => 'cover-img', 'title' => 'cover'] );
+        echo '<div class="info-container">';
+            echo '<h6>'.$post->post_title.'</h6>';
+            echo '<span>'.timeElapsedString($post->post_date_gmt).'</span>';
+        echo '</div>';
+    }
+    $loopCount=0;
+?>
     <div class="center">
-        <img src="https://xenforo.com/community/media/kingfish.2125/full" alt="" width="640" height="360" class="pic">
+    <?php for($loopCount; $loopCount<3; $loopCount++){ ?>
+        <div class="center-block <?php echo $loopCount==0?'center-block-top':''; ?>">
+            <?php echoBlock($selectedPosts[$loopCount]); ?>
+        </div>
+    <?php } ?>
+    </div>
+    <div class="left">
+    <?php for($loopCount; $loopCount<6; $loopCount++){ ?>
+        <div class="left-block">
+            <?php echoBlock($selectedPosts[$loopCount]); ?>
+        </div>
+    <?php } ?>
     </div>
     <div class="right">
-        <div class="b2" style="margin-bottom:10px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
-        <div class="b2">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
+    <?php for($loopCount; $loopCount<8; $loopCount++){ ?>
+        <div class="right-block">
+            <?php echoBlock($selectedPosts[$loopCount]); ?>
+        </div>
+    <?php } ?>
     </div>
 </section>
-<?php wp_reset_postdata(); ?>
+<?php endif; wp_reset_postdata(); ?>
