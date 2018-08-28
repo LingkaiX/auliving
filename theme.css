@@ -495,9 +495,11 @@ body.home {
   .single-body .post-content {
     margin: auto 5px  auto 5px; }
   .single-body .post-content img {
-    width: 600px;
+    width: 640px;
     max-width: calc(100% - 0px);
-    height: auto; }
+    height: auto;
+    display: block;
+    margin: 5px auto 5px auto; }
   .single-body .post-tag {
     display: inline-block;
     color: #888;
