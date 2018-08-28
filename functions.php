@@ -122,30 +122,38 @@ function switchCN(){
 //output:4 months ago
 //full output: 4 months, 2 weeks, 3 days, 1 hour, 49 minutes, 15 seconds ago
 function timeElapsedString($datetime, $full = false) {
-    $now = current_time( 'timestamp', 1 );
-    $ago = new DateTime($datetime);
+    $now = new DateTime('now', new DateTimeZone('UTC') );
+	$ago = new DateTime($datetime);
     $diff = $now->diff($ago);
 
     $diff->w = floor($diff->d / 7);
     $diff->d -= $diff->w * 7;
 
+	$longerThanOneMonth = false;
     $string = array(
-        'y' => 'year',
-        'm' => 'month',
-        'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
-        'i' => 'minute',
-        's' => 'second',
+        'y' => '年',
+        'm' => '个月',
+        'w' => '周',
+        'd' => '天',
+        'h' => '小时',
+        'i' => '分钟',
+        's' => '秒',
     );
     foreach ($string as $k => &$v) {
         if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+			if($k=='m'||$k=='y'){
+				$longerThanOneMonth = true;
+			}
+		    //$v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+			$v = $diff->$k . $v;
         } else {
             unset($string[$k]);
         }
     }
 
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
+	if (!$full) $string = array_slice($string, 0, 1);
+	if($longerThanOneMonth){
+		return false;
+	}
+    return $string ? implode(', ', $string) . '前' : '刚刚';
 }

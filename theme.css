@@ -450,8 +450,7 @@ body.home {
     width: 300px;
     margin-left: 20px;
     min-width: 300px;
-    justify-content: center;
-    background: #2a86aa; }
+    justify-content: center; }
   .single-body .title-section {
     position: relative; }
   .single-body .title {
@@ -473,7 +472,6 @@ body.home {
     height: 250px;
     width: 300px;
     display: block;
-<<<<<<< HEAD
     float: left;
     margin: auto 5px  5px 5px; }
   .single-body .post-meta {
@@ -510,8 +508,8 @@ body.home {
       text-decoration: none; }
   @media (max-width: 640px) {
     .single-body .featured-img {
-      display: initial; }
-    .single-body .title {
+      display: contents; }
+    .single-body .title-novideo {
       position: absolute;
       max-width: 90%;
       bottom: -10%;
@@ -521,7 +519,7 @@ body.home {
     .single-body .title h2 {
       font-size: 18px; }
     .single-body .title-section {
-      margin-bottom: 5%; }
+      margin-bottom: 7%; }
     .single-body .post-meta {
       display: none; }
     .single-body .post-meta-mobile {
@@ -544,10 +542,6 @@ body.home {
       margin-left: 2px;
       margin-right: 2px;
       min-width: 300px; } }
-=======
-    float: none;
-    margin: auto auto 10px auto; } }
->>>>>>> dev-20180821
 
 header {
   height: 48px;
@@ -698,3 +692,44 @@ header {
     height: 48px; }
   .hide-main-content {
     display: none; } }
+
+.relatedPost .rPostBox {
+  margin: 0 5px 10px;
+  font-size: 14px; }
+  .relatedPost .rPostBox a:visited, .relatedPost .rPostBox a:active, .relatedPost .rPostBox a:link {
+    color: #444;
+    text-decoration: none; }
+  .relatedPost .rPostBox a:hover {
+    color: rgba(0, 51, 102, 0.8);
+    text-decoration: none; }
+  .relatedPost .rPostBox p {
+    margin: 3px 0; }
+
+.relatedPost .rPostImg {
+  position: relative;
+  overflow: hidden;
+  width: 290px;
+  height: 100px;
+  margin-bottom: 5px; }
+
+.relatedPost .rPostImg img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%); }
+
+@media (max-width: 991.99px) {
+  .relatedPost .rPostBox {
+    width: 100%;
+    display: inline-block; }
+  .relatedPost .rPostImg {
+    float: left;
+    width: 90px;
+    height: 61px; } }
+
+@media (max-width: 640px) {
+  .relatedPost .text {
+    text-align: center; } }

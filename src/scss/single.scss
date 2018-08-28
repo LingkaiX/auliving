@@ -12,7 +12,6 @@
         margin-left: 20px;
         min-width: 300px;
         justify-content: center;
-        background:rgb(42, 134, 170);
     }
     .title-section{
         position:relative;
@@ -85,9 +84,9 @@
     }
     @media (max-width:640px) {
         .featured-img{
-            display: initial;
+            display: contents;
         }
-        .title{
+        .title-novideo{
             position:absolute;
             max-width: 90%;
             bottom: -10%;
@@ -100,7 +99,7 @@
             font-size: 18px;
         }
         .title-section{
-            margin-bottom: 5%;
+            margin-bottom: 7%;
         }
         .post-meta{
             display: none;
@@ -119,9 +118,6 @@
             float: none;
             margin: auto auto 10px auto;
         }
-    }
-    @media (min-width:640px) {
-        
     }
 }
 @include mobile {

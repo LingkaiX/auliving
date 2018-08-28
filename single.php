@@ -9,31 +9,49 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 <?php
     $video=get_field('video_info');
-    if (current_time('timestamp') - get_the_time('U') < 86400*30){
-        $postTime=human_time_diff( get_the_time('U'), current_time('timestamp') ).'前';
+    $postId=get_the_ID();
+    $author=$post->post_author;
+    $cates = get_the_category();
+    $categories = array();
+    foreach($cates as $key => $cate){
+        $categories[$key]=$cate->slug;
+    }
+    // if (current_time('timestamp') - get_the_time('U') < 86400*30){
+    //     $postTime=human_time_diff( get_the_time('U'), current_time('timestamp') ).'前';
+    // }
+    // else {
+    //     $postTime=get_the_date( 'Y年n月j日' );
+    // }
+    if(!timeElapsedString($post->post_date_gmt)){
+        $postTime=get_the_date( 'Y年n月j日' );
     }
     else {
-        $postTime=get_the_date( 'Y年n月j日' );
+        $postTime=timeElapsedString($post->post_date_gmt);
     }
 ?>
 <main class="container single-body">
     <div class="main-content" >
         <?php while (have_posts()) : the_post(); ?>
             <div class="title-section">
-                <div class="video">
-                    <?php echo implode(" ", $video);?>
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/q2zj74iK1MI?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="featured-img"><?php echo get_the_post_thumbnail( null, 'full' );?></div>
-                <div class="title">
-                    <?php the_title('<h2>', '</h2>');?>
-                </div>
+                <?php if(!empty($video['youtube_id'])):?>
+                    <div class="video">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo implode($video);?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="title">
+                        <?php the_title('<h2>', '</h2>');?>
+                    </div>
+                <?php else:?>
+                    <div class="featured-img"><?php echo get_the_post_thumbnail( null, 'full' );?></div>
+                    <div class="title title-novideo">
+                        <?php the_title('<h2>', '</h2>');?>
+                    </div>
+                <?php endif;?> 
             </div>
             <div class="post-meta-mobile">
                 <?php
                     $color='rgba(204, 0, 51, 0.8)';
-                    foreach(get_the_category() as $cate){
+                    foreach($cates as $cate){
                         echo '<a class="cates" style="background-color:'.$color.';" href="'.get_category_link($cate->term_id).'">'.$cate->name.'</a>';
                         switch ($color) {
                             case 'rgba(0, 51, 102, 0.8)':
@@ -58,7 +76,7 @@
                     <div style="margin-bottom:5px;">
                         <?php
                             $color='rgba(204, 0, 51, 0.8)';
-                            foreach(get_the_category() as $cate){
+                            foreach($cates as $cate){
                                 echo '<a class="cates" style="background-color:'.$color.';" href="'.get_category_link($cate->term_id).'">'.$cate->name.'</a>';
                                 switch ($color) {
                                     case 'rgba(0, 51, 102, 0.8)':
@@ -126,9 +144,11 @@
             <div class="post-tag">
                 <?php
                     $post_tags = get_the_tags();
+                    $tags = array();
                     if ( $post_tags ) {
-                        foreach( $post_tags as $tag ) {
-                        echo '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>'. '&nbsp|&nbsp';
+                        foreach( $post_tags as $k => $tag ) {
+                            $tags[$k] =$tag->slug;
+                            echo '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>'. '&nbsp|&nbsp';
                         }
                     }
                 ?>
@@ -143,10 +163,7 @@
         <?php endwhile; ?>
     </div>
     <div class="sidebar" >
-        <p>最新消息，俞琪终于找到了，新州警方刚刚公布了细节，她的尸体在Berowra附近的M1公路上被找到。</p>
-            <p> </p> <p>信息刚刚公布，根据现场视频的显示，俞琪的尸体就被抛弃在公路旁边的树丛里。</p> 
-            p style="text-align: center;">（图源：推特）</p>
-            <p> </p>
+        <?php include 'snippet/single-side.php'; ?>
     </div>
 </main>
 <?php get_footer(); ?>
