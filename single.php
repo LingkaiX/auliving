@@ -68,7 +68,7 @@
                     <?php echo $postTime;?>
                 </div> 
             </div>
-            <div class="content">
+            <article class="content">
                 <div class="e1-desktop">
                     Ads code goes here
                 </div>
@@ -140,7 +140,7 @@
                         the_content();
                     ?>
                 </div>
-            </div>
+            </article>
             <div class="post-tag">
                 <?php
                     $post_tags = get_the_tags();
@@ -161,6 +161,7 @@
                 data-share="true">
             </div>'?></div>    
         <?php endwhile; ?>
+        <?php comments_template(); ?>
     </div>
     <div class="sidebar" >
         <?php include 'snippet/single-side.php'; ?>
