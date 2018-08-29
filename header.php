@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=cmn-hans>
+<html lang=<?php echo isTCN()? 'cmn-hant':'cmn-hans'; ?>>
 <head>
 <link rel="manifest" href="<?php echo get_template_directory_uri();?>/manifest.json">
 <meta charset="<?php bloginfo( 'charset' ); ?>">

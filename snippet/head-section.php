@@ -8,7 +8,7 @@ Output data:
     JS: Array<Post_ID>: headSectionPostIds;
 */
 if(count($headSectionQuery->posts)>=8):?>    
-<section class="container head-section">
+<section class="container head-section"  style="display:none;">
 <?php
     $stickyCount=count($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;

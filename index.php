@@ -1,3 +1,4 @@
+
 <?php get_header(); ?>
 <main>    
 <?php 
@@ -5,25 +6,35 @@
     $headSectionQuery = new WP_Query( array( 'category_name' => 'top','posts_per_page' => 8 )  );
     include 'snippet/head-section.php';
     //print_r(get_taxonomy( 'top' ));
-    echo home_url();
 ?>
 <section class="first-section container">
-    <div class="post-list">
+    <div class="left post-list">
     <?php 
         $count=0;
+        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds ) );
+        while (++$count<11&&have_posts()) : the_post();
+            include 'snippet/listed-post.php';
+        endwhile;
+    ?>
+    </div>
+    <div class="right top-post-list-container">
+        <?php include 'snippet/listed-post.php'; ?>
+    </div>
+</section>
+<?php 
+    $stickyColumns = get_field( 'sticky_columns', 'category_'.get_category_by_slug( 'top' )->term_id );
+    include 'snippet/sticky-column-section.php';
+?>
+<section class="second-section container">
+    <div class="left post-list">
+    <?php 
         query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds ) );
         while (have_posts()) : the_post();
             include 'snippet/listed-post.php';
         endwhile;
     ?>
     </div>
-    <div class="hot-post-list">
-111
-    </div>
-</section>
-<section class="special-categories">
-</section>
-<section class="second-section container">
+    <div class="right"></div>
 </section>
 <section class="extended-section container">
     <div class="left">
@@ -39,15 +50,21 @@
         <hr>
     </div>
 </div>
-    <script>
-        var isTCN=<?php echo isTCN()?'true':'false'; ?>;
-        function loadMoreArticles(){
-            var perPage=1;
+<script>
+    var isTCN=<?php echo isTCN()?'true':'false'; ?>;
+    var postOffset=30;
+    var postLoading=false;
+    var noMorePost=false;
+    function loadMoreArticles(){
+        console.log(postLoading, postOffset);
+        if(postLoading==false){
+            postLoading=true;
+            jQuery("#load-more-articles").text("loading");
+            var perPage=10;
             var variant=isTCN?'&variant=zh-tw':'';
-            var offset= jQuery("#load-more-articles").data("offset");
-            var url="<?php echo home_url(); ?>"+"/wp-json/wp/v2/posts?offset="+offset+"&per_page="+perPage+"&exclude="+headSectionPostIds+variant;
+            var url="<?php echo home_url(); ?>"+"/wp-json/wp/v2/posts?offset="+postOffset+"&per_page="+perPage+"&exclude="+headSectionPostIds+variant;
             jQuery.getJSON( url, function( data ) {
-                if(data){
+                if(data.length > 0){
                     var posts = [];
                     jQuery.each( data, function( key, val ) {
                         var s=`<div class="listed-post"><a href="`+val.link+`">
@@ -55,65 +72,34 @@
                         </a><div class="post-info"><h4>`+val.title.rendered+`</h4><h6 class="sub-title">`+val.excerpt.rendered+`</h6><span>`+val.date_info+`</span></div></div>`;
                         posts.push(s);
                     });
-                    jQuery( "#more-articles-here" ).append(posts);  
+                    jQuery("#more-articles-here" ).append(posts);
+                    postOffset+=perPage;
+                    jQuery("#load-more-articles").text('更多文章');
                 }else{
-                    console.log('no more post');
+                    jQuery("#load-more-articles").text('no more post');
+                    jQuery("#load-more-articles").attr('disabled',true);
+                    noMorePost=true;
                 }
             }).fail(function() {
-                console.log( "error, try again" );
+                jQuery("#load-more-articles").text( "error, try again" );
+            }).always(function() {
+                postLoading=false;
             });
         }
-        jQuery(document).ready(function($){
-            loadMoreArticles();
-            // var appArticleList = new Vue({
-            //     el: '#app-article-list',
-            //     data: {
-            //         results: []
-            //     },
-            //     methods: {
-            //         decodeHtml: function (html) {
-            //             var txt = document.createElement("textarea");
-            //             txt.innerHTML = html;
-            //             return txt.value;
-            //         },
-            //     },
-            //     mounted() {
-            //         axios.get("http://localhost/wp-json/wp/v2/posts?offset=30&exclude="+headSectionPostIds+"&per_page=5").then(response => {this.results =response.data});          
-            //     }
-            // });
-            // console.log($('#test111').offset());
-            // $(window).scroll(function(){
-            // 　　var scrollTop = $(this).scrollTop();
-            // 　　var scrollHeight = $(document).height();
-            // 　　var windowHeight = $(this).height();
-            //     if((scrollHeight+100+windowHeight)>=$('#test111').offset().top){
-            //         console.log('will display');
-            //     }
-            //     console.log($('#test111').scrollTop());
-            // 　　if(scrollTop + windowHeight == scrollHeight){
-            //         console.log("已经到最底部了！");
-            //         var appArticleList = new Vue({
-            //             el: '#app-article-list',
-            //             data: {
-            //                 results: []
-            //             },
-            //             methods: {
-            //                 decodeHtml: function (html) {
-            //                     var txt = document.createElement("textarea");
-            //                     txt.innerHTML = html;
-            //                     return txt.value;
-            //                 },
-            //             },
-            //             mounted() {
-            //                 axios.get("https://www.auliving.com.au/wp-json/wp/v2/posts?per_page=5").then(response => {this.results =response.data});          
-            //             }
-            //         });
-            // 　  }
-            // });
+    }
+    jQuery(document).ready(function($){
+        jQuery("#load-more-articles").click(loadMoreArticles);
+        jQuery(window).scroll(function(){
+        　　var scrollTop = jQuery(this).scrollTop();
+        　　var scrollHeight = jQuery(document).height();
+        　　var windowHeight = jQuery(this).height();
+            // if((scrollHeight+100+windowHeight)>=jQuery('#load-more-articles').offset().top){
+        　　if(scrollTop + windowHeight == scrollHeight){
+                console.log("已经到最底部了！");
+                if(!noMorePost&&postOffset<50) loadMoreArticles();
+        　  }
         });
-    </script>
+    });
+</script>
 </main>
 <?php get_footer(); ?>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>

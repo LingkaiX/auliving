@@ -109,9 +109,10 @@ function isTCN(){
 	if (parsePath($_SERVER['REQUEST_URI'],'',-1)=='zh-tw') return true;
 	return false;
 }
-function getBaseUrl(){
+function getBaseUrl($hasSlashEnd=false){
 	$url=get_site_url();
 	if (isTCN()){
+		if($hasSlashEnd) return $url.'/zh-tw'.'/';
 		return $url.'/zh-tw';
 	}else{
 		return $url;
