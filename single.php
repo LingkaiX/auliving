@@ -22,12 +22,13 @@
     // else {
     //     $postTime=get_the_date( 'Y年n月j日' );
     // }
-    if(!timeElapsedString($post->post_date_gmt)){
-        $postTime=get_the_date( 'Y年n月j日' );
-    }
-    else {
-        $postTime=timeElapsedString($post->post_date_gmt);
-    }
+    // if(!timeElapsedString($post->post_date_gmt)){
+    //     $postTime=get_the_date( 'Y年n月j日' );
+    // }
+    // else {
+    //     $postTime=timeElapsedString($post->post_date_gmt);
+    // }
+    $postTime=timeElapsedString($post->post_date_gmt);
 ?>
 <main class="container single-body">
     <div class="main-content" >

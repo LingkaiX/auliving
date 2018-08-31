@@ -84,6 +84,7 @@
                 $('#search-container').removeClass('search-container-open');
             });
         });
+        var isTCN=<?php echo isTCN()?'true':'false'; ?>;
     </script>
 </header>
 <div class="for-header"></div>

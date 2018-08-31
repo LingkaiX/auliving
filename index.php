@@ -51,7 +51,6 @@
     </div>
 </div>
 <script>
-    var isTCN=<?php echo isTCN()?'true':'false'; ?>;
     var postOffset=30;
     var postLoading=false;
     var noMorePost=false;
