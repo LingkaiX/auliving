@@ -25,6 +25,9 @@ function add_styles_and_scripts() {
 			echo ' <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>';
 			echo ' <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>';
 			echo ' <![endif]-->';
+			// echo ' <!--[if IE]>';
+			// echo ' <script src="https://cdnjs.cloudflare.com/ajax/libs/flexibility/2.0.1/flexibility.js"></script>';
+			// echo ' <![endif]-->';
 		}
 		add_action('wp_head', 'ie_scripts');
 	}
@@ -215,12 +218,13 @@ add_action( 'rest_api_init', function () {
 	register_rest_field( 'comment', 'meta', array(
         'update_callback' => function( $meta, $obj ) {
 			//print_r($obj);
-			if(is_array($meta)&&array_key_exists('refer_info_name',$meta)&&array_key_exists('refer_info_id',$meta))
+			if(is_array($meta)&&array_key_exists('refer_info_name',$meta)&&$meta['refer_info_name']!=""&&array_key_exists('refer_info_id',$meta)&&$meta['refer_info_id']!="")
 				update_comment_meta( $obj->comment_ID, 'refer_info', array('author_name'=>$meta['refer_info_name'],'comment_id'=>$meta['refer_info_id']));
             return true;
         }
 	) );
 } );
+//Applied when /posts?variant=zh-tw
 function convertRestPostToTCN( $response, $post, $request ) {
 	$response->data['excerpt']['rendered']=strip_tags($response->data['excerpt']['rendered']);
 	unset($response->data['content']);
@@ -241,10 +245,10 @@ function convertRestPostToTCN( $response, $post, $request ) {
 			}
 		}
 	}
-	
-		return $response;
-  }
+	return $response;
+}
 add_filter( 'rest_prepare_post', 'convertRestPostToTCN', 10, 3 );
+//Applied when /comments?parent=0
 function nestedComment($response, $post, $request){
 	//print_r($request);
 	if(is_array($request->get_param('parent'))&&array_key_exists(0,$request->get_param('parent'))&&$request->get_param('parent')[0]==0){
@@ -255,18 +259,22 @@ function nestedComment($response, $post, $request){
 			'parent'    => $response->data['id'],
 		));
 		foreach($childComments as $comment){
-			$comment->meta= array(
+			$comment->meta = array(
 				'thumb_ups'=>get_comment_meta($comment->comment_ID,'thumb_ups',true),
 				'thumb_downs'=>get_comment_meta($comment->comment_ID,'thumb_downs',true),
 				'refer_info'=>get_comment_meta($comment->comment_ID,'refer_info',true));
-			$comment->date_info= timeElapsedString($comment->comment_date_gmt,($request->get_param('variant')=="zh-tw"));
+			$comment->date_info = timeElapsedString($comment->comment_date_gmt,($request->get_param('variant')=="zh-tw"));
+			$comment->comment_content=apply_filters( 'comment_text', $comment->comment_content );
+			$comment->author_avatar_url = get_avatar_url($comment->comment_author_email);
+
 		}
 		$response->data['children']=$childComments;
 		$response->data['date_info']=timeElapsedString($response->data['date_gmt'],($request->get_param('variant')=="zh-tw"));
 		$response->data['meta']=array(
 			'thumb_ups'=>get_comment_meta($response->data['id'],'thumb_ups',true),
 			'thumb_downs'=>get_comment_meta($response->data['id'],'thumb_downs',true),
-			'refer_info'=>get_comment_meta($response->data['id'],'refer_info',true));
+			//'refer_info'=>get_comment_meta($response->data['id'],'refer_info',true)
+		);
 	}
 	return $response;
 }
@@ -280,7 +288,7 @@ add_filter('rest_allow_anonymous_comments','allowAnonymousComments');
 function thumbupComment( $request ) {
 	$id=(int)$request['id'];
 	if(wp_get_comment_status($id) == "approved" ){
-		$thumbups=get_comment_meta( $id, 'thumbups', true );
+		$thumbups=get_comment_meta( $id, 'thumb_ups', true );
 		if(empty($thumbups)){
 			$thumbups=1;
 		}else{
@@ -289,7 +297,7 @@ function thumbupComment( $request ) {
 	}else{
 		return new WP_Error( 'valid request', 'no such comment', array( 'status' => 400 ));
 	}
-	if(update_comment_meta($id, 'thumbups', $thumbups)==false)
+	if(update_comment_meta($id, 'thumb_ups', $thumbups)==false)
 		return new WP_Error( 'server error', 'Woa! I even dont know what just happened :(', array( 'status' => 500 ));
 	return  $thumbups;
 }
@@ -302,7 +310,7 @@ add_action( 'rest_api_init', function () {
 function thumbdownComment( $request ) {
 	$id=(int)$request['id'];
 	if(wp_get_comment_status($id) == "approved" ){
-		$thumbdowns=get_comment_meta( $id, 'thumbdowns', true );
+		$thumbdowns=get_comment_meta( $id, 'thumb_downs', true );
 		if(empty($thumbdowns)){
 			$thumbdowns=1;
 		}else{
@@ -311,7 +319,7 @@ function thumbdownComment( $request ) {
 	}else{
 		return new WP_Error( 'valid request', 'no such comment', array( 'status' => 400 ));
 	}
-	if(update_comment_meta($id, 'thumbdowns', $thumbdowns)==false)
+	if(update_comment_meta($id, 'thumb_downs', $thumbdowns)==false)
 		return new WP_Error( 'server error', 'Woa! I even dont know what just happened :(', array( 'status' => 500 ));
 	return  $thumbdowns;
 }
@@ -321,3 +329,32 @@ add_action( 'rest_api_init', function () {
 		'callback' => 'thumbdownComment',
 	) );
 } );
+//Stop WordPress from making links out of URLs in comments
+remove_filter('comment_text', 'make_clickable', 9);
+//exclude top and video category
+function getCategoryLinks($cates){
+	$linkHtml="";
+	for($i=0; $i<sizeof($cates); $i++){
+		if($cates[$i]->slug!="top"&&$cates[$i]->slug!="video"){
+			$linkHtml='<a class="category-link" href="'.get_category_link($cates[$i]->term_id).'">'.$cates[$i]->name.'</a>';
+			break;
+		}
+	}
+	return $linkHtml;
+}
+function isVideoPost($cates){
+	$isVideoPost=false;
+	foreach($cates as $cate){
+		if($cate->slug=='video') $isVideoPost=true;
+	}
+	return $isVideoPost;
+}
+//excerpt: 128 English characters or Chinese characters
+function cutExcerpt($output){
+	if(strlen($output)>128){
+		return mb_substr($output,0, 128).'...'; 
+	}else{
+		return $output;
+	}
+
+}

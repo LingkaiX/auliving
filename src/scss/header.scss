@@ -1,4 +1,4 @@
-header {
+.body-header {
   height: 48px;
   background-color: white;
 
@@ -169,7 +169,7 @@ header {
   }
 }
 @include mobile {
-  header {
+  .body-header {
     position: fixed;
     top: 0;
     left: 0;

@@ -60,7 +60,7 @@
             postLoading=true;
             jQuery("#load-more-articles").text("loading");
             var perPage=10;
-            var variant=isTCN?'&variant=zh-tw':'';
+            var variant=IsTCN?'&variant=zh-tw':'';
             var url="<?php echo home_url(); ?>"+"/wp-json/wp/v2/posts?offset="+postOffset+"&per_page="+perPage+"&exclude="+headSectionPostIds+variant;
             jQuery.getJSON( url, function( data ) {
                 if(data.length > 0){

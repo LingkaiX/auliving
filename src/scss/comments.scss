@@ -1,0 +1,135 @@
+section.comment-section {
+  border-top: $red-border;
+  margin-top: 20px;
+  .comment-and-subcomment {
+    border-bottom: $gray-border;
+  }
+  .comment-form {
+    position: relative;
+    margin: 8px 0;
+    .textarea-mirror {
+      width: 100%;
+      border-bottom: $blue-border-a5;
+      margin: 8px 0;
+      padding-top: 8px;
+    }
+    .input-content {
+      display: none;
+    }
+    .input-name,
+    .input-email {
+      border: none;
+      border-bottom: $blue-border-a5;
+      @include font-small(15px);
+      height: 24px;
+    }
+    .textarea-mirror:focus,
+    .input-name:focus,
+    .input-email:focus {
+      border-bottom: $blue-border;
+      outline: none;
+    }
+    .error-field {
+      border-bottom: $red-border-a5;
+      &:focus {
+        border-bottom: $red-border;
+      }
+    }
+    @media (max-width: 540px) {
+      .input-name,
+      .input-email {
+        display: block;
+      }
+    }
+    .search-submit {
+      position: absolute;
+      bottom: -12px;
+      right: 0;
+    }
+    .notice {
+      font-size: 14px;
+      color: $theme-red;
+      margin: 8px 0;
+      height: 16px;
+    }
+  }
+  #comments {
+    .comment {
+      margin-left: 48px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .subcomment {
+      border-top: $gray-border;
+    }
+    .portrait {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-left: -48px;
+    }
+    .subcomment .portrait {
+      width: 36px;
+      height: 36px;
+      margin-left: -36px;
+    }
+    .comment-content {
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 4px;
+      width: 100%;
+    }
+    .comment-content p {
+      margin: 8px 0;
+      word-break: break-all;
+    }
+    .author-name,
+    .date-info {
+      @include font-small;
+      line-height: 24px;
+      display: block;
+    }
+    .subcomment .author-name,
+    .subcomment .date-info {
+      line-height: 18px;
+      font-size: 13px;
+    }
+    .thumb-up-and-down {
+      display: inline;
+    }
+    .thumb-up,
+    .thumb-down {
+      @include font-small;
+      padding: 4px 24px 4px 0;
+      &:hover {
+        color: $theme-red-a8;
+        cursor: pointer;
+      }
+      i {
+        margin-right: 4px;
+      }
+    }
+    .thumb-up-and-down .done {
+      color: $theme-red;
+    }
+    .close-open {
+      position: relative;
+      top: 2px;
+      float: right;
+      button {
+        padding: 0 8px;
+        background-color: transparent;
+        font-size: 15px;
+        color: $theme-red;
+        &:hover {
+          color: $theme-blue;
+        }
+      }
+    }
+  }
+  @include mobile {
+    & {
+      margin: auto 20px;
+    }
+  }
+}

@@ -5,10 +5,18 @@ $breakpoint-desktop: 1200px; //1140
 
 $theme-blue: #003366;
 $theme-blue-a2: rgba(0, 51, 102, 0.2);
+$theme-blue-a5: rgba(0, 51, 102, 0.5);
 $theme-blue-a8: rgba(0, 51, 102, 0.8);
 $theme-red: #cc0033;
 $theme-red-a2: rgba(204, 0, 51, 0.2);
+$theme-red-a5: rgba(204, 0, 51, 0.5);
 $theme-red-a8: rgba(204, 0, 51, 0.8);
+
+$gray-border: 1px solid #eee; //dotted #dadada  #f4f4f4
+$blue-border: 2px solid $theme-blue;
+$blue-border-a5: 2px solid $theme-blue-a5;
+$red-border: 2px solid $theme-red;
+$red-border-a5: 2px solid $theme-red-a5;
 
 @mixin desktop {
   @media (min-width: $breakpoint-desktop) {
@@ -25,7 +33,36 @@ $theme-red-a8: rgba(204, 0, 51, 0.8);
     @content;
   }
 }
-
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+@mixin addicon($content, $before: true) {
+  @if $before {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: $content;
+      display: inline;
+      padding-right: 8px;
+    }
+  } @else {
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: $content;
+      display: inline;
+      padding-left: 8px;
+    }
+  }
+}
+@mixin font-small($size: 14px) {
+  color: #888;
+  font-size: $size;
+}
 .container {
   display: flex;
   margin: 0 auto;
@@ -44,5 +81,30 @@ $theme-red-a8: rgba(204, 0, 51, 0.8);
 @include mobile {
   .container {
     max-width: 800px;
+  }
+}
+
+.animate-shake {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-name: shake;
+}
+@keyframes shake {
+  0%,
+  to {
+    transform: translateZ(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
   }
 }

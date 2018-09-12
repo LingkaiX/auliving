@@ -5,10 +5,11 @@ Description: auliving.com.au
 Version: 0.0.1
 Text Domain: aulv
 */
+/* TODO: PingFang or PingFang SC? */
 * {
-  font-family: "lucida grande", "lucida sans unicode", lucida, Helvetica, Tahoma,
-    Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
-    "WenQuanYi Micro Hei", sans-serif, Ionicons;
+  font-family: "lucida grande", "lucida sans unicode", "lucida", "Helvetica",
+    "Tahoma", "Arial", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
   box-sizing: border-box;
 }
 html,
@@ -16,6 +17,7 @@ body {
   height: 100%;
   font-size: 16px;
   font-weight: 400;
+  min-width: 320px;
 }
 main {
   min-height: calc(100vh - 48px);
@@ -23,4 +25,33 @@ main {
 }
 [v-cloak] {
   display: none;
+}
+button {
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  padding: 8px 16px;
+  overflow: visible;
+  background: lightgray;
+  -webkit-tap-highlight-color: transparent;
+}
+button:hover {
+  background: gray;
+}
+button:active {
+  background: lightslategray;
+}
+.gam-aulv {
+  background-color: rgba(0, 51, 102, 0.2);
+  overflow: hidden;
+}
+[contentEditable="true"]:empty:not(:focus):before {
+  content: attr(data-text);
 }

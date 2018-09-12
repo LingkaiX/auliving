@@ -16,10 +16,10 @@
 
 </head>
 <body <?php body_class(); ?>>
-<header>
+<div class="body-header">
     <div class="container">
         <div id="menu-button-open" class="menu-button">
-            <i class="fas fa-bars" style="padding: 15px;"></i>
+            <i class="fas fa-bars" style="padding: 15px;cursor: pointer;"></i>
         </div>
         <div class="header-logo">
             <a style="" href="<?php echo get_site_url(); ?>">
@@ -29,7 +29,7 @@
         <div id="menu-and-search" class="menu-and-search">
             <div class="container submenu-header">
                 <div id="menu-button-close" class="menu-button">
-                    <i class="fas fa-times" style="padding: 15px;"></i>
+                    <i class="fas fa-times" style="padding: 15px;cursor: pointer;"></i>
                 </div>
                 <div class="header-logo">
                     <a style="" href="<?php echo get_site_url(); ?>">
@@ -56,11 +56,11 @@
                     </div>
                 </form>
                 <div class="search-button-close" id="search-button-close">
-                    <i class="fas fa-times" style="padding: 15px;font-size:18px"></i>
+                    <i class="fas fa-times" style="padding: 15px;font-size:18px;cursor: pointer;"></i>
                 </div>           
             </div>
             <div class="search-button-open" id="search-button-open">
-                <i class="fas fa-search" style="padding: 15px;font-size:18px"></i>        
+                <i class="fas fa-search" style="padding: 15px;font-size:18px;cursor: pointer;"></i>        
             </div>
         </div>
         <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
@@ -84,7 +84,7 @@
                 $('#search-container').removeClass('search-container-open');
             });
         });
-        var isTCN=<?php echo isTCN()?'true':'false'; ?>;
+        var IsTCN=<?php echo isTCN()?'true':'false'; ?>;
     </script>
-</header>
+</div>
 <div class="for-header"></div>
