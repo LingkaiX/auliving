@@ -757,7 +757,7 @@ section.comment-section {
   border-top: 2px solid #cc0033;
   margin-top: 20px; }
   section.comment-section .comment-and-subcomment {
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #dadada; }
   section.comment-section .comment-form {
     position: relative;
     margin: 8px 0; }
