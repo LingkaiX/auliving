@@ -26,7 +26,7 @@
 <script>
     var variant = IsTCN ? "&variant=zh-tw" : "";
     var perPage=10;
-    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?categories="+<?php echo get_query_var('cat'); ?>+"&per_page=" + perPage + variant;
+    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?tags="+<?php echo get_query_var('tag_id'); ?>+"&per_page=" + perPage + variant;
     jQuery(document).ready(function($){
         if(jQuery("#load-more-articles").data('nomore')){
             jQuery("#load-more-articles-outer").hide();

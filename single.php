@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <aside class="gam-aulv aulv-lb">aulv-lb</aside>
 <main class="container">
-    <div class="article">
+    <div class="item article">
         <?php
             while (have_posts()) : the_post();
                 $cates = get_the_category();
@@ -17,7 +17,7 @@
                         include 'snippet/post-video.php';
                     }else{
                 ?>
-                    <div class="featured-img" style="background-image:url(<?php echo get_the_post_thumbnail_url( null, 'medium' );?>);"></div>
+                    <div class="featured-img" style="background-image:url('<?php echo getThumbnailUrl( null, 'medium' );?>');"></div>
                 <?php } ?>
                 <div class="<?php echo $isVideoPost?'with-video':'title-and-excerpt'; ?>">
                     <?php the_title('<h2 class="title">', '</h2>');?>

@@ -1,13 +1,99 @@
 div.listed-post {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
+  height: 135px;
   //background-color: wheat;
   .cover-img {
-    height: 100%;
-    max-width: 37.5%;
+    max-width: 30%;
+    min-width: 30%;
+    padding-bottom: 16.875%;
+    height: 0;
+    margin: auto;
+    @include img-bg;
   }
   .post-info {
     flex-grow: 1;
-    max-width: 62.5%;
+    margin-left: 16px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: $gray-border;
+    h4 {
+      margin-top: 4px;
+      margin-bottom: 16px;
+      font-size: 18px;
+      font-weight: 400;
+      min-height: 32px;
+      @include text-ellipsis(2, 40px);
+    }
+    h6 {
+      @include font-small(15px);
+      font-weight: 400;
+      margin: 0;
+      margin-bottom: 16px;
+      @include text-ellipsis(2, 34px);
+    }
+    .date-info {
+      @include font-small;
+      position: absolute;
+      bottom: 4px;
+    }
+  }
+  @include laptop {
+    & {
+      height: 108px;
+    }
+    .post-info {
+      h4 {
+        margin-top: 2px;
+        margin-bottom: 8px;
+      }
+      .date-info {
+        bottom: 2px;
+      }
+    }
+  }
+  @include screen-640 {
+    & {
+      height: 108px;
+    }
+    .post-info {
+      border-bottom: none;
+      h4 {
+        margin-top: 2px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        @include text-ellipsis(3, 54px);
+      }
+      h6 {
+        display: none;
+      }
+      .date-info {
+        bottom: 2px;
+      }
+    }
+  }
+  @include screen-480 {
+    & {
+      height: 81px;
+    }
+    .cover-img {
+      max-width: 40%;
+      min-width: 40%;
+      padding-bottom: 0;
+      height: 100%;
+    }
+    .post-info {
+      margin-left: 8px;
+      h4 {
+        font-size: 14px;
+        max-height: 48px;
+      }
+
+      .date-info {
+        bottom: 2px;
+      }
+    }
   }
 }

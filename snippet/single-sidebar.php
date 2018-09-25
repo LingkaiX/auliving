@@ -1,3 +1,4 @@
+<?php include 'top-post-list.php'; ?>
 <?php
 /* Need data: 
     $cates: Array<WP_Term>;
@@ -36,34 +37,30 @@ $args = array(
         )
     )
 );
-$relatedPost = new WP_Query( $args);
-if($relatedPost->post_count<6){
-    $count=6-$relatedPost->post_count;
-    $query2 = new WP_Query( array('posts_per_page' => $count, 'author' => $author, 'post__not_in' => array_merge(wp_list_pluck($relatedPost->posts, 'ID' ), array($postId))));
-    $relatedPost->posts = array_merge($relatedPost->posts, $query2->posts );
-    $relatedPost->post_count = $relatedPost->post_count + $query2->post_count;
+$recommendedPostQuery = new WP_Query( $args);
+if($recommendedPostQuery->post_count<6){
+    $count=6-$recommendedPostQuery->post_count;
+    $recommendedPostQuery2 = new WP_Query( array('posts_per_page' => $count, 'author' => $author, 'post__not_in' => array_merge(wp_list_pluck($recommendedPostQuery->posts, 'ID' ), array($postId))));
+    $recommendedPostQuery->posts = array_merge($recommendedPostQuery->posts, $recommendedPostQuery2->posts );
+    $recommendedPostQuery->post_count = $recommendedPostQuery->post_count + $recommendedPostQuery2->post_count;
 }
 ?>
-<section class="relatedPost">
-    <div class="text"><span><strong>
-        相关推荐
-    </strong><span></div>
-    <div style="margin: 5px 0; width 100%; border: 1px solid #cc0033;"></div>
-    <?php while ($relatedPost->have_posts()) : $relatedPost->the_post();?>
-        <div class="rPostBox">
-            <a href="<?php echo get_permalink() ?>">
-                <?php if(get_the_post_thumbnail()):?>
-                    <div class="rPostImg">
-                        <?php echo get_the_post_thumbnail();?>
-                    </div>
-                <?php endif;?>
-                <div>
-                    <?php the_title('<p>', '</p>');?>
-                    <?php foreach(get_the_category() as $cate){
-                        echo '<a style="color:#888; font-size: 14px; margin-right: 10px;" href="'.get_category_link($cate->term_id).'">'.$cate->name.'</a>';
-                    }?>
-                </div>
-            </a>
+<section class="recommended-posts">
+    <!-- <div class="head"><strong>相关推荐</strong></div> -->
+    <aside class="aulv-s1-outer"><div class="gam-aulv aulv-s1">aulv-s1</div></aside>
+    <?php
+        $count=0;
+        while ($recommendedPostQuery->have_posts()) : $recommendedPostQuery->the_post();
+        $count++;
+        if($count==4) echo '<aside class="aulv-s2-outer"><div class="gam-aulv aulv-s2">aulv-s2</div></aside>';
+    ?>
+        <div class="recommended-post">
+            <a class="cover-img" href="<?php echo get_permalink() ?>" style="background-image:url('<?php echo getThumbnailUrl( null, 'thumbnail' );?>');"></a>
+            <div class="title">
+                <?php the_title('<h5><a href="'.get_the_permalink().'">', '</a></h5>'); ?>
+                <span class="date-info"><?php echo timeElapsedString($post->post_date_gmt); ?></span>
+            </div>   
         </div>
-    <?php endwhile; ?>
+    <?php endwhile; wp_reset_postdata();?>
+    <aside class="aulv-s3-outer"><div class="gam-aulv aulv-s3">aulv-s3</div></aside>
 </section>

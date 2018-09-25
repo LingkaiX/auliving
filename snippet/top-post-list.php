@@ -1,9 +1,12 @@
+<section class="top-post-list">
 <?php 
     $hotPostQuery = new WP_Query(
         array( 'meta_key' => 'views',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
         'posts_per_page' => 12,
+        //'nopaging' => true,
+        'ignore_sticky_posts' => 1,
         'date_query' => array(
             array(
                 'column' => 'post_modified_gmt',
@@ -11,4 +14,10 @@
             ),
         ),
     ));
+    //print_r($hotPostQuery);
+    while($hotPostQuery->have_posts()):$hotPostQuery->the_post();
+        the_title('<h5><a href="'.get_the_permalink().'">', '</a></h5>');
+        //echo get_post_meta(get_the_ID(), 'views', true );
 ?>
+<?php endwhile; wp_reset_postdata();?>
+</section>

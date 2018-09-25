@@ -1,2 +1,18 @@
 section.sticky-columns {
+  width: 100vw;
+  background: $theme-blue-a2;
+  height: 300px;
+  margin-bottom: 12px;
+  .column {
+    width: auto;
+    .cover-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      @include img-bg;
+      float: left;
+    }
+    .title {
+    }
+  }
 }

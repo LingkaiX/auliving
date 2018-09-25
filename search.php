@@ -1,63 +1,51 @@
 <?php get_header(); ?>
 <main>
-    <button onclick="jQuery('#comment-form').focus();">focus</button>
-<header style="background-color:blue;height:200px">header</header>
-<form method="post" id="comment-form" class="comment-form" action="http://localhost/wp-json/wp/v2/comments" onsubmit="return submitComment(this)" onfocus="console.log('focus',this);">
-    <div contenteditable="true" class="textarea-mirror" id="textarea-mirror"></div>
-    <textarea name="content" autocomplete="off" class="input-cotent"></textarea>
-    <input type="text" name="author_name" placeholder="名字" autocomplete="off" value="不知名网友" class="input-name">
-    <input type="text" name="author_email" placeholder="邮箱" autocomplete="off" value="who@im.com" class="input-email">
-
-    <input type="hidden" name="post" value="854">
-    <input type="hidden" name="parent" value="0">
-    <input type="hidden" name="meta[refer_info_name]" value="aname">
-    <input type="hidden" name="meta[refer_info_id]" value="2333">
-    <button type="submit" class="search-submit">Reply</button>
-</form>
-<style>
-    #mirror{
-        width:300px;
-    }
-    .input-cotent,
-    .input-name,
-    .input-email{
-        display:none;
-    }
-</style>
+<section class="first-section container">
+    <div class="item left">
+    <?php
+        if ( have_posts() ){
+            while ( have_posts() ) : the_post();
+                include 'snippet/listed-post.php';
+            endwhile;
+        }
+    ?>
+    </div>
+    <div class="item right">
+        <?php include 'snippet/top-post-list.php'; ?>
+    </div>
+</section>
+<section class="extended-section container">
+    <div class="item left">
+    <div id="more-articles-here"></div>
+    <div id="load-more-articles-outer">
+        <button id="load-more-articles" data-offset="<?php echo get_option('posts_per_page', 10); ?>" data-nomore="<?php echo $wp_query->max_num_pages==1?'true':'false'; ?>" data-loading="false">更多文章</button>
+    </div>
+    </div>
+    <div class="item right"></div>
+</section>
 <script>
-function submitComment(form){
-    var s=jQuery(form).children(".textarea-mirror").html();
-    if(s){
-        var r=s.replace(new RegExp('<\/div><div>','gi'), "\n");
-        jQuery("#ta").val(r);
-        return true;
-    }
-    return false;
-}
-
-
-
-jQuery(document).ready(function($){
-    jQuery("#mirror").bind('input', function(e){
-        var s=jQuery(this).text()
-        // jQuery("#mirror").html(s);
-        console.log(s);
-    })
-});
-function strip(html)
-{
-   var tmp = document.createElement("DIV");
-   tmp.innerHTML = html;
-   return tmp.textContent || tmp.innerText || "";
-}
-// jQuery(".comment-form").submit(function(e) {
-//     var s=jQuery("#textarea-mirror").html();
-//     if(s) var r=s.replace(new RegExp('<\/div><div>','gi'), "\n");
-//     jQuery("#ta").val(r);
-//     console.log(e)
-//     return false;
-// })
+    var variant = IsTCN ? "&variant=zh-tw" : "";
+    var perPage=10;
+    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?search="+encodeURI("<?php echo get_query_var('s'); ?>")+"&per_page=" + perPage + variant;
+    jQuery(document).ready(function($){
+        if(jQuery("#load-more-articles").data('nomore')){
+            jQuery("#load-more-articles-outer").hide();
+            jQuery("#load-more-articles").attr("disabled", true);
+        }else{
+            jQuery("#load-more-articles").click(loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>"));
+        }
+        jQuery(window).scroll(function(){
+        　　var scrollTop = jQuery(this).scrollTop();
+        　　var scrollHeight = jQuery(document).height();
+        　　var windowHeight = jQuery(this).height();
+            // if((scrollHeight+100+windowHeight)>=jQuery('#load-more-articles').offset().top){
+        　　if(scrollTop + windowHeight == scrollHeight){
+                console.log("已经到最底部了！");
+                if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
+                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
+        　  }
+        });
+    });
 </script>
-
 </main>
 <?php get_footer(); ?>

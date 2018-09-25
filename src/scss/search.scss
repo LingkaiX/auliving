@@ -1,0 +1,23 @@
+body.search {
+  .left {
+    margin-right: 40px;
+    flex-grow: 1;
+  }
+  .right {
+    min-width: 300px;
+    max-width: 300px;
+  }
+  @include laptop {
+    .left {
+      margin-right: 20px;
+    }
+  }
+  @include mobile {
+    .left {
+      margin-right: 0;
+    }
+    .right {
+      display: none;
+    }
+  }
+}

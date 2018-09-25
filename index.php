@@ -7,18 +7,19 @@
     include 'snippet/head-section.php';
     //print_r(get_taxonomy( 'top' ));
 ?>
+<aside class="gam-aulv aulv-h1">aulv-h1</aside>
 <section class="first-section container">
-    <div class="left post-list">
+    <div class="item left post-list">
     <?php 
-        $count=0;
-        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds ) );
-        while (++$count<11&&have_posts()) : the_post();
+        $firstPage=4; //get_option('posts_per_page', 4);
+        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'posts_per_page' => $firstPage ) );
+        while (have_posts()) : the_post();
             include 'snippet/listed-post.php';
         endwhile;
     ?>
     </div>
-    <div class="right top-post-list-container">
-        <?php include 'snippet/listed-post.php'; ?>
+    <div class="item right top-post-list-container">
+        <?php include 'snippet/top-post-list.php'; ?>
     </div>
 </section>
 <?php 
@@ -26,68 +27,32 @@
     include 'snippet/sticky-column-section.php';
 ?>
 <section class="second-section container">
-    <div class="left post-list">
+    <div class="item left post-list">
     <?php 
-        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds ) );
+        $secondPage=20;
+        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'offset' => $firstPage, 'posts_per_page' => $secondPage ) );
         while (have_posts()) : the_post();
             include 'snippet/listed-post.php';
         endwhile;
     ?>
     </div>
-    <div class="right"></div>
+    <div class="item right"></div>
 </section>
 <section class="extended-section container">
-    <div class="left">
+    <div class="item left">
         <div id="more-articles-here"></div>
-        <button id="load-more-articles" data-offset="30" data-status="loaded">更多文章</button>
+        <div id="load-more-articles-outer">
+            <button id="load-more-articles" data-offset="<?php echo ($firstPage+$secondPage); ?>" data-nomore="false" data-loading="false">更多文章</button>
+        </div>
     </div>
-    <div class="right"></div>
+    <div class="item right"></div>
 </section>
-
-<div id="app-article-list" data-offset="1">
-    <div class="linkToAuliving" v-for="result in results"  v-cloak>
-        <a v-bind:href="result.link" target="_blank" rel="noopener nofollow">{{ decodeHtml(result.title.rendered) }}</a>
-        <hr>
-    </div>
-</div>
 <script>
-    var postOffset=30;
-    var postLoading=false;
-    var noMorePost=false;
-    function loadMoreArticles(){
-        console.log(postLoading, postOffset);
-        if(postLoading==false){
-            postLoading=true;
-            jQuery("#load-more-articles").text("loading");
-            var perPage=10;
-            var variant=IsTCN?'&variant=zh-tw':'';
-            var url="<?php echo home_url(); ?>"+"/wp-json/wp/v2/posts?offset="+postOffset+"&per_page="+perPage+"&exclude="+headSectionPostIds+variant;
-            jQuery.getJSON( url, function( data ) {
-                if(data.length > 0){
-                    var posts = [];
-                    jQuery.each( data, function( key, val ) {
-                        var s=`<div class="listed-post"><a href="`+val.link+`">
-                        <img width="320" height="180" src=`+val.cover_img+` class="cover-img wp-post-image">
-                        </a><div class="post-info"><h4>`+val.title.rendered+`</h4><h6 class="sub-title">`+val.excerpt.rendered+`</h6><span>`+val.date_info+`</span></div></div>`;
-                        posts.push(s);
-                    });
-                    jQuery("#more-articles-here" ).append(posts);
-                    postOffset+=perPage;
-                    jQuery("#load-more-articles").text('更多文章');
-                }else{
-                    jQuery("#load-more-articles").text('no more post');
-                    jQuery("#load-more-articles").attr('disabled',true);
-                    noMorePost=true;
-                }
-            }).fail(function() {
-                jQuery("#load-more-articles").text( "error, try again" );
-            }).always(function() {
-                postLoading=false;
-            });
-        }
-    }
+    var variant = IsTCN ? "&variant=zh-tw" : "";
+    var perPage=10;
+    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?per_page=" + perPage + "&exclude=" + headSectionPostIds + variant;
     jQuery(document).ready(function($){
-        jQuery("#load-more-articles").click(loadMoreArticles);
+        jQuery("#load-more-articles").click(loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>"));
         jQuery(window).scroll(function(){
         　　var scrollTop = jQuery(this).scrollTop();
         　　var scrollHeight = jQuery(document).height();
@@ -95,10 +60,14 @@
             // if((scrollHeight+100+windowHeight)>=jQuery('#load-more-articles').offset().top){
         　　if(scrollTop + windowHeight == scrollHeight){
                 console.log("已经到最底部了！");
-                if(!noMorePost&&postOffset<50) loadMoreArticles();
+                if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
+                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
         　  }
         });
     });
 </script>
 </main>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <?php get_footer(); ?>

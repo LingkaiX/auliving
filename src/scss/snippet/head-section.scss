@@ -1,77 +1,177 @@
 section.head-section {
+  margin-bottom: 16px;
   .center {
-    order: 1;
+    order: 0;
     min-width: 640px;
     max-width: 640px;
     height: 360px;
-    background-color: #e3e3e3;
+    #owl-head {
+      position: relative;
+      .owl-dots {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+      }
+    }
   }
-
   .left {
-    order: 0;
-    min-width: 305px;
-    max-width: 305px;
+    order: 2;
+    min-width: 184px;
+    max-width: 184px;
     height: 360px;
-    margin-right: 10px;
-    background-color: #e3e3e3;
+    margin-left: 4px;
   }
   .right {
-    order: 2;
-    min-width: 175px;
-    max-width: 175px;
+    order: 1;
+    min-width: 308px;
+    max-width: 308px;
     height: 360px;
-    margin-left: 10px;
-    background-color: #e3e3e3;
+    margin-left: 4px;
   }
   .left-block,
   .center-block,
   .right-block {
     overflow: hidden;
+    position: relative;
+    .cover-img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .info-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-height: 100%;
+      overflow: hidden;
+      color: white;
+      padding: 0 8px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+    }
+    .title {
+      margin: 0;
+      font-weight: 500;
+      @include text-ellipsis;
+    }
+    .date-info {
+      font-size: 14px;
+    }
   }
   .left-block {
-    width: 305px;
-    height: 110px;
-    background-color: lightblue;
-    display: inline-block;
-    position: relative;
+    width: 184px;
+    height: 118px;
+    &:nth-child(2) {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
   }
-  .left-block img {
-    width: 305px;
-    height: auto;
-    z-index: 0;
-    position: absolute;
+  .right-block {
+    width: 308px;
+    height: 178px;
+    &:first-child {
+      margin-bottom: 4px;
+    }
   }
-  .left-block .info-container {
-    z-index: 1;
-    position: absolute;
-    bottom: 0;
-    transform: translateY(30px);
+  .center-block {
+    width: 640px;
+    height: 360px;
   }
-  .left-block .info-container:hover {
-    transform: none;
-  }
-  .b2 {
-    width: 175px;
-    height: 175px;
-    background-color: lightblue;
-    display: inline-block;
-  }
-
   @include laptop {
+    flex-wrap: wrap;
     .right {
-      width: 175px;
-      height: 360px;
-      background-color: #e3e3e3;
-      display: none;
+      min-width: 316px;
+      max-width: 316px;
+      .right-block {
+        width: 316px;
+      }
+    }
+    .left {
+      min-width: 960px;
+      max-width: 960px;
+      height: 136px;
+      margin-top: 4px;
+      margin-left: 0;
+      .left-block {
+        float: left;
+        width: 318px;
+        height: 136px;
+        &:nth-child(2) {
+          margin: 0 4px;
+        }
+        &:last-child {
+          width: 316px;
+        }
+      }
     }
   }
   @include mobile {
     flex-wrap: wrap;
     .center {
-      order: 0;
+      min-width: 100%;
+      max-width: 100%;
+      height: auto;
+      .center-block {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+      }
     }
     .left {
-      order: 1;
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 4px;
+      margin-left: 0;
+      height: auto;
+      .left-block {
+        width: calc(100% / 3 - 8px / 3);
+        float: left;
+        height: 0px;
+        padding-bottom: 19%;
+        &:nth-child(2) {
+          margin: 0 4px;
+        }
+      }
+    }
+    .right {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 4px;
+      margin-left: 0;
+      height: auto;
+      .right-block {
+        width: calc(50% - 2px);
+        float: left;
+        height: 0px;
+        padding-bottom: 28%;
+        &:first-child {
+          margin-right: 4px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  @include screen-480 {
+    .left {
+      .info-container {
+        padding: 2px 4px;
+      }
+      .title {
+        font-size: 12px;
+        @include text-ellipsis(3, 38px);
+      }
+      .date-info {
+        display: none;
+      }
     }
   }
 }

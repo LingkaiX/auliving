@@ -1,11 +1,93 @@
 body.home {
-  background-color: #efefef;
-
   main {
     // margin: 10px auto;
   }
-  .top-post-list {
-    min-width: 300px;
-    max-width: 300px;
+  .first-section {
+    margin-top: 16px;
+    .left {
+      margin-right: 40px;
+      flex-grow: 1;
+    }
+    .top-post-list-container {
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+  .second-section {
+    .left {
+      margin-right: 40px;
+      flex-grow: 1;
+    }
+    .right {
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+  .extended-section {
+    .left {
+      margin-right: 40px;
+      flex-grow: 1;
+    }
+    .right {
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+  .aulv-h1 {
+    margin: 0 auto;
+    width: 728px;
+    height: 90px;
+  }
+  @include laptop {
+    .first-section {
+      .left {
+        margin-right: 20px;
+      }
+    }
+    .second-section {
+      .left {
+        margin-right: 20px;
+      }
+      .right {
+      }
+    }
+    .extended-section {
+      .left {
+        margin-right: 20px;
+      }
+      .right {
+      }
+    }
+  }
+  @include mobile {
+    .first-section {
+      .left {
+        margin-right: 0;
+      }
+    }
+    .second-section {
+      .left {
+        margin-right: 0;
+      }
+      .right {
+        display: none;
+      }
+    }
+    .extended-section {
+      .left {
+        margin-right: 0;
+      }
+      .right {
+        display: none;
+      }
+    }
+    .top-post-list-container {
+      display: none;
+    }
+    .aulv-h1 {
+      margin: 0 auto;
+      width: 320px;
+      height: 50px;
+    }
   }
 }

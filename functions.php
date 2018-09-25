@@ -73,7 +73,7 @@ function aulv_setup() {
     update_option( 'medium_size_w', 480 );
     update_option( 'medium_size_h', 0 );
 
-    update_option( 'large_size_w', 820 );
+    update_option( 'large_size_w', 960 );
     update_option( 'large_size_h', 0 );
 
     update_option( 'medium_large_size_w', 640 );
@@ -191,7 +191,7 @@ add_action( 'rest_api_init', function () {
 			if ($obj['featured_media']!=0){
 				return  wp_get_attachment_image_src($obj['featured_media'],'thumbnail',false)[0];
 			}
-            return 0;
+            return getDefaultImgUrl();;
         }
     ) );
 	register_rest_field( 'post', 'categories', array(
@@ -349,12 +349,50 @@ function isVideoPost($cates){
 	}
 	return $isVideoPost;
 }
-//excerpt: 128 English characters or Chinese characters
-function cutExcerpt($output){
-	if(strlen($output)>128){
-		return mb_substr($output,0, 128).'...'; 
+//Clip string to [128] English characters or Chinese characters
+function clipString($output, $length=128){
+	if(strlen($output)>$length){
+		return mb_substr($output,0, $length).'...'; 
 	}else{
 		return $output;
 	}
 
+}
+//Add defualt thumbnail image
+function getDefaultImgUrl($size = 'post-thumbnail'){
+	return get_template_directory_uri().'/img/logo.jpg';
+}
+//get_the_post_thumbnail_url() =>> getThumbnailUrl()
+function getThumbnailUrl($post = null, $size = 'post-thumbnail'){
+	$s=get_the_post_thumbnail_url($post, $size);
+	if($s) return $s;
+	return getDefaultImgUrl();
+}
+//get_the_post_thumbnail() =>> getThumbnailHtml()
+function getThumbnailHtml($post = null, $size = 'post-thumbnail', $attr = ''){
+	$s=get_the_post_thumbnail($post, $size, $attr);
+	if($s) return $s;
+	$width=320;
+	$height=180;
+	if($size=='medium'){
+		$width=480;
+		$height=270;
+	}elseif($size=='medium_large'){
+		$width=640;
+		$height=360;
+	}
+	elseif($size=='large'){
+		$width=960;
+		$height=540;
+	}
+	$s='<img width="'.$width.'" height="'.$height.'" src="'.getDefaultImgUrl().'"';
+	if(is_array($attr)) foreach($attr as $key => $value){
+		$s=$s.' '.$key.'="'.$value.'"';
+	}
+	$s=$s.'>';
+	return $s;
+}
+//TODO: show special format in the list if TRUE
+function isBigVoice(){
+	return false;
 }

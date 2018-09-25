@@ -4,7 +4,7 @@
             <div contenteditable="true" data-text="Enter text here" class="textarea-mirror" id="textarea-mirror"></div>
             <textarea name="content" autocomplete="off" class="input-content"></textarea>
             <input type="text" name="author_name" placeholder="名字" autocomplete="off" maxlength="16" class="input-name">
-            <input type="text" name="author_email" placeholder="邮箱" autocomplete="off" maxlength="48" class="input-email">
+            <input type="email" name="author_email" placeholder="邮箱" autocomplete="off" maxlength="48" class="input-email">
 
             <input type="hidden" name="post" value="<?php echo get_query_var('p',0); ?>">
             <input type="hidden" name="parent" value="0">
@@ -14,8 +14,8 @@
             <button type="submit" class="search-submit">回复</button>
         </form>
     </div>
-    <div id="comment-form"></div>
     <div id="comments"></div>
+    <div id="comment-form"></div>
 </section>
 <style>
 
