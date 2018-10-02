@@ -24,9 +24,17 @@
     <div class="item right"></div>
 </section>
 <script>
+<?php
+    $termId=get_query_var('cat');
+    $termChildren=get_term_children($termId, 'category' );
+    if(!empty($termChildren)) {
+        foreach($termChildren as $id) $termId=$termId.','.$id;
+    }
+?>
+    var categories = '<?php echo $termId; ?>';
     var variant = IsTCN ? "&variant=zh-tw" : "";
     var perPage=10;
-    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?categories="+<?php echo get_query_var('cat'); ?>+"&per_page=" + perPage + variant;
+    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?categories="+categories+"&per_page=" + perPage + variant;
     jQuery(document).ready(function($){
         if(jQuery("#load-more-articles").data('nomore')){
             jQuery("#load-more-articles-outer").hide();

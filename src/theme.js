@@ -10,9 +10,11 @@ window.loadMoreArticles = function(
 ) {
   var postOffset = parseInt(jQuery(selector).data("offset"));
   var postLoading = jQuery(selector).data("loading");
+  console.log(postLoading);
   var noMorePost = jQuery(selector).data("nomore");
   if (postLoading == false) {
     postLoading = true;
+    jQuery(selector).data("loading", postLoading);
     jQuery(selector).text(loadingString);
     jQuery
       .getJSON(url + "&offset=" + postOffset, function(data) {

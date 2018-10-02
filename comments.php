@@ -166,16 +166,20 @@
         });
 
         var html=jQuery.parseHTML(commentHtml);
-        var s=getStorageItem("thumbups");
-        if(s) s=JSON.parse(s);
-        s.forEach(function(value){
-            jQuery(html).find("#thumbup-"+value).addClass("done");
-        });
-        s=getStorageItem("thumbdowns");
-        if(s) s=JSON.parse(s);
-        s.forEach(function(value){
-            jQuery(html).find("#thumbdown-"+value).addClass("done");
-        });
+        var sUp=getStorageItem("thumbups");
+        if(sUp){
+            s=JSON.parse(sUp);
+            sUp.forEach(function(value){
+                jQuery(html).find("#thumbup-"+value).addClass("done");
+            });
+        }
+        sDown=getStorageItem("thumbdowns");
+        if(sDown){
+            sDown=JSON.parse(sDown);
+            sDown.forEach(function(value){
+                jQuery(html).find("#thumbdown-"+value).addClass("done");
+            });
+        }
         jQuery("#comments").append(html);
     }
     function openCommentForm(cid, parent=0, referName=""){
