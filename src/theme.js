@@ -3,14 +3,13 @@ import "./theme.scss";
 window.loadMoreArticles = function(
   selector,
   pushTo,
-  perPage = 10,
+  perPage,
   url,
   loadingString,
   moreString
 ) {
   var postOffset = parseInt(jQuery(selector).data("offset"));
   var postLoading = jQuery(selector).data("loading");
-  console.log(postLoading);
   var noMorePost = jQuery(selector).data("nomore");
   if (postLoading == false) {
     postLoading = true;

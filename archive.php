@@ -40,7 +40,9 @@
             jQuery("#load-more-articles-outer").hide();
             jQuery("#load-more-articles").attr("disabled", true);
         }else{
-            jQuery("#load-more-articles").click(loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>"));
+            jQuery("#load-more-articles").click(function(){
+                loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
+            });
         }
         jQuery(window).scroll(function(){
         　　var scrollTop = jQuery(this).scrollTop();
@@ -48,7 +50,7 @@
         　　var windowHeight = jQuery(this).height();
             // if((scrollHeight+100+windowHeight)>=jQuery('#load-more-articles').offset().top){
         　　if(scrollTop + windowHeight == scrollHeight){
-                console.log("已经到最底部了！");
+                //console.log("已经到最底部了！");
                 if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
                     loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
         　  }
