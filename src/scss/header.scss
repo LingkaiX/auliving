@@ -13,7 +13,7 @@
   .menu-and-search {
     width: auto;
     flex-grow: 1;
-    font-size: 16px;
+    font-size: 1rem;
     //font-weight: 700;
     margin: 0 10px;
     position: relative;
@@ -33,10 +33,10 @@
   .header-menu li {
     float: left;
     padding: 14px 5px;
-    border-right: 1px solid #eee;
+    border-right: 1px solid $theme-gray-light;
   }
   .header-menu li:first-child {
-    border-left: 1px solid #eee;
+    border-left: 1px solid $theme-gray-light;
   }
   .search-container {
     transition: all 0.3s ease;
@@ -59,11 +59,11 @@
     bottom: 0;
     left: 0;
     right: 64px;
-    color: #888;
+    color: $theme-gray-dark;
     font-size: 18px;
   }
   .search-form .fa-search {
-    border-left: 1px solid #eee;
+    border-left: 1px solid $theme-gray-light;
     position: absolute;
     width: 48px;
     height: 48px;
@@ -78,7 +78,7 @@
   .search-form input {
     border: none;
     line-height: 46px;
-    color: #888;
+    color: $theme-gray-dark;
     width: 100%;
   }
   .search-form input:focus {
@@ -98,8 +98,8 @@
     height: 48px;
     text-align: center;
     font-size: 18px;
-    border-left: 1px solid #eee;
-    border-right: 1px solid #eee;
+    border-left: 1px solid $theme-gray-light;
+    border-right: 1px solid $theme-gray-light;
     padding: 14px 0;
   }
   .menu-button {
@@ -164,7 +164,7 @@
     }
     .search-form .input-group {
       padding-right: 48px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid $theme-gray-light;
     }
   }
 }

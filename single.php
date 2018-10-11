@@ -39,20 +39,16 @@
                     <?php the_title('<h2 class="title">', '</h2>');?>
                     <div class="excerpt"><?php echo $post->post_excerpt; ?></div>
                 </div>
-                <?php echo getCategoryLinks($cates); ?>
-                <span><?php echo timeElapsedString($post->post_date_gmt); ?></span>
-
+                <div class="cate-and-date">
+                    <?php echo getCategoryLinks($cates); ?>
+                    <span class="post-date"><?php echo timeElapsedString($post->post_date_gmt); ?></span>
+                </div>
             </section>
             <aside class="gam-aulv aulv-a1">aulv-a1</aside>
             <section class="content">
                 <?php the_content(); ?>
             </section>
             <section class="footer">
-            <div class="fb-outer">
-                <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
-                    data-layout="button_count" data-action="like" data-size="small" 
-                    data-show-faces="true" data-share="true"></div>
-                </div>
                 <?php include 'snippet/single-source-info.php'; ?>
                 <span class="tag-links">
                     <?php
@@ -62,6 +58,11 @@
                             }
                     ?>
                 </span>
+                <div class="fb-outer">
+                    <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
+                        data-layout="button_count" data-action="like" data-size="small" 
+                        data-show-faces="true" data-share="true"></div>
+                </div>
                 <div class="aulv-a2-a3"><div class="aulv-a2-outer"><aside class="gam-aulv aulv-a2">aulv-a2</aside></div>
                 <div class="aulv-a3-outer"><aside class="gam-aulv aulv-a3">aulv-a3</aside></div></div>
             </section>

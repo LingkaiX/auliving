@@ -168,7 +168,7 @@
         var html=jQuery.parseHTML(commentHtml);
         var sUp=getStorageItem("thumbups");
         if(sUp){
-            s=JSON.parse(sUp);
+            sUp=JSON.parse(sUp);
             sUp.forEach(function(value){
                 jQuery(html).find("#thumbup-"+value).addClass("done");
             });

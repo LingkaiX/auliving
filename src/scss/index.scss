@@ -1,9 +1,18 @@
-body.home {
-  main {
-    // margin: 10px auto;
+body.home main {
+  // margin: 10px auto;
+  @media (max-width: 832px) {
+    .container {
+      margin: 0 1rem;
+    }
+    .head-section {
+      margin: 0;
+    }
   }
+  // .listed-post:last-child {
+  //   border-bottom: none;
+  // }
   .first-section {
-    margin-top: 16px;
+    margin-top: 1rem;
     .left {
       margin-right: 40px;
       flex-grow: 1;

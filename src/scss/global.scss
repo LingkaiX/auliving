@@ -8,14 +8,14 @@
 html,
 body {
   height: 100%;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   min-width: 320px;
 }
 main {
   min-height: calc(100vh - 48px);
   padding-bottom: 200px;
-  margin-top: 16px;
+  margin-top: 1rem;
 }
 [v-cloak] {
   display: none;
@@ -31,7 +31,7 @@ button {
   vertical-align: baseline;
   text-align: center;
   margin: 0;
-  padding: 8px 16px;
+  padding: 8px 1rem;
   overflow: visible;
   background: lightgray;
   -webkit-tap-highlight-color: transparent;
@@ -60,4 +60,20 @@ a {
 a:hover,
 a:focus {
   color: $theme-red;
+}
+.tag-link,
+.category-link {
+  text-decoration: none;
+  outline: 0;
+  display: inline-block;
+  padding: 0 12px;
+  background-color: $theme-gray-light;
+  border-radius: 8px;
+  border-bottom: 0;
+  font-size: 14px;
+  line-height: 30px;
+  margin: 0 4px;
+  &:first-child {
+    margin-left: 0;
+  }
 }

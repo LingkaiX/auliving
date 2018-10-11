@@ -11,9 +11,12 @@ $theme-red: #cc0033;
 $theme-red-a2: rgba(204, 0, 51, 0.2);
 $theme-red-a5: rgba(204, 0, 51, 0.5);
 $theme-red-a8: rgba(204, 0, 51, 0.8);
+$theme-gray-dark: #777; //#888
+$theme-gray: #dadada;
+$theme-gray-light: #eee; //=#eeeeee
 
-$gray-border: 1px solid #eee; //dotted #dadada  #f4f4f4
-$gray-border-dark: 1px solid #dadada; //aaa
+$gray-border: 1px solid $theme-gray-light; //dotted #dadada  #f4f4f4
+$gray-border-dark: 1px solid $theme-gray; //aaa
 $blue-border: 2px solid $theme-blue;
 $blue-border-a5: 2px solid $theme-blue-a5;
 $red-border: 2px solid $theme-red;
@@ -71,8 +74,11 @@ $red-border-a5: 2px solid $theme-red-a5;
   }
 }
 @mixin font-small($size: 14px) {
-  color: #888;
+  color: $theme-gray-dark;
   font-size: $size;
+  &:hover {
+    color: auto;
+  }
 }
 @mixin text-ellipsis($line: 2, $max-height: 36px) {
   overflow: hidden;

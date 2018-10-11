@@ -6,7 +6,7 @@ section.comment-section {
   }
   .comment-form {
     position: relative;
-    margin: 8px 0;
+    margin: 8px 0 1rem 0;
     .textarea-mirror {
       width: 100%;
       border-bottom: $blue-border-a5;
@@ -21,7 +21,8 @@ section.comment-section {
     .input-email {
       border: none;
       border-bottom: $blue-border-a5;
-      @include font-small(15px);
+      color: $theme-gray-dark;
+      font-size: 15px;
       height: 24px;
     }
     .textarea-mirror:focus,
@@ -51,7 +52,7 @@ section.comment-section {
       font-size: 14px;
       color: $theme-red;
       margin: 8px 0;
-      height: 16px;
+      height: 1rem;
     }
   }
   #comments {
@@ -85,7 +86,8 @@ section.comment-section {
     }
     .author-name,
     .date-info {
-      @include font-small;
+      color: $theme-gray-dark;
+      font-size: 14px;
       line-height: 24px;
       display: block;
     }
@@ -99,7 +101,8 @@ section.comment-section {
     }
     .thumb-up,
     .thumb-down {
-      @include font-small;
+      color: $theme-gray-dark;
+      font-size: 14px;
       padding: 4px 24px 4px 0;
       &:hover {
         color: $theme-red-a8;

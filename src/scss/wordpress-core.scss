@@ -92,7 +92,7 @@ a img.aligncenter {
 }
 
 .screen-reader-text:focus {
-  background-color: #eee;
+  background-color: $theme-gray-light;
   clip: auto !important;
   clip-path: none;
   color: #444;

@@ -4,6 +4,12 @@ section.sticky-columns {
   background: $theme-blue-a2;
   height: 300px;
   margin-bottom: 12px;
+  @include mobile {
+    #sticky-columns {
+      margin: 0 auto;
+    }
+  }
+
   .column {
     width: auto;
     .cover-img {
