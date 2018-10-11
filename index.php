@@ -12,7 +12,7 @@
     <div class="item left post-list">
     <?php 
         $firstPage=4; //get_option('posts_per_page', 4);
-        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'posts_per_page' => $firstPage ) );
+        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'posts_per_page' => $firstPage, 'ignore_sticky_posts' => true ) );
         while (have_posts()) : the_post();
             include 'snippet/listed-post.php';
         endwhile;

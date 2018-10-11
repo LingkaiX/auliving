@@ -99,7 +99,7 @@
             jQuery(form).children(".input-content").val(s);
             jQuery.post(jQuery(form).attr("action"), jQuery(form).serialize(), null,"json")
                 .done(function(data) {
-                    //加入评论
+                    //TODO: 加入评论
                     console.log( "second success",data );
                 })
                 .fail(function() {

@@ -4,7 +4,8 @@ Need data:
     Array<Category_ID>: $stickyColumns
 */
 //print_r($stickyColumns);
-if(count($stickyColumns)>=3)
+if(count($stickyColumns)>=3){
+    echo count($stickyColumns);
 ?>
 <section class="sticky-columns">
 <div class="container">
@@ -38,7 +39,7 @@ if(count($stickyColumns)>=3)
         owlStickyColumns.owlCarousel({
             loop:true,
             margin:40,
-            center:true,
+            center:false,
             dots:true,
             responsive:{
                 0:{
@@ -57,3 +58,4 @@ if(count($stickyColumns)>=3)
         // }, 5000);
     });
 </script>
+<?php } ?>

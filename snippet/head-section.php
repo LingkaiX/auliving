@@ -38,9 +38,9 @@ if(count($headSectionQuery->posts)>=8):?>
     //console.log(headSectionPostIds.toString());
 </script>
 <?php
-    function echoBlock($post, $classNames='', $isStickyPost=false){
+    function echoBlock($post, $classNames='', $coverSize='thumbnail', $isStickyPost=false){
         echo '<div class="block '.$classNames.'">';
-        echo '<a class="cover-img" style="background-image:url('."'".getThumbnailUrl( $post->ID, 'thumbnail' )."'".');" href="'.get_post_permalink($post).'">';
+        echo '<a class="cover-img" style="background-image:url('."'".getThumbnailUrl( $post->ID, $coverSize )."'".');" href="'.get_permalink($post).'">';
             echo '<div class="info-container">';
                 echo '<h4 class="title">'.$post->post_title.'</h4>';
                 echo '<span class="date-info">'.timeElapsedString($post->post_date_gmt).'</span>';
@@ -52,7 +52,7 @@ if(count($headSectionQuery->posts)>=8):?>
     <div class="center">
         <div id="owl-head" class="owl-carousel owl-theme">
         <?php 
-            for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block');
+            for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block', 'medium_large');
         ?>
         </div>
     </div>

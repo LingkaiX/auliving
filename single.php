@@ -17,25 +17,42 @@
                         include 'snippet/post-video.php';
                     }else{
                 ?>
-                    <div class="featured-img" style="background-image:url('<?php echo getThumbnailUrl( null, 'medium' );?>');"></div>
+                    <div class="featured-img" style="background-image:url('<?php echo getThumbnailUrl( null, 'medium' );?>');">
+                    <!-- <div style="
+                            position: absolute;
+                            z-index: 2;
+                            right: -3.75rem;
+                            bottom: -1px;
+                            left: -3.75rem;
+                            height: 20%;
+                            border: 0;
+                            background: linear-gradient(to right top,#fff calc(50% - 1px),transparent 50%);
+                        "></div>             -->
+                    </div>
                 <?php } ?>
+                <div class="fb-outer">
+                    <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
+                        data-layout="button_count" data-action="like" data-size="small" 
+                        data-show-faces="true" data-share="true"></div>
+                </div>
                 <div class="<?php echo $isVideoPost?'with-video':'title-and-excerpt'; ?>">
                     <?php the_title('<h2 class="title">', '</h2>');?>
                     <div class="excerpt"><?php echo $post->post_excerpt; ?></div>
                 </div>
                 <?php echo getCategoryLinks($cates); ?>
                 <span><?php echo timeElapsedString($post->post_date_gmt); ?></span>
-                <div style="float:right;margin-right:8px;">
-                    <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
-                        data-layout="button_count" data-action="like" data-size="small" 
-                        data-show-faces="true" data-share="true"></div>
-                </div>
+
             </section>
             <aside class="gam-aulv aulv-a1">aulv-a1</aside>
             <section class="content">
                 <?php the_content(); ?>
             </section>
             <section class="footer">
+            <div class="fb-outer">
+                <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
+                    data-layout="button_count" data-action="like" data-size="small" 
+                    data-show-faces="true" data-share="true"></div>
+                </div>
                 <?php include 'snippet/single-source-info.php'; ?>
                 <span class="tag-links">
                     <?php
@@ -45,11 +62,6 @@
                             }
                     ?>
                 </span>
-                <div style="float:right;margin-right:8px;">
-                    <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
-                        data-layout="button_count" data-action="like" data-size="small" 
-                        data-show-faces="true" data-share="true"></div>
-                </div>
                 <div class="aulv-a2-a3"><div class="aulv-a2-outer"><aside class="gam-aulv aulv-a2">aulv-a2</aside></div>
                 <div class="aulv-a3-outer"><aside class="gam-aulv aulv-a3">aulv-a3</aside></div></div>
             </section>

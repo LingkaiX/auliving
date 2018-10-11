@@ -29,7 +29,7 @@ body.single-post {
     right: 0;
   }
   .with-video {
-    padding-top: 16px;
+    padding-top: 0;
   }
   .content {
     @include clearfix;
@@ -63,14 +63,12 @@ body.single-post {
     margin-top: 8px;
   }
   .aulv-a1 {
-    height: 250px;
-    width: 300px;
-    float: left;
-    position: relative;
-    top: 16px;
-    margin-right: 17px;
-    margin-bottom: 17px;
+    height: 60px;
+    width: 468px;
+
+    margin: 8px auto;
   }
+
   .aulv-a2-outer,
   .aulv-a3-outer {
     width: 50%;
@@ -88,27 +86,37 @@ body.single-post {
     width: 300px;
     margin: 0 auto;
   }
+  .fb-outer {
+    width: 100%;
+    min-height: 20px;
+    margin: 4px;
+    .fb-like {
+      float: right;
+      margin-right: 4px;
+      @include clearfix;
+    }
+  }
   @include mobile {
     main {
       flex-wrap: wrap;
       margin-top: 8px;
     }
     .header {
-      margin: 0 20px;
+      margin: 0 1rem;
     }
     .article {
       flex-grow: 1;
       margin-right: 0;
     }
     .content {
-      margin: 0 20px;
+      margin: 0 1rem;
       font-size: 1rem;
     }
     .footer {
-      margin: 0 20px;
+      margin: 0 1rem;
     }
     .sidebar {
-      margin: 0 20px;
+      margin: 0 1rem;
       max-width: 800px;
       min-width: 280px;
       flex-grow: 1;
@@ -121,11 +129,10 @@ body.single-post {
       height: 50px;
       width: 320px;
       margin: 16px auto 0px;
-      float: none;
       position: static;
     }
     .aulv-a2-a3 {
-      margin: 0 -20px;
+      margin: 0 -1rem;
     }
     .aulv-a2-outer,
     .aulv-a3-outer {
@@ -144,19 +151,12 @@ body.single-post {
     .featured-img,
     .header-play {
       display: block;
-      margin: 0 -20px;
+      margin: 0 -1rem;
       width: 100vw;
     }
     .title-and-excerpt {
       background-color: white;
-      margin-right: 64px;
       position: relative;
-      top: -64px;
-      padding-top: 1px;
-      padding-left: 20px;
-      margin-left: -20px;
-      margin-bottom: -64px;
-      min-height: 64px;
     }
     .with-video {
       padding-top: 0;
@@ -164,7 +164,6 @@ body.single-post {
     .title {
       font-size: 20px;
       margin-top: 16px;
-      padding-right: 8px;
     }
   }
 }

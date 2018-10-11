@@ -21,9 +21,9 @@ div.listed-post {
     h4 {
       margin-top: 4px;
       margin-bottom: 16px;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 400;
-      min-height: 32px;
+      min-height: 44px;
       @include text-ellipsis(2, 40px);
     }
     h6 {
@@ -46,7 +46,7 @@ div.listed-post {
     .post-info {
       h4 {
         margin-top: 2px;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
       }
       .date-info {
         bottom: 2px;
