@@ -1,7 +1,7 @@
 <section class="comment-section">
     <div id="comment-form-template" style="display: none;">
         <form method="post" class="comment-form" action=<?php echo get_site_url().'/wp-json/wp/v2/comments';?> onsubmit="return submitComment(this)">
-            <div contenteditable="true" data-text="Enter text here" class="textarea-mirror" id="textarea-mirror"></div>
+            <div contenteditable="true" data-text="<?php echo '说点什么吧！'; ?>" class="textarea-mirror" id="textarea-mirror"></div>
             <textarea name="content" autocomplete="off" class="input-content"></textarea>
             <input type="text" name="author_name" placeholder="名字" autocomplete="off" maxlength="16" class="input-name">
             <input type="email" name="author_email" placeholder="邮箱" autocomplete="off" maxlength="48" class="input-email">

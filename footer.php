@@ -1,6 +1,16 @@
-<div class="body-footer">
-11
+<div class="body-footer"><div class="container">
+<div class="left">
+    <a style="" href="<?php echo get_site_url(); ?>">
+        <img src="<?php echo get_template_directory_uri();?>/img/logo-light.svg" alt="logo-light">
+    </a>
 </div>
+<div class="center">©2014–2018 Auliving® All rights reserved.</div>
+<div class="right">
+    <a href="#">Subscribe</a>
+    <a href="#">Contact</a>
+    <a href="#">Terms & Privacy</a>
+</div>
+</div></div>
 <?php wp_footer(); ?>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
