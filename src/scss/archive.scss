@@ -1,4 +1,9 @@
-body.archive {
+body.archive main {
+  @media (max-width: 832px) {
+    .container {
+      margin: 0 1rem;
+    }
+  }
   .left {
     margin-right: 40px;
     flex-grow: 1;

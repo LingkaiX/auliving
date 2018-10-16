@@ -52,20 +52,28 @@ if(count($headSectionQuery->posts)>=8):?>
     <div class="center">
         <div id="owl-head" class="owl-carousel owl-theme">
         <?php 
-            for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block', 'medium_large');
+            for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block', 'large');
         ?>
         </div>
     </div>
     <div class="left">
     <?php 
-        for($loopCount; $loopCount<6; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block');
-        
+        for($loopCount; $loopCount<6; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block', 'medium_large');
+        if($loopCount==6){
+            echo '<div class="post-outer"><div class="listed-post">';
+                echo '<a class="cover-img" href="'.get_permalink($selectedPosts[5]).'" style="background-image:url('."'".getThumbnailUrl( $selectedPosts[5]->ID, 'thumbnail' )."'".');"></a>';
+                echo '<div class="post-info">';
+                    echo '<a href="'.get_permalink($selectedPosts[5]).'"><h4 class="title">'.$selectedPosts[5]->post_title.'</h4></a>';
+                    echo '<h6 class="sub-title">'.strip_tags($selectedPosts[5]->post_excerpt),'</h6>';
+                    echo '<span class="date-info">'.timeElapsedString($selectedPosts[5]->post_date_gmt).'</span>';
+                echo '</div>';
+            echo '</div></div>';
+        }
     ?>
     </div>
     <div class="right">
     <?php 
-        for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'right-block');
-        
+        for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'right-block', 'medium_large');  
     ?>
     </div>
 </section>

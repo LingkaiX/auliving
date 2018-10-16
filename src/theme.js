@@ -14,7 +14,10 @@ window.loadMoreArticles = function(
   if (postLoading == false) {
     postLoading = true;
     jQuery(selector).data("loading", postLoading);
-    jQuery(selector).text(loadingString);
+    jQuery(selector + " span")
+      .text(loadingString)
+      .removeClass("loaded")
+      .addClass("loading");
     jQuery
       .getJSON(url + "&offset=" + postOffset, function(data) {
         if (data.length > 0) {
@@ -41,7 +44,10 @@ window.loadMoreArticles = function(
           jQuery(pushTo).append(posts);
           postOffset += perPage;
           jQuery(selector).data("offset", postOffset);
-          jQuery(selector).text(moreString);
+          jQuery(selector + " span")
+            .text(moreString)
+            .addClass("loaded")
+            .removeClass("loading");
         }
         if (data.length < perPage) {
           jQuery(selector + "-outer").hide();
@@ -50,7 +56,10 @@ window.loadMoreArticles = function(
         }
       })
       .fail(function() {
-        jQuery(selector).text(moreString);
+        jQuery(selector + " span")
+          .text(moreString)
+          .addClass("loaded")
+          .removeClass("loading");
       })
       .always(function() {
         postLoading = false;

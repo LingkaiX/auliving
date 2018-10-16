@@ -18,7 +18,8 @@
     <div class="item left">
     <div id="more-articles-here"></div>
     <div id="load-more-articles-outer">
-        <button id="load-more-articles" data-offset="<?php echo get_option('posts_per_page', 10); ?>" data-nomore="<?php echo $wp_query->max_num_pages==1?'true':'false'; ?>" data-loading="false">更多文章</button>
+        <button id="load-more-articles" data-offset="<?php echo get_option('posts_per_page', 10); ?>" data-nomore="<?php echo $wp_query->max_num_pages==1?'true':'false'; ?>" data-loading="false">
+        <span class="loaded">更多文章<span></button>
     </div>
     </div>
     <div class="item right"></div>
@@ -33,7 +34,7 @@
             jQuery("#load-more-articles").attr("disabled", true);
         }else{
             jQuery("#load-more-articles").click(function(){
-                loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
+                loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo '加载中'; ?>", "<?php echo '更多文章'; ?>");
             });
         }
         jQuery(window).scroll(function(){
@@ -42,7 +43,7 @@
         　　var windowHeight = jQuery(this).height();
         　　if(scrollTop + windowHeight == scrollHeight){
                 if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
-                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
+                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo '加载中'; ?>", "<?php echo '更多文章'; ?>");
         　  }
         });
     });

@@ -20,6 +20,9 @@ section.head-section {
     max-width: 184px;
     height: 360px;
     margin-left: 4px;
+    .post-outer {
+      display: none;
+    }
   }
   .right {
     order: 1;
@@ -108,7 +111,7 @@ section.head-section {
         &:nth-child(2) {
           margin: 0 4px;
         }
-        &:last-child {
+        &:nth-child(3) {
           width: 316px;
         }
       }
@@ -132,13 +135,30 @@ section.head-section {
       margin-top: 4px;
       margin-left: 0;
       height: auto;
+      .post-outer {
+        width: 100%;
+        display: block;
+        .listed-post {
+          width: 100%;
+          border: none;
+        }
+      }
       .left-block {
         width: calc(100% / 3 - 8px / 3);
         float: left;
         height: 0px;
-        padding-bottom: 19%;
+        padding-bottom: 30%;
+        &:first-child {
+          width: calc(40% - 2px);
+          margin-right: 4px;
+          margin-bottom: 0;
+        }
         &:nth-child(2) {
-          margin: 0 4px;
+          width: calc(60% - 2px);
+          margin: 0;
+        }
+        &:nth-child(3) {
+          display: none;
         }
       }
     }
@@ -149,15 +169,23 @@ section.head-section {
       margin-left: 0;
       height: auto;
       .right-block {
-        width: calc(50% - 2px);
         float: left;
         height: 0px;
-        padding-bottom: 28%;
+        padding-bottom: 30%;
         &:first-child {
+          width: calc(60% - 2px);
           margin-right: 4px;
           margin-bottom: 0;
         }
+        &:last-child {
+          width: calc(40% - 2px);
+        }
       }
+    }
+  }
+  @media (max-width: 832px) {
+    .post-outer {
+      padding: 0 1rem;
     }
   }
   @include screen-480 {

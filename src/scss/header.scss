@@ -119,7 +119,7 @@
       right: -10px;
       background-color: rgba(255, 255, 255, 1);
       z-index: 99;
-      transform: translateY(-100%);
+      transform: translateY(-100vmax);
       transition: transform 0.2s ease-out;
     }
     .menu-and-search-open {

@@ -42,7 +42,8 @@
     <div class="item left">
         <div id="more-articles-here"></div>
         <div id="load-more-articles-outer">
-            <button id="load-more-articles" data-offset="<?php echo ($firstPage+$secondPage); ?>" data-nomore="false" data-loading="false">更多文章</button>
+            <button id="load-more-articles" data-offset="<?php echo ($firstPage+$secondPage); ?>" data-nomore="false" data-loading="false">
+            <span class="loaded">更多文章<span></button>
         </div>
     </div>
     <div class="item right"></div>
@@ -53,7 +54,7 @@
     var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?per_page=" + perPage + "&exclude=" + headSectionPostIds + variant;
     jQuery(document).ready(function($){
         jQuery("#load-more-articles").click(function(){
-            loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
+            loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, '<?php echo '加载中'; ?>', '<?php echo '更多文章'; ?>');
         });
 
         jQuery(window).scroll(function(){
@@ -62,7 +63,7 @@
         　　var windowHeight = jQuery(this).height();
         　　if(scrollTop + windowHeight == scrollHeight){
                 if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
-                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo "走着"; ?>", "<?php echo "还有"; ?>");
+                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, '<?php echo '加载中'; ?>', '<?php echo '更多文章'; ?>');
         　  }
         });
     });
