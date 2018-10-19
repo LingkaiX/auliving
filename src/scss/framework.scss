@@ -77,7 +77,8 @@ $red-border-a5: 2px solid $theme-red-a5;
 @mixin font-small($size: 14px) {
   color: $theme-gray-dark;
   font-size: $size;
-  &:hover {
+  &:hover,
+  a:focus {
     color: auto;
   }
 }

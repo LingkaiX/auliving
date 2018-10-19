@@ -5,7 +5,7 @@ Need data:
 */
 //print_r($stickyColumns);
 if(count($stickyColumns)>=3){
-    echo count($stickyColumns);
+    //echo count($stickyColumns);
 ?>
 <section class="sticky-columns">
 <div class="container">
@@ -19,14 +19,16 @@ if(count($stickyColumns)>=3){
         ?>
             <div class="column">
                 <div class="cover-img" style="background-image:url('<?php echo $fields['cover_img']['sizes']['thumbnail']?>');"></div>
-                <h5 class="title"><?php echo get_cat_name($columnId); ?></h5>
+                <h4 class="title"><a href="<?php echo get_category_link($columnId); ?>"><?php echo get_cat_name($columnId); ?></a></h4>
                 <div class="desc"><?php echo category_description($columnId); ?></div>
-                <?php
-                    while($scQuery->have_posts()):$scQuery->the_post();
-                        the_title('<h5><a href="'.get_the_permalink().'">', '</a></h5>');
-                    endwhile;
-                    wp_reset_postdata();
-                ?>
+                <div class="post-list">
+                    <?php
+                        while($scQuery->have_posts()):$scQuery->the_post();
+                            the_title('<h5><a href="'.get_the_permalink().'">', '</a></h5>');
+                        endwhile;
+                        wp_reset_postdata();
+                    ?>
+                </div>  
             </div>
         <?php } ?>
     </div>

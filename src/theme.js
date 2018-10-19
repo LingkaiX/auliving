@@ -23,8 +23,16 @@ window.loadMoreArticles = function(
         if (data.length > 0) {
           var posts = [];
           jQuery.each(data, function(key, val) {
-            var s =
-              '<div class="listed-post"><a class="cover-img" href="' +
+            var s = "";
+            var isEditorsChoice = false;
+            jQuery.each(val.categories, function(key, cate) {
+              if (cate.slug == "choiceofeditor") isEditorsChoice = true;
+            });
+            s = isEditorsChoice
+              ? '<div class="listed-post-special">'
+              : '<div class="listed-post">';
+            s +=
+              '<a class="cover-img" href="' +
               val.link +
               '" style="background-image:url(' +
               "'" +
@@ -77,7 +85,7 @@ jQuery(document).ready(function($) {
   if (h) {
     var header = jQuery(".body-header");
     if (header) {
-      header.css("margin-top", h);
+      header.css("top", h);
     }
   }
 });

@@ -2,8 +2,9 @@ section.sticky-columns {
   width: 100vw;
   max-width: 100%;
   background: $theme-blue-a2;
-  height: 300px;
-  margin-bottom: 12px;
+  height: auto;
+  padding: 2rem 0;
+  //margin-bottom: 12px;
   @include mobile {
     #sticky-columns {
       margin: 0 auto;
@@ -13,13 +14,22 @@ section.sticky-columns {
   .column {
     width: auto;
     .cover-img {
-      width: 64px;
-      height: 64px;
+      width: 4.5rem;
+      height: 4.5rem;
       border-radius: 50%;
       @include img-bg;
       float: left;
+      margin-right: 0.75rem;
     }
     .title {
+      margin: 0.75rem 0;
+    }
+    .post-list h5 {
+      @include addicon("\f111");
+      &:before {
+        font-size: 6px;
+        vertical-align: middle;
+      }
     }
   }
 }

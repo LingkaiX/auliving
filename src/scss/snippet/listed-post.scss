@@ -20,7 +20,7 @@ div.listed-post {
     padding-bottom: 20px;
     overflow: hidden;
     position: relative;
-    h4 {
+    .title {
       margin-top: 4px;
       margin-bottom: 1rem;
       font-size: 20px;
@@ -28,7 +28,7 @@ div.listed-post {
       min-height: 44px;
       @include text-ellipsis(2, 40px);
     }
-    h6 {
+    .sub-title {
       color: $theme-gray-dark;
       font-size: 15px;
       font-weight: 400;
@@ -48,7 +48,7 @@ div.listed-post {
       height: 132px;
     }
     .post-info {
-      h4 {
+      .title {
         margin-top: 2px;
         margin-bottom: 4px;
       }
@@ -63,14 +63,14 @@ div.listed-post {
     }
     .post-info {
       border-bottom: none;
-      h4 {
+      .title {
         margin-top: 2px;
         margin-bottom: 8px;
         font-size: 1rem;
         font-weight: 600;
         @include text-ellipsis(3, 54px);
       }
-      h6 {
+      .sub-title {
         display: none;
       }
       .date-info {
@@ -90,13 +90,74 @@ div.listed-post {
     }
     .post-info {
       margin-left: 8px;
-      h4 {
+      .title {
         font-size: 14px;
         max-height: 48px;
       }
 
       .date-info {
         bottom: 2px;
+      }
+    }
+  }
+}
+div.listed-post-special {
+  margin: 0;
+  padding: 1rem 0;
+  border-bottom: $gray-border;
+  display: flex;
+  align-items: center;
+  .cover-img {
+    order: 1;
+    flex: 1 0 320px;
+    padding-bottom: 180px;
+  }
+  .post-info {
+    order: 0;
+    flex: 1 1 auto;
+    margin-right: 1rem;
+    .title {
+      color: $theme-red-a8;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 400;
+      margin: 1rem 0;
+      &:hover {
+        color: auto;
+      }
+    }
+    .sub-title {
+      color: $theme-gray-dark;
+      font-size: 15px;
+      font-weight: 400;
+      margin: 0 0 1rem 0;
+    }
+    .date-info {
+      display: none !important;
+    }
+  }
+  @include screen-640 {
+    & {
+      flex-wrap: wrap;
+    }
+    .cover-img {
+      order: 0;
+      flex: 1 1 100%;
+      padding-bottom: 56.25%;
+    }
+    .post-info {
+      order: 1;
+      flex: 1 1 100%;
+      margin-right: 0;
+      .title {
+        font-size: 1rem;
+      }
+    }
+  }
+  @include screen-480 {
+    .post-info {
+      .title {
+        font-size: 14px;
       }
     }
   }

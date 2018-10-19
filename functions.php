@@ -224,10 +224,14 @@ add_action( 'rest_api_init', function () {
         }
 	) );
 } );
-//Applied when /posts?variant=zh-tw
 function convertRestPostToTCN( $response, $post, $request ) {
 	$response->data['excerpt']['rendered']=strip_tags($response->data['excerpt']['rendered']);
 	unset($response->data['content']);
+	//For Choice of Editor Cate
+	if(isEditorsChoice($response->data['categories'])){
+		$response->data['cover_img']=getThumbnailUrl($response->data['id'], "medium_large");
+	}
+	//Applied when /posts?variant=zh-tw
 	if($request->get_param('variant')=="zh-tw"){
 		wpcc_load_conversion_table();
 		$response->data['title']['rendered']=zhconversion_tw($response->data['title']['rendered']);
@@ -349,6 +353,14 @@ function isVideoPost($cates){
 	}
 	return $isVideoPost;
 }
+//TODO: show special format in the list if TRUE
+function isEditorsChoice($cates){
+	$isEditorsChoice=false;
+	foreach($cates as $cate){
+		if($cate->slug=='choiceofeditor') $isEditorsChoice=true;
+	}
+	return $isEditorsChoice;
+}
 //Clip string to [128] English characters or Chinese characters
 function clipString($output, $length=128){
 	if(strlen($output)>$length){
@@ -392,7 +404,7 @@ function getThumbnailHtml($post = null, $size = 'post-thumbnail', $attr = ''){
 	$s=$s.'>';
 	return $s;
 }
-//TODO: show special format in the list if TRUE
-function isBigVoice(){
-	return false;
+//TODO: Get Google Ad tags
+function getCateTag(){
+
 }
