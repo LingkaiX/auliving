@@ -1,6 +1,6 @@
 <section class="comment-section">
     <div id="comment-form-template" style="display: none;">
-        <form method="post" class="comment-form" action=<?php echo get_site_url().'/wp-json/wp/v2/comments';?> onsubmit="return submitComment(this)">
+        <form method="post" class="comment-form" action="<?php echo get_site_url().'/wp-json/wp/v2/comments'; echo isTCN()?'?variant=zh-tw':'';?>" onsubmit="return submitComment(this)">
             <div contenteditable="true" data-text="<?php echo '说点什么吧！'; ?>" class="textarea-mirror" id="textarea-mirror"></div>
             <textarea name="content" autocomplete="off" class="input-content"></textarea>
             <input type="text" name="author_name" placeholder="名字" autocomplete="off" maxlength="16" class="input-name">
@@ -14,19 +14,30 @@
             <button type="submit" class="search-submit">回复</button>
         </form>
     </div>
-    <div id="comments"></div>
+    <div id="comments-outer" data-offset=0 data-more=false>
+        <div id="comments"></div>
+        <div class="open-comments" onclick="openComments()"><?php echo "展开评论"; ?></div>
+        <div disabled class="load-more-comments loaded" onclick="loadMoreComments()"><?php echo "更多评论"; ?></div>
+    </div>
     <div id="comment-form"></div>
 </section>
-<style>
-
-</style>
 <script>
     var PostID=<?php echo get_query_var( 'p' ); ?>;
-    var commentQueryUrl="<?php echo home_url(); ?>"+"/wp-json/wp/v2/comments?per_page=100&parent=0&post="+PostID;
-    if (IsTCN) commentQueryUrl=commentQueryUrl+"&variant=zh-tw";
+    var commentQueryUrl="<?php echo home_url(); ?>"+"/wp-json/wp/v2/comments?per_page=10&parent=0&order=asc&post="+PostID;
+    if(IsTCN) commentQueryUrl=commentQueryUrl+"&variant=zh-tw";
     jQuery(document).ready(function($){
         jQuery.getJSON(commentQueryUrl, function(data){
-            if(data.length > 0) printCommentHtml(data);
+            if(data.length > 0){
+                printCommentHtml(data);
+                jQuery("#comments-outer").data("offset", data.length);
+                if(data.length == 10){
+                    jQuery("#comments-outer").data("more", true);
+                }
+                if(data.length > 7) jQuery("#comments-outer").addClass("comments-close");
+            }else{
+                jQuery("#comments-outer").addClass("comments-none");
+            }
+
         }).fail(function() {
             console.log("Network error, pleae try again");
         }).always(function() {
@@ -90,24 +101,47 @@
         }
         jQuery(form).children(".notice").text("").append(initialNoticeHtml);
         //在这里转圈圈
-        console.log(s);
-
+        //console.log(s);
         if(s){
             s=s.replace("<div>", "\n");
             s=s.replace(new RegExp('<\/div><div>','gi'), "\n");
-            console.log(s);
+            //console.log(s);
             jQuery(form).children(".input-content").val(s);
             jQuery.post(jQuery(form).attr("action"), jQuery(form).serialize(), null,"json")
-                .done(function(data) {
-                    //TODO: 加入评论
-                    console.log( "second success",data );
+                .done(function(comment) {
+                    //加入评论
+                    if(comment.parent==0) var str='<div class="comment-and-subcomment animate-flash-out"><div id="comment-'+comment.id+'" class="comment normal-comment';
+                    else var str='<div id="comment-'+comment.id+'" class="comment normal-comment subcomment animate-flash-out';
+                    str+='"><img class="portrait" src='+comment.author_avatar_urls["96"]+'><div class="comment-content"><span class="author-name">'+comment.author_name+'</span><span class="date-info">'
+                        +comment.date_info+'</span><div>'+comment.content.rendered+'</div><div class="thumb-up-and-down"><span id="thumbup-'+comment.id+'" onclick="thumbUpComment(this,'+comment.id
+                        +')" class="thumb-up"><i class="far fa-thumbs-up"></i><em>0</em></span><span id="thumbdown-'+comment.id+'" onclick="thumbDownComment(this,'+comment.id
+                        +')" class="thumb-down"><i class="far fa-thumbs-down"></i><em>0</em></span></div><div class="close-open"><button onclick="';
+                    if(comment.parent==0) str+='openCommentForm('+comment.id+','+comment.id+')';
+                    else str+='openCommentForm('+comment.id+','+comment.parent+",'"+comment.author_name+"')";
+                    str+='"><?php echo "回复"; ?></button></div></div></div>';
+                    //显示评论，关闭表格
+                    if(comment.parent==0){
+                        str+='</div>';
+                        jQuery("#comments").append(str);
+                        jQuery("#comment-form .input-content").val("");
+                        jQuery("#comment-form .textarea-mirror").text("").html("");
+
+                    }else{
+                        jQuery("#comment-"+comment.parent).parent().append(str);
+                        if(comment.meta.hasOwnProperty('refer_info')&&comment.meta.refer_info.hasOwnProperty('comment_id'))
+                            jQuery("#comment-"+comment.meta.refer_info.comment_id+" .close-open button").trigger( "click" );
+                        else jQuery("#comment-"+comment.parent+" .close-open button").trigger( "click" );
+                    }
+                    jQuery("#comments-outer").removeClass("comments-none");
+                    //console.log( "second success",comment );
                 })
                 .fail(function() {
-                    console.log( "error" );
+                    jQuery(form).children(".notice").text("<?php echo "*好像发生了一点错误？"; ?>");
+                    //console.log( "error" );
                 })
                 .always(function() {
                     //停止转圈
-                    console.log( "finished" );
+                    //console.log( "finished" );
                 });
         }
         return false;
@@ -143,7 +177,8 @@
             else if((thumbups-thumbdowns)<-10) thumbState=" bad-comment";
             commentHtml=commentHtml+'<div class="comment-and-subcomment"><div id="comment-'+comment.id+'" class="comment'+thumbState+'"><img class="portrait" src='
                 +comment.author_avatar_urls["96"]+'><div class="comment-content"><span class="author-name">'+comment.author_name+'</span><span class="date-info">'+comment.date_info+'</span><div>'
-                +comment.content.rendered+'</div><div class="thumb-up-and-down"><span id="thumbup-'+comment.id+'" onclick="thumbUpComment(this,'+comment.id+')" class="thumb-up"><i class="far fa-thumbs-up"></i><em>'+thumbups+'</em></span><span id="thumbdown-'+comment.id+'" onclick="thumbDownComment(this,'+comment.id+')" class="thumb-down"><i class="far fa-thumbs-down"></i><em>'+thumbdowns
+                +comment.content.rendered+'</div><div class="thumb-up-and-down"><span id="thumbup-'+comment.id+'" onclick="thumbUpComment(this,'+comment.id
+                +')" class="thumb-up"><i class="far fa-thumbs-up"></i><em>'+thumbups+'</em></span><span id="thumbdown-'+comment.id+'" onclick="thumbDownComment(this,'+comment.id+')" class="thumb-down"><i class="far fa-thumbs-down"></i><em>'+thumbdowns
                 +'</em></span></div><div class="close-open"><button onclick="openCommentForm('+comment.id+','+comment.id+')"><?php echo "回复"; ?></button></div></div></div>';
             jQuery.each(comment.children, function(key, subcomment) {
                 var thumbups=subcomment.meta.thumb_ups==""?"0":subcomment.meta.thumb_ups;
@@ -152,14 +187,15 @@
                 if((thumbups-thumbdowns)>10) thumbState=" good-comment";
                 else if((thumbups-thumbdowns)<-10) thumbState=" bad-comment";
                 var referHtml="";
-                if(!subcomment.meta.refer_info&&subcomment.meta.refer_info.hasOwnProperty('author_name')&&subcomment.meta.refer_info.hasOwnProperty('comment_id')){
-                    referHtml='<span onclick=getReferDetail(e, '+subcomment.refer_info.comment_id+')>@'+subcomment.refer_info.author_name+' </span>';
+                if(subcomment.meta.hasOwnProperty('refer_info')&&subcomment.meta.refer_info.hasOwnProperty('author_name')&&subcomment.meta.refer_info.hasOwnProperty('comment_id')){
+                    referHtml='<span class="refered-author" onclick=getReferDetail('+subcomment.comment_ID+','+subcomment.meta.refer_info.comment_id+')>@'+subcomment.meta.refer_info.author_name+' </span>';
                 }else{
 
                 }
                 commentHtml=commentHtml+'<div id="comment-'+subcomment.comment_ID+'" class="comment subcomment'+thumbState+'" data-parent="" data-commentid="" data-author=""><img class="portrait" src='
                     +subcomment.author_avatar_url+'><div class="comment-content"><span class="author-name">'+subcomment.comment_author+'</span><span class="date-info">'+subcomment.date_info+'</span><div>'
-                    +referHtml+subcomment.comment_content+'</div><div class="thumb-up-and-down"><span id="thumbup-'+subcomment.comment_ID+'" onclick="thumbUpComment(this,'+subcomment.comment_ID+')" class="thumb-up"><i class="far fa-thumbs-up"></i><em>'+thumbups+'</em></span><span id="thumbdown-'+subcomment.comment_ID+'" onclick="thumbDownComment(this,'+subcomment.comment_ID+')" class="thumb-down"><i class="far fa-thumbs-down"></i><em>'+thumbdowns
+                    +referHtml+subcomment.comment_content+'</div><div class="thumb-up-and-down"><span id="thumbup-'+subcomment.comment_ID+'" onclick="thumbUpComment(this,'+subcomment.comment_ID
+                    +')" class="thumb-up"><i class="far fa-thumbs-up"></i><em>'+thumbups+'</em></span><span id="thumbdown-'+subcomment.comment_ID+'" onclick="thumbDownComment(this,'+subcomment.comment_ID+')" class="thumb-down"><i class="far fa-thumbs-down"></i><em>'+thumbdowns
                     +'</em></span></div><div class="close-open"><button onclick="openCommentForm('+subcomment.comment_ID+','+comment.id+",'"+subcomment.comment_author+"')"+'"><?php echo "回复"; ?></button></div></div></div>';
             });
             commentHtml=commentHtml+"</div>";
@@ -186,7 +222,7 @@
         var form=jQuery("#comment-form-template").find(".comment-form").clone();
         if(parent){
             form.find("input[name='parent']").val(parent);
-            if(cid!=parent){
+            if(parent!=0&&cid!=parent){
                 form.find("input[name='meta[refer_info_name]']").val(referName);
                 form.find("input[name='meta[refer_info_id]']").val(cid);
             }
@@ -235,6 +271,35 @@
                 s=[commentID];
                 setStorageItem("thumbdowns",JSON.stringify(s));
             }
+        }
+    }
+    function getReferDetail(clickedCommentId, referedCommentId){
+        //TODO
+    }
+    function openComments(){
+        jQuery("#comments-outer").addClass("comments-open").removeClass("comments-close");
+    }
+    function loadMoreComments(){
+        //jQuery("#comments-outer").data("offset", data.length);
+        if(jQuery("#comments-outer").data("more")){
+            jQuery("#comments-outer").data("more", false);
+            jQuery("#comments-outer .load-more-comments").addClass("loading").removeClass('loaded');
+            jQuery.getJSON(commentQueryUrl+"&offset="+jQuery("#comments-outer").data("offset"), function(data){
+                if(data.length > 0){
+                    printCommentHtml(data);
+                    jQuery("#comments-outer").data("offset", jQuery("#comments-outer").data("offset")+data.length);
+                    if(data.length == 10){
+                        jQuery("#comments-outer").data("more", true);
+                    }
+                }
+            }).fail(function() {
+                console.log("Network error, pleae try again");
+                jQuery("#comments-outer").data("more", true);
+
+            }).always(function() {
+                if(!jQuery("#comments-outer").data("more")) jQuery("#comments-outer .load-more-comments").hide();
+                jQuery("#comments-outer .load-more-comments").removeClass("loading").addClass('loaded');
+            });
         }
     }
 </script>

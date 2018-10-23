@@ -36,7 +36,8 @@ button {
   background: lightgray;
   -webkit-tap-highlight-color: transparent;
 }
-button:hover {
+button:hover,
+button:focus {
   background: gray;
 }
 button:active {

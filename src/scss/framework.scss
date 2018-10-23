@@ -78,7 +78,7 @@ $red-border-a5: 2px solid $theme-red-a5;
   color: $theme-gray-dark;
   font-size: $size;
   &:hover,
-  a:focus {
+  &:focus {
     color: auto;
   }
 }
@@ -97,7 +97,8 @@ $red-border-a5: 2px solid $theme-red-a5;
   background-size: cover;
   background-repeat: no-repeat;
   // transition: background-size 0.5s ease;
-  &:hover {
+  &:hover,
+  &:focus {
     // background-size: 110%;
     // transition: background-size 0.5s ease;
     // transform: scale(1.2);
@@ -112,7 +113,8 @@ $red-border-a5: 2px solid $theme-red-a5;
     background-color: rgba(0, 0, 0, $alpha);
     transition: all cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s;
   }
-  &:hover:before {
+  &:hover:before,
+  &:focus:before {
     background-color: rgba(0, 0, 0, 0);
   }
 }
@@ -171,5 +173,18 @@ $red-border-a5: 2px solid $theme-red-a5;
   60%,
   80% {
     transform: translate3d(10px, 0, 0);
+  }
+}
+.animate-flash-out {
+  animation-fill-mode: both;
+  animation-duration: 2s;
+  animation-name: flash-out;
+}
+@keyframes flash-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

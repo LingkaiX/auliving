@@ -255,7 +255,7 @@ add_filter( 'rest_prepare_post', 'convertRestPostToTCN', 10, 3 );
 //Applied when /comments?parent=0
 function nestedComment($response, $post, $request){
 	//print_r($request);
-	if(is_array($request->get_param('parent'))&&array_key_exists(0,$request->get_param('parent'))&&$request->get_param('parent')[0]==0){
+	if($request->get_method()=='POST'||($request->get_method()=='GET'&&is_array($request->get_param('parent'))&&array_key_exists(0,$request->get_param('parent'))&&$request->get_param('parent')[0]==0)){
 		$childComments = get_comments(array(
 			'post_id'   => $response->data['post'],
 			'status'    => 'approve',
@@ -279,6 +279,10 @@ function nestedComment($response, $post, $request){
 			'thumb_downs'=>get_comment_meta($response->data['id'],'thumb_downs',true),
 			//'refer_info'=>get_comment_meta($response->data['id'],'refer_info',true)
 		);
+	}
+	if($request->get_method()=='POST'){
+		$refer_info=get_comment_meta($response->data['id'],'refer_info',true);
+		if($refer_info) $response->data['meta']['refer_info']=$refer_info;
 	}
 	return $response;
 }

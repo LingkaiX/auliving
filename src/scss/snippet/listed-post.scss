@@ -122,7 +122,8 @@ div.listed-post-special {
       font-style: italic;
       font-weight: 400;
       margin: 1rem 0;
-      &:hover {
+      &:hover,
+      &:focus {
         color: auto;
       }
     }
