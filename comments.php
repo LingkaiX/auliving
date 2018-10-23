@@ -33,7 +33,7 @@
                 if(data.length == 10){
                     jQuery("#comments-outer").data("more", true);
                 }
-                if(data.length > 7) jQuery("#comments-outer").addClass("comments-close");
+                if(jQuery("#comments").height()>800) jQuery("#comments-outer").addClass("comments-close");
             }else{
                 jQuery("#comments-outer").addClass("comments-none");
             }
