@@ -33,7 +33,9 @@
                 if(data.length == 10){
                     jQuery("#comments-outer").data("more", true);
                 }
-                if(jQuery("#comments").height()>800) jQuery("#comments-outer").addClass("comments-close");
+                if(jQuery("#comments").height()>800){
+                    jQuery("#comments-outer").addClass("comments-close");
+                }
             }else{
                 jQuery("#comments-outer").addClass("comments-none");
             }
@@ -277,7 +279,12 @@
         //TODO
     }
     function openComments(){
-        jQuery("#comments-outer").addClass("comments-open").removeClass("comments-close");
+        if(jQuery("#comments-outer").data("offset")==10){
+            jQuery("#comments-outer").addClass("comments-open").removeClass("comments-close");
+        }
+        else{
+            jQuery("#comments-outer").removeClass("comments-close").height('auto');
+        }
     }
     function loadMoreComments(){
         //jQuery("#comments-outer").data("offset", data.length);
