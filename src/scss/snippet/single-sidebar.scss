@@ -49,8 +49,9 @@ section.recommended-posts {
     .aulv-s1-outer,
     .aulv-s2-outer,
     .aulv-s3-outer {
-      width: 100vw;
-      margin: auto -20px;
+      width: 100%;
+      margin: auto;
+      margin-top: 1rem;
     }
     .aulv-s1,
     .aulv-s2,
@@ -60,7 +61,17 @@ section.recommended-posts {
       margin: 0 auto;
     }
   }
+  @include screen-480 {
+    .aulv-s1-outer,
+    .aulv-s2-outer,
+    .aulv-s3-outer {
+      width: 100vw;
+      margin: auto -1rem;
+      margin-top: 1rem;
+    }
+  }
 }
+
 @include mobile {
   .top-post-list {
     display: none;

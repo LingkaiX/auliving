@@ -12,7 +12,7 @@ body.home main {
   .first-section {
     margin-top: 1rem;
     .left {
-      margin-right: 40px;
+      margin-right: 2.5rem;
       flex-grow: 1;
     }
     .top-post-list-container {
@@ -22,7 +22,7 @@ body.home main {
   }
   .second-section {
     .left {
-      margin-right: 40px;
+      margin-right: 2.5rem;
       flex-grow: 1;
     }
     .right {
@@ -32,7 +32,7 @@ body.home main {
   }
   .extended-section {
     .left {
-      margin-right: 40px;
+      margin-right: 2.5rem;
       flex-grow: 1;
     }
     .right {
@@ -48,19 +48,19 @@ body.home main {
   @include laptop {
     .first-section {
       .left {
-        margin-right: 20px;
+        margin-right: 1.25rem;
       }
     }
     .second-section {
       .left {
-        margin-right: 20px;
+        margin-right: 1.25rem;
       }
       .right {
       }
     }
     .extended-section {
       .left {
-        margin-right: 20px;
+        margin-right: 1.25rem;
       }
       .right {
       }

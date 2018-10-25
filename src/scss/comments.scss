@@ -1,6 +1,6 @@
 section.comment-section {
   border-top: $red-border;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   .comment-and-subcomment {
     border-bottom: $gray-border-dark;
   }
@@ -198,7 +198,7 @@ section.comment-section {
   }
   @include mobile {
     & {
-      margin: auto 20px;
+      margin: auto 1.25rem;
     }
   }
 }

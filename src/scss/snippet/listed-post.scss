@@ -17,16 +17,16 @@ div.listed-post {
   .post-info {
     flex-grow: 1;
     margin: 0 0 0 1rem;
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
     overflow: hidden;
     position: relative;
     .title {
       margin-top: 4px;
       margin-bottom: 1rem;
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 400;
       min-height: 44px;
-      @include text-ellipsis(2, 40px);
+      @include text-ellipsis(2, 2.5rem);
     }
     .sub-title {
       color: $theme-gray-dark;
@@ -118,7 +118,7 @@ div.listed-post-special {
     margin-right: 1rem;
     .title {
       color: $theme-red-a8;
-      font-size: 20px;
+      font-size: 1.25rem;
       font-style: italic;
       font-weight: 400;
       margin: 1rem 0;

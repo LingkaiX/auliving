@@ -43,7 +43,7 @@ if(count($headSectionQuery->posts)>=8):?>
         echo '<a class="cover-img" style="background-image:url('."'".getThumbnailUrl( $post->ID, $coverSize )."'".');" href="'.get_permalink($post).'">';
             echo '<div class="info-container">';
                 echo '<h4 class="title">'.$post->post_title.'</h4>';
-                echo '<span class="date-info">'.timeElapsedString($post->post_date_gmt).'</span>';
+                //echo '<span class="date-info">'.timeElapsedString($post->post_date_gmt).'</span>';
             echo '</div>';
         echo '</a></div>';
     }

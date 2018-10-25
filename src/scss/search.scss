@@ -1,6 +1,6 @@
 body.search {
   .left {
-    margin-right: 40px;
+    margin-right: 2.5rem;
     flex-grow: 1;
   }
   .right {
@@ -9,7 +9,7 @@ body.search {
   }
   @include laptop {
     .left {
-      margin-right: 20px;
+      margin-right: 1.25rem;
     }
   }
   @include mobile {
