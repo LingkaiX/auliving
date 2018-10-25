@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
 <?php wp_head(); ?>
-
+<?php include "snippet/google-ads.php"; ?>
 </head>
 <body <?php body_class(); ?>>
 <div class="body-header">

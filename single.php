@@ -1,5 +1,12 @@
 <?php get_header(); ?>
-<aside class="gam-aulv aulv-lb">aulv-lb</aside>
+<aside class="gam-aulv aulv-lb">
+    <!-- /21666183985/aulv/aulv-lb -->
+    <div id='div-gpt-ad-1540444966878-0'>
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540444966878-0'); });
+    </script>
+    </div>
+</aside>
 <main class="container">
     <div class="item article">
         <?php
@@ -44,7 +51,14 @@
                     <span class="post-date"><?php echo timeElapsedString($post->post_date_gmt); ?></span>
                 </div>
             </section>
-            <aside class="gam-aulv aulv-a1">aulv-a1</aside>
+            <aside class="gam-aulv aulv-a1">
+                <!-- /21666183985/aulv/aulv-a1 -->
+                <div id='div-gpt-ad-1540443451381-0'>
+                <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443451381-0'); });
+                </script>
+                </div>
+            </aside>
             <section class="content">
                 <?php the_content(); ?>
             </section>
@@ -63,8 +77,22 @@
                         data-layout="button_count" data-action="like" data-size="small" 
                         data-show-faces="true" data-share="true"></div>
                 </div>
-                <div class="aulv-a2-a3"><div class="aulv-a2-outer"><aside class="gam-aulv aulv-a2">aulv-a2</aside></div>
-                <div class="aulv-a3-outer"><aside class="gam-aulv aulv-a3">aulv-a3</aside></div></div>
+                <div class="aulv-a2-a3"><div class="aulv-a2-outer"><aside class="gam-aulv aulv-a2">
+                        <!-- /21666183985/aulv/aulv-a2 -->
+                        <div id='div-gpt-ad-1540443501305-0'>
+                        <script>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443501305-0'); });
+                        </script>
+                        </div>
+                    </aside></div>
+                    <div class="aulv-a3-outer"><aside class="gam-aulv aulv-a3">
+                        <!-- /21666183985/aulv/aulv-a3 -->
+                        <div id='div-gpt-ad-1540443539804-0'>
+                        <script>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443539804-0'); });
+                        </script>
+                        </div>
+                </aside></div></div>
             </section>
             <?php comments_template(); ?>
         <?php endwhile; ?>

@@ -23,14 +23,14 @@
 </section>
 <script>
     var PostID=<?php echo get_query_var( 'p' ); ?>;
-    var commentQueryUrl="<?php echo home_url(); ?>"+"/wp-json/wp/v2/comments?per_page=10&parent=0&order=asc&post="+PostID;
+    var commentQueryUrl="<?php echo home_url(); ?>"+"/wp-json/wp/v2/comments?per_page=100&parent=0&order=asc&post="+PostID;
     if(IsTCN) commentQueryUrl=commentQueryUrl+"&variant=zh-tw";
     jQuery(document).ready(function($){
         jQuery.getJSON(commentQueryUrl, function(data){
             if(data.length > 0){
                 printCommentHtml(data);
                 jQuery("#comments-outer").data("offset", data.length);
-                if(data.length == 10){
+                if(data.length == 100){
                     jQuery("#comments-outer").data("more", true);
                 }
                 if(jQuery("#comments").height()>800){
@@ -279,7 +279,7 @@
         //TODO
     }
     function openComments(){
-        if(jQuery("#comments-outer").data("offset")==10){
+        if(jQuery("#comments-outer").data("offset")==100){
             jQuery("#comments-outer").addClass("comments-open").removeClass("comments-close");
         }
         else{
@@ -295,7 +295,7 @@
                 if(data.length > 0){
                     printCommentHtml(data);
                     jQuery("#comments-outer").data("offset", jQuery("#comments-outer").data("offset")+data.length);
-                    if(data.length == 10){
+                    if(data.length == 100){
                         jQuery("#comments-outer").data("more", true);
                     }
                 }

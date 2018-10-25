@@ -47,12 +47,26 @@ if($recommendedPostQuery->post_count<6){
 ?>
 <section class="recommended-posts">
     <!-- <div class="head"><strong>相关推荐</strong></div> -->
-    <aside class="aulv-s1-outer"><div class="gam-aulv aulv-s1">aulv-s1</div></aside>
+    <aside class="aulv-s1-outer"><div class="gam-aulv aulv-s1">
+        <!-- /21666183985/aulv/aulv-s1 -->
+        <div id='div-gpt-ad-1540443641717-0'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443641717-0'); });
+        </script>
+        </div>
+    </div></aside>
     <?php
         $count=0;
         while ($recommendedPostQuery->have_posts()) : $recommendedPostQuery->the_post();
         $count++;
-        if($count==4) echo '<aside class="aulv-s2-outer"><div class="gam-aulv aulv-s2">aulv-s2</div></aside>';
+        if($count==4) echo '<aside class="aulv-s2-outer"><div class="gam-aulv aulv-s2">
+                <!-- /21666183985/aulv/aulv-s2 -->
+                <div id="div-gpt-ad-1540443704017-0">
+                <script>
+                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1540443704017-0"); });
+                </script>
+                </div>
+            </div></aside>';
     ?>
         <div class="recommended-post">
             <a class="cover-img" href="<?php echo get_permalink() ?>" style="background-image:url('<?php echo getThumbnailUrl( null, 'thumbnail' );?>');"></a>
@@ -62,5 +76,12 @@ if($recommendedPostQuery->post_count<6){
             </div>   
         </div>
     <?php endwhile; wp_reset_postdata();?>
-    <aside class="aulv-s3-outer"><div class="gam-aulv aulv-s3">aulv-s3</div></aside>
+    <aside class="aulv-s3-outer"><div class="gam-aulv aulv-s3">
+        <!-- /21666183985/aulv/aulv-s3 -->
+        <div id='div-gpt-ad-1540443816830-0'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443816830-0'); });
+        </script>
+        </div>
+    </div></aside>
 </section>
