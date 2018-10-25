@@ -111,6 +111,7 @@ div.listed-post-special {
     order: 1;
     flex: 1 0 320px;
     padding-bottom: 180px;
+    @include img-bg;
   }
   .post-info {
     order: 0;
