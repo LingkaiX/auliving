@@ -37,11 +37,11 @@
                         "></div>             -->
                     </div>
                 <?php } ?>
-                <div class="fb-outer">
+                <!-- <div class="fb-outer">
                     <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
                         data-layout="button_count" data-action="like" data-size="small" 
                         data-show-faces="true" data-share="true"></div>
-                </div>
+                </div> -->
                 <div class="<?php echo $isVideoPost?'with-video':'title-and-excerpt'; ?>">
                     <?php the_title('<h2 class="title">', '</h2>');?>
                     <div class="excerpt"><?php echo $post->post_excerpt; ?></div>
@@ -65,18 +65,18 @@
             <section class="footer">
             <div class="fb-outer">
                 <div class="fb-like" data-href="<?php echo get_the_permalink(); ?>"
-                    data-layout="button_count" data-action="like" data-size="small" 
+                    data-layout="button_count" data-action="like" data-size="large" 
                     data-show-faces="true" data-share="true"></div>
                 </div>
                 <?php include 'snippet/single-source-info.php'; ?>
-                <span class="tag-links">
+                <div class="tag-links">
                     <?php
                         if(is_array($tags)&&sizeof($tags)>0)
                             foreach( $tags as $tag ) {
                                 echo '<a class="tag-link" href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>';
                             }
                     ?>
-                </span>
+                </div>
                 <div class="aulv-a2-a3"><div class="aulv-a2-outer"><aside class="gam-aulv aulv-a2">
                         <!-- /21666183985/aulv/aulv-a2 -->
                         <div id='div-gpt-ad-1540443501305-0'>

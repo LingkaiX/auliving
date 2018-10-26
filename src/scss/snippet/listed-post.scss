@@ -2,7 +2,7 @@ div.listed-post {
   //margin-top: 1rem;
   padding: 0.75rem 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   height: 159px;
   border-bottom: $gray-border;
   //background-color: wheat;
@@ -21,12 +21,11 @@ div.listed-post {
     overflow: hidden;
     position: relative;
     .title {
-      margin-top: 4px;
-      margin-bottom: 1rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
       font-size: 1.25rem;
       font-weight: 400;
-      min-height: 44px;
-      @include text-ellipsis(2, 2.5rem);
+      @include text-ellipsis(2, 2.75rem);
     }
     .sub-title {
       color: $theme-gray-dark;
@@ -81,6 +80,7 @@ div.listed-post {
   @include screen-480 {
     & {
       height: 81px;
+      align-items: center;
     }
     .cover-img {
       // max-width: 40%;

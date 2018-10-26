@@ -1,7 +1,7 @@
 <?php
 //MUST used in query loop
 ?>
-<div class="<?php echo isEditorsChoice(get_the_category())?'listed-post-special':'listed-post'; ?>">
+<div class="listed-post<?php echo isEditorsChoice(get_the_category())?' listed-post-special':''; ?>">
     <?php
     echo '<a class="cover-img" href="'.get_permalink().'" style="background-image:url('."'".getThumbnailUrl( $post->ID, isEditorsChoice(get_the_category())?'medium_large':'thumbnail' )."'".');"></a>';
     echo '<div class="post-info">';

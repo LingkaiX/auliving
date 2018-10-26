@@ -2,6 +2,9 @@ body.single-post {
   main {
     margin-top: 1rem;
   }
+  section.header {
+    margin-bottom: 1rem;
+  }
   .article {
     flex-grow: 1;
     margin-right: 2.5rem;
@@ -78,16 +81,22 @@ body.single-post {
         margin-left: 4px;
       }
     }
+    .tag-links {
+      margin-bottom: 1.25rem;
+    }
   }
   .sidebar {
     min-width: 300px;
     max-width: 300px;
+    .top-post-list {
+      padding-top: 0.5rem;
+    }
   }
   .aulv-lb {
     height: 90px;
     width: 728px;
     margin: 0 auto;
-    margin-top: 8px;
+    margin-top: 1rem;
   }
   .aulv-a1 {
     height: 60px;
@@ -115,11 +124,10 @@ body.single-post {
   }
   .fb-outer {
     width: 100%;
-    min-height: 1.25rem;
-    margin: 4px;
+    min-height: 2.75rem;
+    padding: 0.5rem 0;
     .fb-like {
       float: right;
-      margin-right: 4px;
       @include clearfix;
     }
   }
@@ -141,6 +149,9 @@ body.single-post {
     }
     .footer {
       margin: 0 1rem;
+      .tag-links {
+        margin-bottom: 0.5rem;
+      }
     }
     .sidebar {
       margin: 0 1rem;
