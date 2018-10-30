@@ -249,6 +249,10 @@ function convertRestPostToTCN( $response, $post, $request ) {
 	return $response;
 }
 add_filter( 'rest_prepare_post', 'convertRestPostToTCN', 10, 3 );
+function getAvatarUrl($str="yoooho"){
+	return get_template_directory_uri().'/img/100icon/comments-icon-'.abs(hexdec( substr(sha1($str), 0, 15) ) %100).'.png';
+	//return abs(hexdec( substr(sha1($str), 0, 15) ) %100);
+}
 //Applied when /comments?parent=0
 function nestedComment($response, $post, $request){
 	//print_r($request);
@@ -266,7 +270,7 @@ function nestedComment($response, $post, $request){
 				'refer_info'=>get_comment_meta($comment->comment_ID,'refer_info',true));
 			$comment->date_info = timeElapsedString($comment->comment_date_gmt,($request->get_param('variant')=="zh-tw"));
 			$comment->comment_content=apply_filters( 'comment_text', $comment->comment_content );
-			$comment->author_avatar_url = get_avatar_url($comment->comment_author_email);
+			$comment->author_avatar_url = getAvatarUrl($comment->comment_author);
 
 		}
 		$response->data['children']=$childComments;
@@ -276,6 +280,7 @@ function nestedComment($response, $post, $request){
 			'thumb_downs'=>get_comment_meta($response->data['id'],'thumb_downs',true),
 			//'refer_info'=>get_comment_meta($response->data['id'],'refer_info',true)
 		);
+		$response->data['author_avatar_urls']['96']=getAvatarUrl($response->data['author_name']);
 	}
 	if($request->get_method()=='POST'){
 		$refer_info=get_comment_meta($response->data['id'],'refer_info',true);
