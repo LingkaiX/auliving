@@ -31,17 +31,20 @@ button {
   vertical-align: baseline;
   text-align: center;
   margin: 0;
-  padding: 8px 1rem;
+  padding: 8px 1.5rem;
   overflow: visible;
-  background: lightgray;
   -webkit-tap-highlight-color: transparent;
+  color: white;
+  border-radius: 0.5rem;
+  background-color: $theme-blue-a8;
+  //background-color: lightgray;
 }
 button:hover,
 button:focus {
-  background: gray;
+  background-color: $theme-blue;
 }
 button:active {
-  background: lightslategray;
+  background-color: lightslategray;
 }
 .gam-aulv {
   //background-color: $theme-blue-a2;

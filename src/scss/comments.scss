@@ -47,11 +47,12 @@ section.comment-section {
       position: absolute;
       bottom: -12px;
       right: 0;
+      font-weight: 700;
     }
     .notice {
       font-size: 14px;
       color: $theme-red;
-      margin: 8px 0;
+      margin: 1rem 0 !important;
       height: 1rem;
     }
   }
@@ -118,13 +119,12 @@ section.comment-section {
     }
     .close-open {
       position: relative;
-      top: 2px;
-      float: right;
+      display: inline-block;
       button {
         padding: 0 8px;
         background-color: transparent;
-        font-size: 15px;
-        color: $theme-red;
+        font-size: 14px;
+        color: $theme-red-a8;
         &:hover,
         &:focus {
           color: $theme-blue;

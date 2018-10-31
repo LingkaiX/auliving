@@ -10,8 +10,8 @@
             <input type="hidden" name="parent" value="0">
             <input type="hidden" name="meta[refer_info_name]" value="">
             <input type="hidden" name="meta[refer_info_id]" value="">
-            <p class="notice"><a target="_blank" href="<?php echo getBaseUrl().'comunity-policy' ; ?>">社区准则？</a></p>
-            <button type="submit" class="search-submit">回复</button>
+            <p class="notice"><a target="_blank" href="<?php echo getBaseUrl().'/comunity-policy' ; ?>">社区准则？</a></p>
+            <button type="submit" class="search-submit">发表评论</button>
         </form>
     </div>
     <div id="comments-outer" data-offset=0 data-more=false>
