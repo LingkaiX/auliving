@@ -1,2 +1,24 @@
 section.top-post-list {
+  h5 {
+    position: relative;
+    font-size: 16px;
+    margin: 0;
+    padding-bottom: 12px;
+    @include addicon("\f10d");
+    //@include addicon("\f10e", false);
+    &:before,
+    &:after {
+      color: $theme-blue;
+      position: absolute;
+    }
+    // &:after {
+    //   bottom: 0;
+    //   right: 0;
+    // }
+    a {
+      display: block;
+      margin-left: 1.5rem;
+      //margin-right: 1.5rem;
+    }
+  }
 }

@@ -1,12 +1,14 @@
 section.comment-section {
-  border-top: $red-border;
   margin-top: 1.25rem;
   .comment-and-subcomment {
     border-bottom: $gray-border-dark;
+    &:first-child {
+      border-top: $red-border;
+    }
   }
   .comment-form {
     position: relative;
-    margin: 8px 0 1rem 0;
+    margin: 2rem 0 1rem 0;
     .textarea-mirror {
       width: 100%;
       border-bottom: $blue-border-a5;

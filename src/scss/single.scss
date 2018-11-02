@@ -36,10 +36,12 @@ body.single-post {
   }
   .with-video {
     padding-top: 0;
+    margin-bottom: 8px;
   }
   .excerpt {
     color: $theme-gray-dark;
     font-size: 1rem;
+    padding: 0.5rem 0;
   }
   .post-date {
     color: $theme-gray-dark;
