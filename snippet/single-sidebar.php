@@ -19,7 +19,7 @@ if(is_array($tags)&&sizeof($tags)>0)
     }
 $args = array(
     'post__not_in' => array($postId),
-    'posts_per_page' => 6,
+    'posts_per_page' => 9,
     'orderby' => 'date',
     'order'   => 'DESC',
     'tax_query' => array(
@@ -38,8 +38,8 @@ $args = array(
     )
 );
 $recommendedPostQuery = new WP_Query( $args);
-if($recommendedPostQuery->post_count<6){
-    $count=6-$recommendedPostQuery->post_count;
+if($recommendedPostQuery->post_count<9){
+    $count=9-$recommendedPostQuery->post_count;
     $recommendedPostQuery2 = new WP_Query( array('posts_per_page' => $count, 'author' => $author, 'post__not_in' => array_merge(wp_list_pluck($recommendedPostQuery->posts, 'ID' ), array($postId))));
     $recommendedPostQuery->posts = array_merge($recommendedPostQuery->posts, $recommendedPostQuery2->posts );
     $recommendedPostQuery->post_count = $recommendedPostQuery->post_count + $recommendedPostQuery2->post_count;
@@ -59,14 +59,6 @@ if($recommendedPostQuery->post_count<6){
         $count=0;
         while ($recommendedPostQuery->have_posts()) : $recommendedPostQuery->the_post();
         $count++;
-        if($count==4) echo '<aside class="aulv-s2-outer"><div class="gam-aulv aulv-s2">
-                <!-- /21666183985/aulv/aulv-s2 -->
-                <div id="div-gpt-ad-1540443704017-0">
-                <script>
-                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1540443704017-0"); });
-                </script>
-                </div>
-            </div></aside>';
     ?>
         <div class="recommended-post">
             <a class="cover-img" href="<?php echo get_permalink() ?>" style="background-image:url('<?php echo getThumbnailUrl( null, 'thumbnail' );?>');"></a>
@@ -75,13 +67,25 @@ if($recommendedPostQuery->post_count<6){
                 <span class="date-info"><?php echo timeElapsedString($post->post_date_gmt); ?></span>
             </div>   
         </div>
-    <?php endwhile; wp_reset_postdata();?>
-    <aside class="aulv-s3-outer"><div class="gam-aulv aulv-s3">
-        <!-- /21666183985/aulv/aulv-s3 -->
-        <div id='div-gpt-ad-1540443816830-0'>
-        <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443816830-0'); });
-        </script>
-        </div>
-    </div></aside>
+    <?php 
+        if($count==3) echo '<aside class="aulv-s2-outer"><div class="gam-aulv aulv-s2">
+                <!-- /21666183985/aulv/aulv-s2 -->
+                <div id="div-gpt-ad-1540443704017-0">
+                <script>
+                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1540443704017-0"); });
+                </script>
+                </div>
+            </div></aside>';
+        if($count==6) echo '<aside class="aulv-s3-outer"><div class="gam-aulv aulv-s3">
+                <!-- /21666183985/aulv/aulv-s3 -->
+                <div id="div-gpt-ad-1540443816830-0">
+                <script>
+                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1540443816830-0"); });
+                </script>
+                </div>
+            </div></aside>';
+        endwhile;
+        wp_reset_postdata();
+    ?>
+
 </section>
