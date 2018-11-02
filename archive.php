@@ -17,13 +17,13 @@
 <section class="extended-section container">
     <div class="item left">
     <div id="more-articles-here"></div>
-    <div id="load-more-articles-outer">
-        <button id="load-more-articles" data-offset="<?php echo get_option('posts_per_page', 10); ?>" data-nomore="<?php echo $wp_query->max_num_pages==1?'true':'false'; ?>" data-loading="false">
-        <span class="loaded">更多文章<span></button>
-    </div>
     </div>
     <div class="item right"></div>
 </section>
+<div id="load-more-articles-outer">
+    <button id="load-more-articles" data-offset="<?php echo get_option('posts_per_page', 10); ?>" data-nomore="<?php echo $wp_query->max_num_pages==1?'true':'false'; ?>" data-loading="false">
+    <span class="loaded">更多文章<span></button>
+</div>
 <script>
 <?php
     $termId=get_query_var('cat');

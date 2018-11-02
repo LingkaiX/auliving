@@ -87,8 +87,17 @@ a:focus {
 #load-more-articles-outer {
   height: 5rem;
   position: relative;
-  padding: 0 20%;
-
+  padding: 0 25%;
+  @include desktop {
+    & {
+      padding: 0 28%;
+    }
+  }
+  @include screen-640 {
+    & {
+      padding: 0 20%;
+    }
+  }
   #load-more-articles {
     width: 100%;
     background: white;
