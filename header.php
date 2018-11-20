@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang=<?php echo isTCN()? 'cmn-hant':'cmn-hans'; ?>>
 <head>
+<?php include "snippet/google-tags.php"; ?>
 <link rel="manifest" href="<?php echo get_template_directory_uri();?>/manifest.json">
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
