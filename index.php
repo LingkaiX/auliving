@@ -1,11 +1,9 @@
 
 <?php get_header(); ?>
-<main id="1">    
+<main>    
 <?php 
     $stickyPosts = get_field( 'sticky_posts', 'category_'.get_category_by_slug( 'top' )->term_id );
     $headSectionQuery = new WP_Query( array( 'category_name' => 'top','posts_per_page' => 8 )  );
-    print_r($stickyPosts);
-    print_r($headSectionQuery);
     include 'snippet/head-section.php';
     //print_r(get_taxonomy( 'top' ));
 ?>
