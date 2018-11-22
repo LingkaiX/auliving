@@ -12,11 +12,12 @@ if(count($headSectionQuery->posts)>=8):?>
 <?php
     $stickyCount=count($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;
-    $stickyIDs=array();
+    // $stickyIDs=array();
     //remove repeat posts in $headSectionQuery and $stickyPosts
-    if($stickyCount>0){
+    if($stickyCount>0&&($stickyPosts[0]['sticky_post']!=null)){
         for($i=0; $i<$stickyCount; $i++){
-            array_splice($selectedPosts, 3, 0, array($stickyPosts[$i]['sticky_post']) ); 
+            if($stickyPosts[$i]['sticky_post']!=null)
+                array_splice($selectedPosts, 3, 0, array($stickyPosts[$i]['sticky_post']) ); 
         }
         for($i=0; $i<count($selectedPosts); $i++){
             for($j=$i+1; $j<count($selectedPosts); $j++){
@@ -24,12 +25,12 @@ if(count($headSectionQuery->posts)>=8):?>
                     array_splice($selectedPosts, $j, 1 ); 
             }
         }
-        for($i=0; $i<$stickyCount; $i++){
-            $stickyIDs[$i]=$stickyPosts[$i]['sticky_post']->ID;
-        }
+        // for($i=0; $i<$stickyCount; $i++){
+        //     $stickyIDs[$i]=$stickyPosts[$i]['sticky_post']->ID;
+        // }
     }
     $headSectionPostIds=array();
-    for($i=0; $i<count($selectedPosts); $i++){
+    for($i=0; $i<8; $i++){
         array_push($headSectionPostIds, $selectedPosts[$i]->ID);
     }
 ?>
