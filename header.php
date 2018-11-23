@@ -6,7 +6,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<meta name="theme-color" content=#003366" />
+<meta name="theme-color" content="#003366" />
 <!-- Windows Phone -->
 <meta name="msapplication-navbutton-color" content="#003366">
 <!-- iOS Safari -->
