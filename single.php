@@ -100,8 +100,8 @@
     <div class="sidebar" >
         <?php include 'snippet/single-sidebar.php'; ?>
     </div>
-    // 处理视频Iframe适应窗口
     <script>
+        // 处理视频Iframe适应窗口
         jQuery(document).ready(function($) {
             jQuery(".single-post main section.content iframe").each(function( index ) {
                 var div = jQuery("<div>", {"style": "position:relative;padding-top:56.25%;"});
