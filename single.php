@@ -100,6 +100,17 @@
     <div class="sidebar" >
         <?php include 'snippet/single-sidebar.php'; ?>
     </div>
+    // 处理视频Iframe适应窗口
+    <script>
+        jQuery(document).ready(function($) {
+            jQuery(".single-post main section.content iframe").each(function( index ) {
+                var div = jQuery("<div>", {"style": "position:relative;padding-top:56.25%;"});
+                var frame= jQuery(this).clone().css({"position":"absolute","top":0,"left":0,"width":"100%","height":"100%"});
+                div = div.append(frame);
+                jQuery(this).replaceWith(div);
+            });
+        });
+    </script>
 </main>
 <?php include_once 'snippet/facebook-script.php'; ?>
 <?php get_footer(); ?>
