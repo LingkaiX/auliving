@@ -9,15 +9,15 @@
 
     var mapping1 = googletag.sizeMapping().
         addSize([0, 0], [320, 50]).
-        addSize([992, 768], [728, 90]).
+        addSize([992, 0], [728, 90]).
         build();
     var mapping2 = googletag.sizeMapping().
         addSize([0, 0], [320, 50]).
-        addSize([992, 768], [300, 250]).
+        addSize([992, 0], [300, 250]).
         build();
     var mapping3 = googletag.sizeMapping().
         addSize([0, 0], [320, 50]).
-        addSize([992, 768], [468, 60]).
+        addSize([992, 0], [468, 60]).
         build();
 
     googletag.defineSlot('/21666183985/aulv/aulv-h1', [[320, 50], [728, 90]], 'div-gpt-ad-1540442281409-0').
