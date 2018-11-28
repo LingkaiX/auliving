@@ -45,6 +45,8 @@ body.home main {
     margin: 0 auto;
     width: 728px;
     height: 90px;
+    margin-bottom: -8px;
+    margin-top: 4px;
   }
   @include laptop {
     .first-section {

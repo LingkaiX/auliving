@@ -197,9 +197,9 @@ section.head-section {
         font-size: 12px;
         @include text-ellipsis(3, 38px);
       }
-      .date-info {
-        display: none;
-      }
+      // .date-info {
+      //   display: none;
+      // }
     }
   }
 }
