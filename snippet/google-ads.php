@@ -6,17 +6,26 @@
 
 <script>
   googletag.cmd.push(function() {
+    // Create the measurement node
+    var scrollDiv = document.createElement("div");
+    scrollDiv.style.overflow = 'scroll';
+    document.body.appendChild(scrollDiv);
+    // Get the scrollbar width
+    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    var adjustedWidth= 992-scrollbarWidth || 992; 
+    // Delete the DIV 
+    document.body.removeChild(scrollDiv);
 
     var mapping1 = googletag.sizeMapping().
-        addSize([992, 100], [728, 90]).
+        addSize([adjustedWidth, 100], [728, 90]).
         addSize([0, 0], [320, 50]).
         build();
     var mapping2 = googletag.sizeMapping().
-        addSize([992, 100], [300, 250]).
+        addSize([adjustedWidth, 100], [300, 250]).
         addSize([0, 0], [320, 50]).
         build();
     var mapping3 = googletag.sizeMapping().
-        addSize([992, 100], [468, 60]).
+        addSize([adjustedWidth, 100], [468, 60]).
         addSize([0, 0], [320, 50]).
         build();
 
