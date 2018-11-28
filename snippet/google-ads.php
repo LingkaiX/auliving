@@ -8,16 +8,16 @@
   googletag.cmd.push(function() {
 
     var mapping1 = googletag.sizeMapping().
-        addSize([0, 0], [320, 50]).
         addSize([992, 100], [728, 90]).
+        addSize([0, 0], [320, 50]).
         build();
     var mapping2 = googletag.sizeMapping().
-        addSize([0, 0], [320, 50]).
         addSize([992, 100], [300, 250]).
+        addSize([0, 0], [320, 50]).
         build();
     var mapping3 = googletag.sizeMapping().
-        addSize([0, 0], [320, 50]).
         addSize([992, 100], [468, 60]).
+        addSize([0, 0], [320, 50]).
         build();
 
     googletag.defineSlot('/21666183985/aulv/aulv-h1', [[320, 50], [728, 90]], 'div-gpt-ad-1543362254773-0').
