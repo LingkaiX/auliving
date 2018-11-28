@@ -49,9 +49,9 @@ if($recommendedPostQuery->post_count<9){
     <!-- <div class="head"><strong>相关推荐</strong></div> -->
     <aside class="aulv-s1-outer"><div class="gam-aulv aulv-s1">
         <!-- /21666183985/aulv/aulv-s1 -->
-        <div id='div-gpt-ad-1540443641717-0'>
+        <div id='div-gpt-ad-1543363024514-0'>
         <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540443641717-0'); });
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1543363024514-0'); });
         </script>
         </div>
     </div></aside>
@@ -70,17 +70,17 @@ if($recommendedPostQuery->post_count<9){
     <?php 
         if($count==3) echo '<aside class="aulv-s2-outer"><div class="gam-aulv aulv-s2">
                 <!-- /21666183985/aulv/aulv-s2 -->
-                <div id="div-gpt-ad-1540443704017-0">
+                <div id="div-gpt-ad-1543363051079-0">
                 <script>
-                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1540443704017-0"); });
+                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1543363051079-0"); });
                 </script>
                 </div>
             </div></aside>';
         if($count==6) echo '<aside class="aulv-s3-outer"><div class="gam-aulv aulv-s3">
                 <!-- /21666183985/aulv/aulv-s3 -->
-                <div id="div-gpt-ad-1540443816830-0">
+                <div id="div-gpt-ad-1543363074255-0">
                 <script>
-                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1540443816830-0"); });
+                googletag.cmd.push(function() { googletag.display("div-gpt-ad-1543363074255-0"); });
                 </script>
                 </div>
             </div></aside>';

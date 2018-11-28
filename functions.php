@@ -414,3 +414,9 @@ function getThumbnailHtml($post = null, $size = 'post-thumbnail', $attr = ''){
 function getCateTag(){
 
 }
+
+//Yoast SEO: change the og:locale tag
+function yst_wpseo_change_og_locale( $locale ) {
+	return 'zh_CN';
+}
+add_filter( 'wpseo_locale', 'yst_wpseo_change_og_locale' );
