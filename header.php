@@ -15,6 +15,7 @@
 <meta name="format-detection" content="telephone=no">
 <?php wp_head(); ?>
 <?php include "snippet/google-ads.php"; ?>
+<?php include "snippet/mailchimp-popup.php"; ?>
 </head>
 <body <?php body_class(); ?>>
 <div class="body-header">
