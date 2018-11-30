@@ -6,7 +6,7 @@
 </div>
 <div class="center">©2014–2018 Auliving® All rights reserved.</div>
 <div class="right">
-    <a href="#">Subscribe</a>
+    <a href="http://eepurl.com/c6325r" target="_blank">Subscribe</a>
     <a href="#">Contact</a>
     <a href="#">Terms & Privacy</a>
 </div>
