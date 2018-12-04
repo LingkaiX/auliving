@@ -10,7 +10,7 @@ Output data:
 if(count($headSectionQuery->posts)>=8):?>    
 <section class="container head-section">
 <?php
-    $stickyCount=count($stickyPosts);
+    $stickyCount=countSafely($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;
     // $stickyIDs=array();
     //remove repeat posts in $headSectionQuery and $stickyPosts

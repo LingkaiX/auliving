@@ -420,3 +420,11 @@ function yst_wpseo_change_og_locale( $locale ) {
 	return 'zh_CN';
 }
 add_filter( 'wpseo_locale', 'yst_wpseo_change_og_locale' );
+
+//To avoid warning as of PHP7.2, return -1 for uncountable argument
+function countSafely($foo){
+	if (is_array($foo) || $foo instanceof Countable) {
+		return count($foo);
+	}
+	return -1;
+}

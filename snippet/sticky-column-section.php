@@ -4,7 +4,7 @@ Need data:
     Array<Category_ID>: $stickyColumns
 */
 //print_r($stickyColumns);
-if(count($stickyColumns)>=3){
+if(countSafely($stickyColumns)>=3){
     //echo count($stickyColumns);
 ?>
 <section class="sticky-columns">
