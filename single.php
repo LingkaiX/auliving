@@ -24,7 +24,7 @@
                         include 'snippet/post-video.php';
                     }else{
                 ?>
-                    <div class="featured-img" style="background-image:url('<?php echo getThumbnailUrl( null, 'medium' );?>');">
+                    <div class="featured-img" style="background-image:url('<?php echo getThumbnailUrl( null, 'medium_large' );?>');">
                     <!-- <div style="
                             position: absolute;
                             z-index: 2;
