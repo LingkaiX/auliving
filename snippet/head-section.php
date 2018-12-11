@@ -41,7 +41,7 @@ if(count($headSectionQuery->posts)>=8):?>
 <?php
     function echoBlock($post, $classNames='', $coverSize='thumbnail', $isStickyPost=false){
         echo '<div class="block '.$classNames.'">';
-        echo '<a class="cover-img" style="background-image:url('."'".getThumbnailUrl( $post->ID, $coverSize )."'".');" href="'.get_permalink($post).'">';
+        echo '<a class="cover-img" style="background-image:url('."'".getThumbnailUrl( $post->ID, $coverSize )."'".');" target="_blank" href="'.get_permalink($post).'">';
             echo '<div class="info-container">';
                 echo '<h4 class="title">'.$post->post_title.'</h4>';
                 //echo '<span class="date-info">'.timeElapsedString($post->post_date_gmt).'</span>';
@@ -57,24 +57,24 @@ if(count($headSectionQuery->posts)>=8):?>
         ?>
         </div>
     </div>
+    <div class="right">
+    <?php 
+        for($loopCount; $loopCount<5; $loopCount++) echoBlock($selectedPosts[$loopCount], 'right-block', 'medium_large');  
+    ?>
+    </div>
     <div class="left">
     <?php 
-        for($loopCount; $loopCount<6; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block', 'medium_large');
-        if($loopCount==6){
+        for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block', 'medium_large');
+        if($loopCount==8){
             echo '<div class="post-outer"><div class="listed-post">';
-                echo '<a class="cover-img" href="'.get_permalink($selectedPosts[5]).'" style="background-image:url('."'".getThumbnailUrl( $selectedPosts[5]->ID, 'thumbnail' )."'".');"></a>';
+                echo '<a class="cover-img" target="_blank" href="'.get_permalink($selectedPosts[7]).'" style="background-image:url('."'".getThumbnailUrl( $selectedPosts[7]->ID, 'thumbnail' )."'".');"></a>';
                 echo '<div class="post-info">';
-                    echo '<a href="'.get_permalink($selectedPosts[5]).'"><h4 class="title">'.$selectedPosts[5]->post_title.'</h4></a>';
-                    echo '<h6 class="sub-title">'.strip_tags($selectedPosts[5]->post_excerpt),'</h6>';
-                    echo '<span class="date-info">'.timeElapsedString($selectedPosts[5]->post_date_gmt).'</span>';
+                    echo '<a target="_blank" href="'.get_permalink($selectedPosts[7]).'"><h4 class="title">'.$selectedPosts[7]->post_title.'</h4></a>';
+                    echo '<h6 class="sub-title">'.strip_tags($selectedPosts[7]->post_excerpt),'</h6>';
+                    echo '<span class="date-info">'.timeElapsedString($selectedPosts[7]->post_date_gmt).'</span>';
                 echo '</div>';
             echo '</div></div>';
         }
-    ?>
-    </div>
-    <div class="right">
-    <?php 
-        for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'right-block', 'medium_large');  
     ?>
     </div>
 </section>

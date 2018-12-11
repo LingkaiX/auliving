@@ -32,13 +32,13 @@ window.loadMoreArticles = function(
               ? '<div class="listed-post-special">'
               : '<div class="listed-post">';
             s +=
-              '<a class="cover-img" href="' +
+              '<a class="cover-img" target="_blank" href="' +
               val.link +
               '" style="background-image:url(' +
               "'" +
               val.cover_img +
               "'" +
-              ');"><div class="post-info"><a href="' +
+              ');"><div class="post-info"><a target="_blank" href="' +
               val.link +
               '"><h4 class="title">' +
               val.title.rendered +
