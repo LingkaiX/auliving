@@ -57,9 +57,9 @@ body.single-post {
     max-width: 100%;
     height: auto;
   }
-  .content figure {
-    width: 100% !important;
-  }
+  // .content figure {
+  //   width: 100% !important;
+  // }
   .content figcaption {
     @include addicon("\f102");
     color: $theme-gray-dark;
