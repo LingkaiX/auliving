@@ -3,10 +3,14 @@
 <section class="first-section container">
     <div class="item left">
     <?php
+        $hasSearchResult=true;
         if ( have_posts() ){
             while ( have_posts() ) : the_post();
                 include 'snippet/listed-post.php';
             endwhile;
+        }else{
+            $hasSearchResult=false;
+            echo '<p style="text-align: center;padding-top: 10%;color:#cc0033;"> 不好意思，没有您要搜索的内容。</p>';
         }
     ?>
     </div>
@@ -14,6 +18,7 @@
         <?php include 'snippet/top-post-list.php'; ?>
     </div>
 </section>
+<?php if($hasSearchResult){ ?>
 <section class="extended-section container">
     <div class="item left">
     <div id="more-articles-here"></div>
@@ -48,5 +53,6 @@
         });
     });
 </script>
+<?php } ?>
 </main>
 <?php get_footer(); ?>
