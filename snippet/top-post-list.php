@@ -4,13 +4,13 @@
         array( 'meta_key' => 'views',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'posts_per_page' => 12,
+        'posts_per_page' => 10,
         //'nopaging' => true,
         'ignore_sticky_posts' => 1,
         'date_query' => array(
             array(
                 'column' => 'post_modified_gmt',
-                'after'  => '1 month ago',
+                'after'  => '2 week ago',
             ),
         ),
     ));
@@ -20,4 +20,12 @@
         //echo get_post_meta(get_the_ID(), 'views', true );
 ?>
 <?php endwhile; wp_reset_postdata();?>
+<?php
+    wp_nav_menu( array(
+        'theme_location' => 'top-menu',
+        'menu_class'     => 'top-menu',
+        'container_class'=> 'top-menu-container',
+        'depth'          => 1
+        ) );
+?>
 </section>

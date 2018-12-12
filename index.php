@@ -43,7 +43,16 @@
         endwhile;
     ?>
     </div>
-    <div class="item right"></div>
+    <div class="item right">
+    <?php
+        wp_nav_menu( array(
+            'theme_location' => 'column-list',
+            'menu_class'     => 'column-list',
+            'container_class'=> 'column-list-container',
+            'depth'          => 1
+            ) );
+    ?>
+    </div>
 </section>
 <section class="extended-section container">
     <div class="item left">

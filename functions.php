@@ -59,7 +59,7 @@ function aulv_setup() {
 	register_nav_menus( array(
 		'primary'	=> 'Header Navigation',
 		'top-menu'	=> 'Top News List',
-
+		'column-list' => '专栏列表'
     ) );
     
     //Set image sizes (4:3, 16:9, 2:1)

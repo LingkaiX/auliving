@@ -29,6 +29,13 @@ body.home main {
     .right {
       min-width: 300px;
       max-width: 300px;
+      .column-list {
+        margin-top: 0.75rem;
+        padding-left: 1.2rem;
+        color: $theme-blue;
+        font-weight: bold;
+        line-height: 1.5;
+      }
     }
   }
   .extended-section {

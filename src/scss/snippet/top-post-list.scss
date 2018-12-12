@@ -3,9 +3,11 @@ section.top-post-list {
     position: relative;
     font-size: 16px;
     margin: 0;
-    padding-bottom: 12px;
-    @include addicon("\f10d");
+    padding-bottom: 1.5rem;
+    //@include addicon("\f10d");
     //@include addicon("\f10e", false);
+    font-size: 1.125rem;
+    font-weight: 400;
     &:before,
     &:after {
       color: $theme-blue;
@@ -17,8 +19,19 @@ section.top-post-list {
     // }
     a {
       display: block;
-      margin-left: 1.5rem;
+      //margin-left: 1.5rem;
       //margin-right: 1.5rem;
+    }
+  }
+  .top-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    .menu-item {
+      margin: 0;
+      padding-bottom: 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 400;
     }
   }
 }
