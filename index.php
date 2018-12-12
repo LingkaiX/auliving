@@ -18,7 +18,7 @@
 <section class="first-section container">
     <div class="item left post-list">
     <?php 
-        $firstPage=4; //get_option('posts_per_page', 4);
+        $firstPage=5; //get_option('posts_per_page', 4);
         query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'posts_per_page' => $firstPage, 'ignore_sticky_posts' => true ) );
         while (have_posts()) : the_post();
             include 'snippet/listed-post.php';
@@ -36,7 +36,7 @@
 <section class="second-section container">
     <div class="item left post-list">
     <?php 
-        $secondPage=20;
+        $secondPage=19;
         query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'offset' => $firstPage, 'posts_per_page' => $secondPage ) );
         while (have_posts()) : the_post();
             include 'snippet/listed-post.php';
