@@ -37,15 +37,17 @@
                 loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo '加载中'; ?>", "<?php echo '更多文章'; ?>");
             });
         }
-        jQuery(window).scroll(function(){
+        function loop() {
         　　var scrollTop = jQuery(this).scrollTop();
         　　var scrollHeight = jQuery(document).height();
         　　var windowHeight = jQuery(this).height();
-        　　if(scrollTop + windowHeight == scrollHeight){
+        　　if(scrollTop + windowHeight +160 >= scrollHeight){
                 if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
                     loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, "<?php echo '加载中'; ?>", "<?php echo '更多文章'; ?>");
         　  }
-        });
+            requestAnimationFrame( loop );
+        }
+        loop();
     });
 </script>
 </main>
