@@ -55,9 +55,9 @@ if(countSafely($stickyColumns)>=3){
                 }
             }
         })
-        // setInterval(function(){ 
-        //     owlStickyColumns.trigger('next.owl.carousel');
-        // }, 5000);
+        setInterval(function(){ 
+            owlStickyColumns.trigger('next.owl.carousel');
+        }, 5000);
     });
 </script>
 <?php } ?>
