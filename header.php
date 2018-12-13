@@ -20,8 +20,8 @@
 <body <?php body_class(); ?>>
 <div class="body-header">
     <div class="container">
-        <div id="menu-button-open" class="menu-button">
-            <i class="fas fa-bars" style="padding: 15px;cursor: pointer;"></i>
+        <div onclick=goBack() class="back-button">
+            <i class="fas fa-chevron-left" style="padding: 15px;cursor: pointer;"></i>
         </div>
         <div class="header-logo">
             <a style="" href="<?php echo get_site_url(); ?>">
@@ -30,17 +30,14 @@
         </div>
         <div id="menu-and-search" class="menu-and-search">
             <div class="container submenu-header">
-                <div id="menu-button-close" class="menu-button">
-                    <i class="fas fa-times" style="padding: 15px;cursor: pointer;"></i>
-                </div>
                 <div class="header-logo">
                     <a style="" href="<?php echo get_site_url(); ?>">
                         <img src="<?php echo get_template_directory_uri();?>/img/logo.svg" alt="logo" style="height:32px; margin-top:8px;">
                     </a>
                 </div>
-               <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
-                    <span><?php echo isTCN()?'简体':'繁體';?></span>
-                </a><!--WPCC_NC_END--></div>
+                <div id="menu-button-close" class="menu-button" style="top: 4px;">
+                    <i class="fas fa-times" style="padding: 15px 16px;cursor: pointer;"></i>
+                </div>
             </div>
             <?php
                 wp_nav_menu( array(
@@ -65,19 +62,21 @@
                 <i class="fas fa-search" style="padding: 15px;font-size:18px;cursor: pointer;"></i>        
             </div>
         </div>
-        <div class="cn-switch"><!--WPCC_NC_START--><a href="<?php echo switchCN();?>">
-            <span><?php echo isTCN()?'简体':'繁體';?></span>
-        </a><!--WPCC_NC_END--></div>
+        <div id="menu-button-open" class="menu-button">
+            <i class="fas fa-bars" style="padding: 15px;cursor: pointer;"></i>
+        </div>
     </div>
     <script>
         jQuery(document).ready(function($){
             $('#menu-button-open').click(function(){
                 $('#menu-and-search').addClass('menu-and-search-open');
-                $('main').addClass('hide-main-content');
+                //$('main').addClass('hide-main-content');
+                $('body').addClass('body-modify');
             });
             $('#menu-button-close').click(function(){
                 $('#menu-and-search').removeClass('menu-and-search-open');
-                $('main').removeClass('hide-main-content');
+                //$('main').removeClass('hide-main-content');
+                $('body').removeClass('body-modify');
             });
             $('#search-button-open').click(function(){
                 $('#search-container').addClass('search-container-open');
@@ -85,8 +84,21 @@
             $('#search-button-close').click(function(){
                 $('#search-container').removeClass('search-container-open');
             });
+            $("#search-item").focus(function(){
+                $(".header-menu-container").addClass("header-menu-container-covered");
+            });
+            $("#search-item").blur(function(){
+                $(".header-menu-container").removeClass("header-menu-container-covered");
+            });
         });
         var IsTCN=<?php echo isTCN()?'true':'false'; ?>;
+        function goBack(){
+            if(window.history.length>1){
+                window.history.go(-1);
+            }else{
+                close();
+            }
+        }
     </script>
 </div>
 <div class="for-header"></div>

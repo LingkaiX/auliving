@@ -43,9 +43,24 @@ body.single-post {
     font-size: 1rem;
     padding: 0.5rem 0;
   }
-  .post-date {
-    color: $theme-gray-dark;
-    font-size: 15px;
+  .cate-and-date {
+    .post-date {
+      color: $theme-gray-dark;
+      font-size: 15px;
+      margin: 5px 4px;
+      word-break: keep-all;
+      line-height: 34px;
+    }
+    .cn-switch {
+      float: right;
+      height: 34px;
+      margin-right: 4px;
+      a {
+        line-height: 34px;
+        position: relative;
+        top: -1px;
+      }
+    }
   }
   .content {
     @include clearfix;

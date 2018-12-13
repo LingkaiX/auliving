@@ -103,6 +103,7 @@
     //border-right: $gray-border;
     padding: 14px 0;
   }
+  .back-button,
   .menu-button {
     display: none;
   }
@@ -110,7 +111,7 @@
     .header-logo {
       margin: 0 auto;
       position: relative;
-      left: -8px;
+      // left: -8px;
     }
     .menu-and-search {
       position: fixed;
@@ -141,11 +142,17 @@
       border: none;
       top: 0;
     }
+    .back-button,
     .menu-button {
       display: inline-block;
       flex-grow: 0;
       position: absolute;
-      left: 0;
+    }
+    .back-button {
+      left: 4px;
+    }
+    .menu-button {
+      right: 4px;
     }
     .header-menu li {
       float: none;
@@ -180,6 +187,10 @@
       padding-right: 48px;
       border-bottom: $gray-border;
     }
+    .header-menu-container-covered {
+      opacity: 0.1;
+      pointer-events: none;
+    }
   }
 }
 @include mobile {
@@ -213,5 +224,10 @@
   }
   .hide-main-content {
     display: none;
+  }
+  .body-modify {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
   }
 }

@@ -49,6 +49,11 @@
                 <div class="cate-and-date">
                     <?php echo getCategoryLinks($cates); ?>
                     <span class="post-date"><?php echo timeElapsedString($post->post_date_gmt); ?></span>
+                    <div class="cn-switch"><!--WPCC_NC_START-->
+                        <a href="<?php echo switchCN();?>">
+                            <span><?php echo isTCN()?'简体':'繁體';?></span>
+                        </a><!--WPCC_NC_END-->
+                    </div>
                 </div>
             </section>
             <aside class="gam-aulv aulv-a1">
