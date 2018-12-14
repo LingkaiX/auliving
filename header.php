@@ -92,9 +92,11 @@
             });
         });
         var IsTCN=<?php echo isTCN()?'true':'false'; ?>;
+        var gahsgdfasdfa=1;
         function goBack(){
+            if(gahsgdfasdfa==undefined) close();
             if(window.history.length>1){
-                window.history.go(-1);
+                gahsgdfasdfa=window.history.go(-1);
             }else{
                 close();
             }
