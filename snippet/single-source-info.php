@@ -8,11 +8,9 @@ if($sourceInfo){
             <a href="<?php echo getBaseUrl(); ?>">澳洲生活网</a>
             并包含原文标题及链接：《<a href="<?php echo get_the_permalink(); ?>"><?php echo $post->post_title; ?></a>》
         </p>
-        <?php if(is_array($sourceInfo['article_sources'])&&sizeof($sourceInfo['article_sources'])){
+        <?php if($sourceInfo['article_sources']!=null){
             echo '<p>文章来源：';
-            foreach($sourceInfo['article_sources'] as $s){
-                echo '<a class="article-source" href="'.$s['url'].'">'.$s['title'].'</a>';
-            }
+            echo $sourceInfo['article_sources'];
             echo '</p>';
         }?>
     <?php }if($sourceInfo['reproduced_article']==1){?>
