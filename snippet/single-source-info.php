@@ -22,6 +22,7 @@ if($sourceInfo){
                 echo '<a class="img-source" href="'.$s['url'].'">'.$s['title'].'</a>';
             }
             echo '</p>';
+        }
     }
 }
 ?>
