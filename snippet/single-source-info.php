@@ -11,8 +11,8 @@ if($sourceInfo){
         <?php if($sourceInfo['article_sources']!=null){
             $article_sources=$sourceInfo['article_sources'];
             echo '<p>文章来源：';
-            if($article_sources['name']!=null){
-                echo '<a class="article-source" href="'.$article_sources['url'].'">'.$article_sources['name'].'</a>';
+            if($article_sources['title']!=null){
+                echo '<a class="article-source" href="'.$article_sources['url'].'">'.$article_sources['title'].'</a>';
             }
             else{
                 echo '<a class="article-source" href="'.$article_sources['url'].'">'.$article_sources['url'].'</a>';
@@ -27,8 +27,8 @@ if($sourceInfo){
         <p>文章来源：
         <?php
             $ras=$sourceInfo['reproduced_article_sources'];
-            if($ras['name']!=null){
-                echo '<a class="article-source" href="'.$ras['url'].'">'.$ras['name'].'</a>';
+            if($ras['title']!=null){
+                echo '<a class="article-source" href="'.$ras['url'].'">'.$ras['title'].'</a>';
             }
             else{
                 echo '<a class="article-source" href="'.$ras['url'].'">'.$ras['url'].'</a>';
