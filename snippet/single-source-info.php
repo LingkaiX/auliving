@@ -9,8 +9,14 @@ if($sourceInfo){
             并包含原文标题及链接：《<a href="<?php echo get_the_permalink(); ?>"><?php echo $post->post_title; ?></a>》
         </p>
         <?php if($sourceInfo['article_sources']!=null){
+            $article_sources=$sourceInfo['article_sources'];
             echo '<p>文章来源：';
-            echo $sourceInfo['article_sources'];
+            if($article_sources['name']!=null){
+                echo '<a class="article-source" href="'.$article_sources['url'].'">'.$article_sources['name'].'</a>';
+            }
+            else{
+                echo '<a class="article-source" href="'.$article_sources['url'].'">'.$article_sources['url'].'</a>';
+            }
             echo '</p>';
         }?>
     <?php }if($sourceInfo['reproduced_article']==1){?>
@@ -18,7 +24,16 @@ if($sourceInfo){
             <a href="<?php echo getBaseUrl(); ?>">澳洲生活网</a>
             仅提供信息发布平台，文章或有适当删改。
         </p>
-        <p>文章来源：<?php echo $sourceInfo['reproduced_article_sources']; ?></p>
+        <p>文章来源：
+        <?php
+            $ras=$sourceInfo['reproduced_article_sources'];
+            if($ras['name']!=null){
+                echo '<a class="article-source" href="'.$ras['url'].'">'.$ras['name'].'</a>';
+            }
+            else{
+                echo '<a class="article-source" href="'.$ras['url'].'">'.$ras['url'].'</a>';
+            }
+        ?></p>
     <?php }if($sourceInfo['contribution_article']==1){?>
         <p>本文由<?php echo $sourceInfo['contributor']; ?>提供，仅代表原作者观点，不代表本网站立场。
             <a href="<?php echo getBaseUrl(); ?>">澳洲生活网</a>
