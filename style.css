@@ -2,6 +2,41 @@
 Theme Name: auliving
 Author: Simon
 Description: auliving.com.au
-Version: 0.0.1
+Version: 0.0.3
 Text Domain: aulv
 */
+.contact-form a {
+    color: #cc0033;
+}
+.contact-form h2 {
+    color:  #003366;
+}
+
+form.wpcf7-form label {
+    width: 70%;
+    margin: auto;
+    display: block;
+  }
+  .wpcf7-form-control.wpcf7-submit.btn {
+    background-color: #003366;
+    color: #fff;
+    float: right;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-right: 15%;
+    margin-bottom: 10px;
+  }
+  @media only screen and (max-width: 767px) {
+    .wpcf7-form-control.wpcf7-submit.btn {
+      margin-right: 2.5%;
+    }
+    form.wpcf7-form label {
+      width: 95%;
+    }
+  }
+  .wpcf7-form-control-wrap{
+    min-height: 34px;
+    border-radius: 4px;
+    float:right;
+  }
