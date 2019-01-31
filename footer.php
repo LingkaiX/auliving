@@ -7,8 +7,8 @@
 <div class="center">©2014–2018 Auliving® All rights reserved.</div>
 <div class="right">
     <a href="http://eepurl.com/c6325r" target="_blank">Subscribe</a>
-    <a href="#">Contact</a>
-    <a href="#">Terms & Privacy</a>
+    <a target="_blank" href="https://www.auliving.com.au/contact-us">Contact</a>
+    <a target="_blank" href="https://www.auliving.com.au/wp-content/uploads/2019/01/Auliving-terms-and-condition_ENG_CN.pdf">Terms & Privacy</a>
 </div>
 </div></div>
 <?php wp_footer(); ?>
