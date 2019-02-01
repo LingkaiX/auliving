@@ -90,6 +90,14 @@ $red-border-a5: 2px solid $theme-red-a5;
   -webkit-box-orient: vertical;
   max-height: $max-height;
 }
+@mixin text-ellipsis2($line: 2, $max-height: 56px) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  max-height: $max-height;
+}
 @mixin img-bg($alpha: 0.2) {
   position: relative;
   overflow: hidden;
