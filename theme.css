@@ -1291,6 +1291,7 @@ section.head-section {
   margin-bottom: 1rem; }
   section.head-section .center {
     order: 0;
+    font-size: 22px;
     min-width: 640px;
     max-width: 640px;
     height: 360px; }
@@ -1300,8 +1301,6 @@ section.head-section {
         position: absolute;
         top: 8px;
         left: 1rem; }
-  section.head-section .center h4 {
-    font-size: 22px; }
   section.head-section .left {
     order: 2;
     min-width: 184px;

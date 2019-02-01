@@ -2,6 +2,7 @@ section.head-section {
   margin-bottom: 1rem;
   .center {
     order: 0;
+    font-size: 22px;
     min-width: 640px;
     max-width: 640px;
     height: 360px;
@@ -13,9 +14,6 @@ section.head-section {
         left: 1rem;
       }
     }
-  }
-  .center h4{
-    font-size: 22px;
   }
   .left {
     order: 2;
