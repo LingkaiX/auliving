@@ -67,11 +67,6 @@ section.head-section {
         rgba(0, 0, 0, 0.6)
       );
     }
-    .title {
-      margin: 0;
-      font-weight: 500;
-      @include text-ellipsis;
-    }
     .date-info {
       font-size: 14px;
     }
@@ -83,6 +78,11 @@ section.head-section {
       margin-top: 3px;
       margin-bottom: 3px;
     }
+    .title {
+      margin: 0;
+      font-weight: 500;
+      @include text-ellipsis;
+    }
   }
   .right-block {
     width: 308px;
@@ -90,11 +90,18 @@ section.head-section {
     &:first-child {
       margin-bottom: 4px;
     }
+    .title {
+      margin: 0;
+      font-weight: 500;
+      @include text-ellipsis;
+    }
   }
   .center-block {
     width: 640px;
     height: 360px;
     .title {
+      margin: 0;
+      font-weight: 500;
       @include text-ellipsis(2, 56px);
     }
   }
