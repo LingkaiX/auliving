@@ -1383,7 +1383,7 @@ section.head-section {
     section.head-section .center-block .title {
       margin: 0;
       font-size: 22px;
-      padding-bottom: 3px;
+      padding-bottom: 5px;
       font-weight: 350;
       overflow: hidden;
       text-overflow: ellipsis;
