@@ -1,4 +1,5 @@
 <section class="top-post-list">
+<h5><strong>热门推荐</strong></h5>
 <?php 
     $hotPostQuery = new WP_Query(
         array( 'meta_key' => 'views',
