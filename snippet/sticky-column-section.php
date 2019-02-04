@@ -11,8 +11,8 @@ if(countSafely($stickyColumns)>=3){
     section.sticky-columns .column .post-list h5{
         overflow: hidden;
         text-overflow: ellipsis;
-        display: 1;
-        -webkit-line-clamp: $line;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         max-height: 17px;
     }
