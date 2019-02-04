@@ -7,6 +7,16 @@ Need data:
 if(countSafely($stickyColumns)>=3){
     //echo count($stickyColumns);
 ?>
+<style>
+    section.sticky-columns .column .post-list h5{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: 1;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        max-height: 17px;
+    }
+</style>
 <section class="sticky-columns">
 <div class="container">
     <div id="sticky-columns" class="owl-carousel owl-theme">
