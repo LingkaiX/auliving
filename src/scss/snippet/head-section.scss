@@ -14,12 +14,6 @@ section.head-section {
         left: 1rem;
       }
     }
-    .title {
-      margin: 0;
-      font-weight: 350;
-      padding-bottom: 5px;
-      @include text-ellipsis(2, 56px);
-    }
   }
   .left {
     order: 2;
@@ -104,6 +98,7 @@ section.head-section {
     height: 360px;
     .title {
       margin: 0;
+      font-size: 22px;
       padding-bottom: 5px;
       font-weight: 350;
       @include text-ellipsis(2, 56px);
