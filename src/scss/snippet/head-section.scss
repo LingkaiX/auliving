@@ -94,6 +94,9 @@ section.head-section {
   .center-block {
     width: 640px;
     height: 360px;
+    .title {
+      @include text-ellipsis(2, 56px);
+    }
   }
   @include laptop {
     flex-wrap: wrap;
