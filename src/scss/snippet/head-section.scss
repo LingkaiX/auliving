@@ -14,9 +14,6 @@ section.head-section {
         left: 1rem;
       }
     }
-    .title{
-      max-height: 56px;
-    }
   }
   .left {
     order: 2;
@@ -94,6 +91,11 @@ section.head-section {
   .center-block {
     width: 640px;
     height: 360px;
+    .center-title {
+      margin: 0;
+      font-weight: 500;
+      @include center-title-ellipsis;
+    }
   }
   @include laptop {
     flex-wrap: wrap;
@@ -201,6 +203,10 @@ section.head-section {
         padding-bottom: 6px;
       }
       .title {
+        font-size: 13px;
+        @include text-ellipsis(3, 42px);
+      }
+      .center-title {
         font-size: 13px;
         @include text-ellipsis(3, 42px);
       }
