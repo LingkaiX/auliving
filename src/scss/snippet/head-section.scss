@@ -14,8 +14,10 @@ section.head-section {
         left: 1rem;
       }
     }
-    .title{
-      max-height: 56px;
+    .title {
+      margin: 0;
+      font-weight: 500;
+      @include text-ellipsis(2, 56px);
     }
   }
   .left {
