@@ -1686,6 +1686,11 @@ section.sticky-columns {
         background-color: rgba(0, 0, 0, 0); }
     section.sticky-columns .column .title {
       margin: 0.75rem 0; }
+    section.sticky-columns .column .read-more {
+      border: 1px;
+      border-radius: 3px;
+      padding: 2px 4px;
+      margin-bottom: 50px; }
     section.sticky-columns .column .post-list h5 {
       overflow: hidden;
       text-overflow: ellipsis;
