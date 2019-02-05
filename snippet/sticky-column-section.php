@@ -7,38 +7,7 @@ Need data:
 if(countSafely($stickyColumns)>=3){
     //echo count($stickyColumns);
 ?>
-<style>
-    section.sticky-columns .column .post-list h5{
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        max-height: 17px;
-    }
-    section.sticky-columns .column.read-more{
-        border:1px solid #003366;
-        border-radius: 6px;
-        padding: 0 6px;
-    }
-    section.sticky-columns .column p{
-        margin: 0 0 1.5rem ;
-    }
-    .zhuanlan{
-    width: 100%;
-    padding-top:5px;
-    }
-    .zhuanlan h4{
-      margin:0 0 5px;
-      height: 2rem;
-    }
-    .zhuanlan h4 span{
-      padding: 0 6px ;
-      color:white;
-      background-color: #003366;
-    }
-  }
-</style>
+
 <section class="sticky-columns">
 <div class="container">
     <div class="zhuanlan"><h4><span>专栏</span></h4><div>

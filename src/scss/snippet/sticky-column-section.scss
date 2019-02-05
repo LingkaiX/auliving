@@ -36,6 +36,14 @@ section.sticky-columns {
     .title {
       margin: 0.75rem 0;
     }
+    .desc{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      height: 54px;
+    }
     .read-more{
       border:1px solid #003366;
       border-radius: 6px;
@@ -43,6 +51,7 @@ section.sticky-columns {
     }
     .post-list h5 {
       @include text-ellipsis(1, 17px);
+      margin-bottom: 10px;
       @include addicon("\f111");
       &:before {
         font-size: 6px;
