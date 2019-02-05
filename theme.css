@@ -1472,15 +1472,7 @@ section.head-section {
   @media (max-width: 479.9px) {
     section.head-section .left .info-container {
       padding: 8px 4px;
-      padding-bottom: 6px; }
-    section.head-section .left .title {
-      font-size: 13px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      max-height: 42px; } }
+      padding-bottom: 6px; } }
 
 div.listed-post {
   padding: 0.75rem 0;
@@ -1654,10 +1646,14 @@ section.sticky-columns {
   max-width: 100%;
   background: rgba(111, 149, 187, 0.2);
   height: auto;
-  padding: 2rem 0; }
+  padding: 0 0 2rem; }
   @media (max-width: 991.9px) {
     section.sticky-columns #sticky-columns {
       margin: 0 auto; } }
+  section.sticky-columns span {
+    height: 2rem;
+    color: white;
+    background-color: #003366; }
   section.sticky-columns .column {
     width: auto; }
     section.sticky-columns .column .cover-img {

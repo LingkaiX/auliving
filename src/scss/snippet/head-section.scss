@@ -209,10 +209,10 @@ section.head-section {
         padding: 8px 4px;
         padding-bottom: 6px;
       }
-      .title {
-        font-size: 13px;
-        @include text-ellipsis(3, 42px);
-      }
+      // .title {
+      //   font-size: 13px;
+      //   @include text-ellipsis(3, 42px);
+      // }
       // .date-info {
       //   display: none;
       // }

@@ -3,14 +3,18 @@ section.sticky-columns {
   max-width: 100%;
   background: rgba(111, 149, 187, 0.2);
   height: auto;
-  padding: 2rem 0;
+  padding: 0 0 2rem;
   //margin-bottom: 12px;
   @include mobile {
     #sticky-columns {
       margin: 0 auto;
     }
   }
-
+  span{
+    height:2rem;
+    color:white;
+    background-color: $theme-blue;
+  }
   .column {
     width: auto;
     .cover-img {
