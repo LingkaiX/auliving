@@ -49,10 +49,6 @@ section.sticky-columns {
       border-radius: 6px;
       padding: 0 6px;
     }
-    .read-less{
-      display: block;
-      height: 20px;
-    }
     .post-list h5 {
       @include text-ellipsis(1, 17px);
       margin-bottom: 10px;
