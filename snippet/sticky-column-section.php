@@ -17,10 +17,13 @@ if(countSafely($stickyColumns)>=3){
         max-height: 17px;
     }
     section.sticky-columns .column.read-more{
-        border: 1px;
+        border:1px solid #003366;
         border-radius: 3px;
         padding: 2px 4px;
         margin-bottom: 50px;
+    }
+    section.sticky-columns .column p{
+        margin: 0 0 0.75rem ;
     }
     .zhuanlan{
     width: 100%;
@@ -51,7 +54,7 @@ if(countSafely($stickyColumns)>=3){
             <div class="column">
                 <div class="cover-img" style="background-image:url('<?php echo $fields['cover_img']['sizes']['thumbnail']?>');"></div>
                 <h4 class="title"><a href="<?php echo get_category_link($columnId); ?>"><?php echo get_cat_name($columnId); ?></a></h4>
-                <p class="title"><a class="read-more" href="<?php echo get_category_link($columnId); ?>">阅读更多</a></p>
+                <p><a class="read-more" href="<?php echo get_category_link($columnId); ?>">阅读更多</a></p>
                 <div class="desc"><?php echo category_description($columnId); ?></div>
                 <div class="post-list">
                     <?php
