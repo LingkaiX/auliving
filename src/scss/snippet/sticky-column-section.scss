@@ -51,7 +51,7 @@ section.sticky-columns {
     }
     .post-list h5 {
       @include text-ellipsis(1, 17px);
-      margin-bottom: 10px;
+      margin-top: 10px;
       @include addicon("\f111");
       &:before {
         font-size: 6px;

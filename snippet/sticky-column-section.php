@@ -22,7 +22,7 @@ if(countSafely($stickyColumns)>=3){
             <div class="column">
                 <div class="cover-img" style="background-image:url('<?php echo $fields['cover_img']['sizes']['thumbnail']?>');"></div>
                 <h4 class="title"><a href="<?php echo get_category_link($columnId); ?>"><?php echo get_cat_name($columnId); ?></a></h4>
-                <p><a class="read-more" href="<?php echo get_category_link($columnId); ?>">阅读更多</a></p>
+                <a class="read-more" href="<?php echo get_category_link($columnId); ?>">阅读更多</a>
                 <div class="desc"><?php echo category_description($columnId); ?></div>
                 <div class="post-list">
                     <?php
