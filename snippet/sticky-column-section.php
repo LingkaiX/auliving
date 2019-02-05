@@ -18,12 +18,11 @@ if(countSafely($stickyColumns)>=3){
     }
     section.sticky-columns .column.read-more{
         border:1px solid #003366;
-        border-radius: 3px;
-        padding: 2px 4px;
-        margin-bottom: 50px;
+        border-radius: 6px;
+        padding: 0 6px;
     }
     section.sticky-columns .column p{
-        margin: 0 0 0.75rem ;
+        margin: 0 0 1.5rem ;
     }
     .zhuanlan{
     width: 100%;
