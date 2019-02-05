@@ -3,17 +3,22 @@ section.sticky-columns {
   max-width: 100%;
   background: rgba(111, 149, 187, 0.2);
   height: auto;
-  padding: 0 0 2rem;
+  padding: 0 0 2rem ;
   //margin-bottom: 12px;
   @include mobile {
     #sticky-columns {
       margin: 0 auto;
     }
   }
-  span{
-    height:2rem;
-    color:white;
-    background-color: $theme-blue;
+  .zhuanlan{
+    width: 100%;
+    height: 2rem;
+    padding-top:5px;
+    span{
+      padding: 0 6px ;
+      color:white;
+      background-color: $theme-blue;
+    }
   }
   .column {
     width: auto;

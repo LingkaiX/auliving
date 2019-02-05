@@ -19,7 +19,7 @@ if(countSafely($stickyColumns)>=3){
 </style>
 <section class="sticky-columns">
 <div class="container">
-    <span>专栏</span>
+    <div class="zhuanlan"><span>专栏</span><div>
     <div id="sticky-columns" class="owl-carousel owl-theme">
         <?php
             foreach($stickyColumns as $columnId){

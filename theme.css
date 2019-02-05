@@ -1650,10 +1650,14 @@ section.sticky-columns {
   @media (max-width: 991.9px) {
     section.sticky-columns #sticky-columns {
       margin: 0 auto; } }
-  section.sticky-columns span {
+  section.sticky-columns .zhuanlan {
+    width: 100%;
     height: 2rem;
-    color: white;
-    background-color: #003366; }
+    padding-top: 5px; }
+    section.sticky-columns .zhuanlan span {
+      padding: 0 6px;
+      color: white;
+      background-color: #003366; }
   section.sticky-columns .column {
     width: auto; }
     section.sticky-columns .column .cover-img {
