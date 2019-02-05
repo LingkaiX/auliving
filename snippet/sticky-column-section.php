@@ -16,6 +16,26 @@ if(countSafely($stickyColumns)>=3){
         -webkit-box-orient: vertical;
         max-height: 17px;
     }
+    section.sticky-columns .column.read-more{
+        border: 1px;
+        border-radius: 3px;
+        padding: 2px 4px;
+        margin-bottom: 50px;
+    }
+    .zhuanlan{
+    width: 100%;
+    padding-top:5px;
+    }
+    .zhuanlan h4{
+      margin:0 0 5px;
+      height: 2rem;
+    }
+    .zhuanlan h4 span{
+      padding: 0 6px ;
+      color:white;
+      background-color: #003366;
+    }
+  }
 </style>
 <section class="sticky-columns">
 <div class="container">
