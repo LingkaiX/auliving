@@ -1,5 +1,5 @@
 <section class="top-post-list">
-<h5><strong style="color: #003366;">热门推荐 </strong><i style="color: #cc0033;" class="fas fa-align-left"></i></h5>
+<h5 class="hot"><strong>热门推荐 </strong></h5>
 <?php 
     $hotPostQuery = new WP_Query(
         array( 'meta_key' => 'views',

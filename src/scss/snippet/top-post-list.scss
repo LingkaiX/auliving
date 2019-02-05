@@ -23,6 +23,15 @@ section.top-post-list {
       //margin-right: 1.5rem;
     }
   }
+  .hot{
+    color: $theme-blue;
+    @include addicon("\f036",false);
+      &:after {
+        font-size: 18px;
+        color: $theme-red;
+        vertical-align: middle;
+      }
+  }
   .top-menu {
     list-style-type: none;
     padding: 0;
