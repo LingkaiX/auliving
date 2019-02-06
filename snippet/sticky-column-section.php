@@ -4,13 +4,13 @@ Need data:
     Array<Category_ID>: $stickyColumns
 */
 //print_r($stickyColumns);
-if(countSafely($stickyColumns)>=3){
+if(1){
     //echo count($stickyColumns);
 ?>
 
 <section class="sticky-columns">
 <div class="container">
-    <div class="zhuanlan"><h4><span>专栏</span></h4><div>
+    <div class="zhuanlan"><h4><span class="zi">专栏</span></h4><div>
     <div id="sticky-columns" class="owl-carousel owl-theme">
         <?php
             foreach($stickyColumns as $columnId){

@@ -1645,20 +1645,20 @@ section.sticky-columns {
   width: 100vw;
   max-width: 100%;
   background: rgba(111, 149, 187, 0.2);
-  height: auto;
-  padding: 0 0 2rem; }
+  height: auto; }
   @media (max-width: 991.9px) {
     section.sticky-columns #sticky-columns {
       margin: 0 auto; } }
   section.sticky-columns .zhuanlan {
-    width: 100%;
-    padding-top: 5px; }
+    width: 100%; }
     section.sticky-columns .zhuanlan h4 {
-      margin: 0 0 5px;
-      height: 2rem; }
-    section.sticky-columns .zhuanlan span {
-      padding: 0 6px;
+      margin: 0;
+      height: 2rem;
+      padding-top: 10px; }
+    section.sticky-columns .zhuanlan .zi {
+      padding: 10px 20px 5px;
       color: white;
+      font-size: 20px;
       background-color: #003366; }
   section.sticky-columns .column {
     width: auto; }
@@ -1691,13 +1691,15 @@ section.sticky-columns {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      height: 4.4rem; }
+      height: 3.2rem;
+      margin-bottom: 1.5rem; }
     section.sticky-columns .column .read-more {
       border: 1px solid #003366;
       border-radius: 6px;
-      padding: 0 6px; }
+      padding: 4px 10px 3px;
+      font-size: 12px; }
     section.sticky-columns .column .post-list h5 {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1705,7 +1707,7 @@ section.sticky-columns {
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
       max-height: 17px;
-      margin-top: 5px; }
+      margin-top: 10px; }
       section.sticky-columns .column .post-list h5::before {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
@@ -1715,6 +1717,8 @@ section.sticky-columns {
       section.sticky-columns .column .post-list h5:before {
         font-size: 6px;
         vertical-align: middle; }
+  section.sticky-columns .owl-stage {
+    padding-bottom: 2rem; }
   section.sticky-columns .owl-dots .owl-dot span {
     width: 20px;
     height: 5px;

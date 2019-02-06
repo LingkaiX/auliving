@@ -3,7 +3,7 @@ section.sticky-columns {
   max-width: 100%;
   background: rgba(111, 149, 187, 0.2);
   height: auto;
-  padding: 0 0 2rem ;
+  //padding: 0 0 2rem ;
   //margin-bottom: 12px;
   @include mobile {
     #sticky-columns {
@@ -12,14 +12,15 @@ section.sticky-columns {
   }
   .zhuanlan{
     width: 100%;
-    padding-top:5px;
     h4{
-      margin:0 0 5px;
+      margin:0 ;
       height: 2rem;
+      padding-top: 10px;
     }
-    span{
-      padding: 0 6px ;
+    .zi{
+      padding: 10px 20px 5px;
       color:white;
+      font-size: 20px;
       background-color: $theme-blue;
     }
   }
@@ -41,24 +42,29 @@ section.sticky-columns {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      height: 4.4rem;
+      height: 3.2rem;
+      margin-bottom: 1.5rem;
     }
     .read-more{
       border:1px solid #003366;
       border-radius: 6px;
-      padding: 0 6px;
+      padding: 4px 10px 3px;
+      font-size: 12px;
     }
     .post-list h5 {
       @include text-ellipsis(1, 17px);
-      margin-top: 5px;
+      margin-top: 10px;
       @include addicon("\f067");
       &:before {
         font-size: 6px;
         vertical-align: middle;
       }
     }
+  }
+  .owl-stage{
+    padding-bottom: 2rem;
   }
   .owl-dots .owl-dot span{
     width: 20px;
