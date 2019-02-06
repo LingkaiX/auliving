@@ -1,7 +1,6 @@
 {
   "name": "src",
   "version": "1.0.0",
-  "description": "",
   "main": "theme.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sass": "^1.14.3"
+    "sass": "^1.17.0"
   },
   "devDependencies": {
     "cssnano": "^4.1.7",
-    "node-sass": "^4.9.4"
-  }
+    "node-sass": "^4.11.0"
+  },
+  "description": ""
 }
