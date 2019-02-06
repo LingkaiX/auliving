@@ -59,8 +59,9 @@ section.sticky-columns {
       margin-top: 10px;
       @include addicon("\f067");
       &:before {
-        font-size: 6px;
+        font-size: 11px;
         vertical-align: middle;
+        color:$theme-blue-a5;
       }
     }
   }
