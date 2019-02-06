@@ -60,4 +60,14 @@ section.sticky-columns {
       }
     }
   }
+  .owl-dots .owl-dot span{
+    width: 20px;
+    height: 5px;
+    background: $theme-blue-a2;
+  }
+  .owl-dots .owl-dot.active span,  .owl-dots .owl-dot:hover span{
+    background: $theme-blue-a8;
+    width: 20px;
+    height: 5px;
+  }
 }
