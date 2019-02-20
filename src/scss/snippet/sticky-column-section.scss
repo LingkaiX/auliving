@@ -8,7 +8,7 @@ section.sticky-columns {
   @include mobile {
     #sticky-columns {
       margin: 0 auto;
-      margin-bottom: 10px;
+      margin-bottom: 1.5rem;
     }
   }
   .zhuanlan{
@@ -19,7 +19,7 @@ section.sticky-columns {
       padding-top: 6px;
     }
     .zi{
-      padding: 10px 10px 0px;
+      padding: 10px 10px 4px;
       color:white;
       //font-size: 20px;
       background-color: $theme-blue;
