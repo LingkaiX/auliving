@@ -45,6 +45,8 @@
         defineSizeMapping(mapping2).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-s3', [[300, 250], [320, 50]], 'div-gpt-ad-1543363074255-0').
         defineSizeMapping(mapping2).setCollapseEmptyDiv(true).addService(googletag.pubads());
+    googletag.defineSlot('/21666183985/aulv/aulv-l1', [160, 600], 'div-gpt-ad-1550722293026-0').addService(googletag.pubads());
+    googletag.defineSlot('/21666183985/aulv/aulv-r1', [160, 600], 'div-gpt-ad-1550722764755-0').addService(googletag.pubads());
 
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();

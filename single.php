@@ -7,6 +7,7 @@
     </script>
     </div>
 </aside>
+<?php include 'snippet/side-ads.php';?>  
 <main class="container">
     <div class="item article">
         <?php
