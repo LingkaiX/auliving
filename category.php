@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <main>
-<?php include 'snippet/side-ads.php';?> 
 <section class="first-section container">
     <div class="item left">
     <?php
