@@ -6,16 +6,22 @@ section.side-ads {
     position: absolute;
     display: flex;
     justify-content:center;
+    .box{
+        width: 1480px;
+        display: flex;
+        justify-content:center;
+    }
     .left{
         width: 160px;
         height: 600px;
+        background-color: aqua;
     }
     .center{
-        width: 1140px;
-        margin: 0 10px;
+        flex-grow: 1;
     }
     .right{
         width: 160px;
         height: 600px;
+        background-color: aqua;
     }
 }
