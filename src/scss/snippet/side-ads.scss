@@ -11,15 +11,15 @@ section.side-ads {
         display: flex;
         justify-content:center;
     }
-    .left{
+    .adleft{
         width: 160px;
         height: 600px;
     }
-    .center{
+    .adcenter{
         min-width: 1140px;
         flex-grow: 1;
     }
-    .right{
+    .adright{
         width: 160px;
         height: 600px;
     }
