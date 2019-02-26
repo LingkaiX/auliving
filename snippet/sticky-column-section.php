@@ -61,9 +61,9 @@ if(1){
         setInterval(function(){ 
             owlStickyColumns.trigger('next.owl.carousel');
         }, 5000);
+        $('.owl-dots .owl-dot').hover(function() {
+		    $(this).click();
+	    })
     });
-    $('.owl-dots .owl-dot').hover(function() {
-		$(this).click();
-	})
 </script>
 <?php } ?>
