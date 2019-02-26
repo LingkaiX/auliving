@@ -62,5 +62,8 @@ if(1){
             owlStickyColumns.trigger('next.owl.carousel');
         }, 5000);
     });
+    $('.owl-carousel .owl-dots').hover(function() {
+        $(this).click();
+    }, function() {});
 </script>
 <?php } ?>

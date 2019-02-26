@@ -1,7 +1,7 @@
 section.sticky-columns {
   width: 100vw;
   max-width: 100%;
-  background: rgba(111, 149, 187, 0.2);
+  //background: rgba(111, 149, 187, 0.2);
   height: auto;
   //padding: 0 0 2rem ;
   //margin-bottom: 12px;
@@ -13,6 +13,7 @@ section.sticky-columns {
   }
   .zhuanlan{
     width: 100%;
+    border-top: 2px solid $theme-blue;
     h4{
       margin:0 ;
       height: 2rem;
