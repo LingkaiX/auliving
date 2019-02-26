@@ -23,9 +23,9 @@ div.listed-post {
     .title {
       margin-top: 0;
       margin-bottom: 0.75rem;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 400;
-      @include text-ellipsis(2, 2.75rem);
+      @include text-ellipsis(2, 2.95rem);
     }
     .sub-title {
       color: $theme-gray-dark;
@@ -66,7 +66,7 @@ div.listed-post {
         margin-top: 2px;
         margin-bottom: 8px;
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 400;
         @include text-ellipsis(3, 54px);
       }
       .sub-title {
@@ -91,8 +91,8 @@ div.listed-post {
     .post-info {
       margin-left: 8px;
       .title {
-        font-size: 14px;
-        max-height: 48px;
+        font-size: 16px;
+        max-height: 52px;
       }
 
       .date-info {
