@@ -92,7 +92,8 @@ div.listed-post {
       margin-left: 8px;
       .title {
         font-size: 16px;
-        max-height: 52px;
+        max-height: 37px;
+        -webkit-line-clamp: 2;
       }
 
       .date-info {
