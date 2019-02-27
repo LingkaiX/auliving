@@ -7,7 +7,8 @@ section.side-ads {
     display: flex;
     justify-content:center;
     .box{
-        width: 1480px;
+        max-width: 1532px;
+        min-width: 1480px;
         display: flex;
         justify-content:center;
     }
