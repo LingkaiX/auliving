@@ -29,7 +29,8 @@ Need data:
                         //if(count($scQuery->posts)!=3) continue;
                 ?>
                     <div  class="column <?php echo $fields['sticky_columns_cate']; ?>"><a href="<?php echo get_category_link($columnId); ?>">
-                        <div class="thumbnail_img" style="background-image:url('<?php echo $fields['thumbnail_img']['sizes']['thumbnail']?>');"></div>
+                        <div class="thumbnail_img" style="background-image:url('<?php echo $fields['cover_img']['sizes']['thumbnail']?>');"></div>
+                        <!-- <div class="thumbnail_img" style="background-image:url('<?php echo $fields['thumbnail_img']['sizes']['thumbnail']?>');"></div> -->
                         <div class="cover-img" style="background-image:url('<?php echo $fields['cover_img']['sizes']['thumbnail']?>');"></div>
                         <h4 class="title"><a href="<?php echo get_category_link($columnId); ?>"><?php echo get_cat_name($columnId); ?></a></h4>
                         
