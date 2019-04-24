@@ -12,11 +12,6 @@
         width: 100vw;
         max-width: 100%;
     }
-    @include mobile {
-      .sticky-columns{
-        justify-content:center;
-      }
-    }
     .classi{
       display: flex;
       flex-wrap: wrap;
@@ -46,7 +41,7 @@
       margin:20px 10px 0;
       border:1px solid #003366;
       border-radius: 5px;
-      background: rgba(111, 149, 187, 0.2);
+      //background: rgba(111, 149, 187, 0.2);
       .cover-img {
         width: 4.5rem;
         height: 4.5rem;
@@ -88,6 +83,25 @@
         border-radius: 6px;
         padding: 4px 10px 3px;
         font-size: 12px;
+      }
+    }
+    @include mobile {
+      .sticky-columns{
+        justify-content:center;
+      }
+      .classi{
+        justify-content:center;
+        width: 96vw;
+        margin: 0 8px;
+        span{
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 5px;
+          text-align: center;
+        }
+        a{
+          margin-top: 0.25rem;
+        }
       }
     }
 }
