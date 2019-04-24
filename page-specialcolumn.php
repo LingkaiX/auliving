@@ -16,7 +16,7 @@ Need data:
             <div class="classi">
             <span id="justASpan">专栏分类</span>
                 <?php foreach($stickyColumnsCate as $cateId){?> 
-                    <a  onclick="classi_display(<?php echo $cateId; ?>)"><?php echo get_cat_name($cateId); ?></a>
+                    <a class="anotherclass" onclick="classi_display(this,<?php echo $cateId; ?>)"><?php echo get_cat_name($cateId); ?></a>
                 <?php } ?>
             </div>
             <div class="sticky-columns">
@@ -46,13 +46,16 @@ Need data:
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        function classi_display(id){
+        function classi_display(color, id){
+            $('.anotherclass').css('color', '#003366');
             $('.column').slideUp(1);
             $('.'+id).slideDown();
+            color.style.color = "#cc0033";
         }
         $(document).ready(function(){
             $("#justASpan").click(function(){
                 $('.column').slideDown();
+                $('.anotherclass').css('color', '#003366');
             });
         });
     </script>

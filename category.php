@@ -3,6 +3,7 @@
 <?php include 'snippet/side-ads.php';?>
 <section class="first-section container">
     <div class="item left">
+    <?php include 'snippet/column-cate-desc.php';?>
     <?php
         if ( have_posts() ){
             while ( have_posts() ) : the_post();
