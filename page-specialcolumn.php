@@ -47,15 +47,26 @@ Need data:
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function classi_display(color, id){
-            $('.anotherclass').css('color', '#003366');
             $('.column').slideUp(1);
             $('.'+id).slideDown();
+            $('.anotherclass').css('color', '#003366');
             color.style.color = "#cc0033";
+            $(".anotherclass").hover(function(){
+                $(this).css("color", "#cc0033");
+                }, function(){
+                $('.anotherclass').css('color', '#003366');
+                color.style.color = "#cc0033";
+            });
         }
         $(document).ready(function(){
             $("#justASpan").click(function(){
                 $('.column').slideDown();
                 $('.anotherclass').css('color', '#003366');
+                $(".anotherclass").hover(function(){
+                    $(this).css("color", "#cc0033");
+                    }, function(){
+                    $('.anotherclass').css('color', '#003366');
+                });
             });
         });
     </script>

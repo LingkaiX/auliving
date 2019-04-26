@@ -29,7 +29,7 @@
         font-weight: bold;
         color: $theme-blue;
       }
-      a:hover {
+      a:hover, #justASpan {
         cursor:pointer;
        }
       a{
@@ -87,7 +87,13 @@
     }
     @include mobile {
       .sticky-columns{
-        justify-content:center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin: 0 10px;
+      }
+      .column {
+        min-width: 200px;
+        margin: 20px 10px 0 0;
       }
       .classi{
         justify-content:center;
