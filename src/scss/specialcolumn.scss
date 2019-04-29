@@ -93,11 +93,22 @@
         margin: 0 10px;
       }
       .column {
-        min-width: 200px;
+        min-width: 230px;
         margin: 20px 10px 0 0;
+        .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        height: 67px;
+        }
+        .desc{
+          margin-top: 15px;
+        }
       }
       .classi{
-        justify-content:center;
+        justify-content:space-between;
         width: 96vw;
         margin: 0 8px;
         span{
@@ -107,7 +118,11 @@
           text-align: center;
         }
         a{
-          margin-top: 0.25rem;
+          width: 86px;
+          margin: 2px 0.5rem;
+          text-align: center;
+          border-radius: 5px;
+          background: rgba(111, 149, 187, 0.2);
         }
       }
     }
