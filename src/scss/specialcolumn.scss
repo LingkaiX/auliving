@@ -88,7 +88,8 @@
     @include mobile {
       .sticky-columns{
         flex-wrap: nowrap;
-        overflow-x: auto;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
         margin: 0 10px;
       }
       .column {
