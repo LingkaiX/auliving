@@ -20,8 +20,8 @@
       width: 100vw;
       max-width: 100%;
       //background: rgba(111, 149, 187, 0.2);
-      border-radius: 5px;
-      box-shadow: 1px 1px 8px rgba(111,149,187,.2) inset;
+      border-bottom: solid 2px rgba(111,149,187,.2) ;
+      //box-shadow: 1px 1px 5px rgba(111,149,187,.3) ;
       padding: 10px 0 10px 10px;
       span{
         margin-right: 2rem;
@@ -59,14 +59,17 @@
         margin-bottom: 0.75rem;
       }
       .title {
-        margin: 0.75rem 0.75rem 0.75rem 0;
+        margin: 0.75rem 0.75rem 0.25rem 0;
         height: 46px;
-        font-size: 20px;
-        text-align:justify;
+        font-weight: 500;
+        font-size: 18px;
+        a{
+          transition: all 0.3s ease-in-out;
+        }
         
       }
       .desc{
-        margin:35px 0.75rem 0.75rem 0.75rem;
+        margin:18px 0 0.75rem 0.75rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -75,7 +78,6 @@
         height: 4.4rem;
         p{
           margin-top: 0px;
-          text-align:justify;
         }
       }
       .read-more{
@@ -93,19 +95,22 @@
         margin: 0 10px;
       }
       .column {
-        min-width: 230px;
+        min-width: 265px;
         margin: 20px 10px 0 0;
-        .title {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        height: 67px;
-        }
-        .desc{
-          margin-top: 15px;
-        }
+        // .title {
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        // display: -webkit-box;
+        // -webkit-line-clamp: 3;
+        // -webkit-box-orient: vertical;
+        // height: 67px;
+        // }
+        // .desc{
+        //   margin-top: 15px;
+        // }
+        // .read-more{
+        //   display: none;
+        // }
       }
       .classi{
         justify-content:space-between;
@@ -119,7 +124,8 @@
         }
         a{
           width: 86px;
-          margin: 2px 0.5rem;
+          padding:4px 0 2.5px 0;
+          margin: 4px 0.5rem;
           text-align: center;
           border-radius: 5px;
           background: rgba(111, 149, 187, 0.2);

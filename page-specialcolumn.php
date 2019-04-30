@@ -36,7 +36,7 @@ Need data:
                         <?php } ?>
                         <div class="cover-img" style="background-image:url('<?php echo $fields['cover_img']['sizes']['thumbnail']?>');"></div>
                         <h4 class="title"><a href="<?php echo get_category_link($columnId); ?>"><?php echo get_cat_name($columnId); ?></a></h4>
-                        
+                        <a class="read-more" href="<?php echo get_category_link($columnId); ?>">阅读更多</a>
                         <div class="desc"><?php echo category_description($columnId); ?></div>
                          
                     </a></div>
