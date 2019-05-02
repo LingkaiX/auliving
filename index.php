@@ -31,7 +31,7 @@
     </div>
 </section>
 <?php 
-    $stickyColumns = get_field( 'sticky_columns', 'category_'.get_category_by_slug( 'top' )->term_id );
+    $stickyColumns = get_field( 'sticky_columns', 'category_'.get_category_by_slug( 'special-column' )->term_id );
     include 'snippet/sticky-column-section.php';
 ?>
 <section class="second-section container">
