@@ -1,0 +1,21 @@
+section.cate-info{
+    width: auto;
+    .cover-img {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      @include img-bg;
+      float: left;
+      margin-right: 0.75rem;
+    }
+    .title {
+      margin: 0.75rem 0;
+      font-size: 20px;
+      color: $theme-blue;
+    }
+    .desc{
+      margin:10px 0 5px;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+}
