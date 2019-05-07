@@ -68,6 +68,9 @@ Need data:
                     $('.anotherclass').css('color', '#003366');
                 });
             });
+            if(window.location.hash.substr(1)){
+                classi_display(document.getElementById("justASpan"),window.location.hash.substr(1));
+            }
         });
     </script>
 </main>

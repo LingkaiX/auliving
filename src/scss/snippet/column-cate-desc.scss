@@ -1,5 +1,6 @@
 section.cate-info{
-    width: auto;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
     .cover-img {
       width: 4.5rem;
       height: 4.5rem;
@@ -14,9 +15,19 @@ section.cate-info{
       color: $theme-blue;
     }
     .desc{
-      margin:10px 0 5px;
-      min-height: 52px;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid #eee;
+      margin:10px 0 0.75rem;
+      padding-left: 84px;
+      min-height: 36px;
+      p{
+        margin-bottom: 0;
+      }
+      .contact-info{
+        padding-top: 0.5rem;
+      }
+    }
+    @include mobile {
+      .desc{
+        padding-left: 0;
+      }
     }
 }
