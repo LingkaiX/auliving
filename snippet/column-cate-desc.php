@@ -30,9 +30,12 @@
                         echo '<a href="'.$contact['web'].'">'.$contact['web'].'</a> ';
                 }
                  if(is_array($contact['addresses'])&&sizeof($contact['addresses'])){
+                    $i=1;
                     echo'地址: ';
                     foreach ($contact['addresses'] as $address) {
+                        if($i>1)echo '地址'.$i.': ';
                         echo $address['address'].', ';
+                        $i++;
                     }
                 }?>
             </div>
