@@ -12,31 +12,33 @@
     <div class="desc">
         <?php echo category_description($cateInfo->term_id); ?>
         <?php if($fields['contact']): $contact= $fields['contact']; ?>
-            <div class="contact-info">
+            <div  class="contact-info">
                 <?php if(is_array($contact['phone'])&&sizeof($contact['phone'])){
-                    echo'电话:';
+                    echo'<p>电话:';
                     foreach ($contact['phone'] as $phone) {
                         echo '<a href="tel:'.$phone['phone_no'].'">'.$phone['phone_no'].'</a>, ';
                     }
+                    echo'</p>';
                 }
                  if(is_array($contact['emails'])&&sizeof($contact['emails'])){
-                    echo'邮箱:';
+                    echo'<p>邮箱:';
                     foreach ($contact['emails'] as $email) {
                         echo '<a href="mailto:'.$email['email'].'">'.$email['email'].'</a>, ';
                     }
+                    echo'</p>';
                 }
                  if($contact['web']){
-                    echo'网站: ';
-                        echo '<a href="'.$contact['web'].'">'.$contact['web'].'</a> ';
+                        echo '<p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;">网站: <a href="'.$contact['web'].'">'.$contact['web'].'</a> </p>';
                 }
                  if(is_array($contact['addresses'])&&sizeof($contact['addresses'])){
                     $i=1;
-                    echo'地址: ';
+                    echo'<p>地址: ';
                     foreach ($contact['addresses'] as $address) {
                         if($i>1)echo '地址'.$i.': ';
                         echo $address['address'].', ';
                         $i++;
                     }
+                    echo'</p>';
                 }?>
             </div>
         <?php endif; ?>

@@ -22,7 +22,9 @@ section.cate-info{
         margin-bottom: 0;
       }
       .contact-info{
-        padding-top: 0.5rem;
+        p{
+          margin-top: 5px;
+        }
       }
     }
     @include mobile {
