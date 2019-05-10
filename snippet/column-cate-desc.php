@@ -37,6 +37,7 @@
                         if($i>1)echo '地址'.$i.': ';
                         echo $address['address'].', ';
                         $i++;
+                        echo'<br>';
                     }
                     echo'</p>';
                 }?>
