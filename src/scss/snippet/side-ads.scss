@@ -17,6 +17,7 @@ section.side-ads {
     .adleft{
         width: 160px;
         height: 600px;
+        z-index: -1;
     }
     .adcenter{
         flex-grow: 1;
@@ -26,5 +27,6 @@ section.side-ads {
     .adright{
         width: 160px;
         height: 600px;
+        z-index: -1;
     }
 }
