@@ -54,6 +54,7 @@ body.home main {
     height: 90px;
     margin-bottom: -8px;
     margin-top: 4px;
+    z-index: 1000;
   }
   @include laptop {
     .first-section {
