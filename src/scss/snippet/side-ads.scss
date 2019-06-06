@@ -6,11 +6,13 @@ section.side-ads {
     position: absolute;
     display: flex;
     justify-content:center;
+    z-index: -1;
     .box{
         width: 1564px;
         min-width: 1480px;
         display: flex;
         justify-content:center;
+        z-index: -1;
     }
     .adleft{
         width: 160px;
@@ -18,6 +20,8 @@ section.side-ads {
     }
     .adcenter{
         flex-grow: 1;
+        height:10px;
+        z-index: -1;
     }
     .adright{
         width: 160px;
