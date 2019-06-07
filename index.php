@@ -8,7 +8,7 @@
     include 'snippet/head-section.php';
     //print_r(get_taxonomy( 'top' ));
 ?>
-<section>
+<section class="first-section container">
     <aside class="gam-aulv aulv-h1">
         <!-- /21666183985/aulv/aulv-h1 -->
         <div id='div-gpt-ad-1543362254773-0'>
