@@ -22,5 +22,4 @@
             </aside>
         </div>
     </div>
-    <IMG SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22693725.248450500;dc_trk_aid=444812293;dc_trk_cid=117185844;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
-</section>
+    </section>
