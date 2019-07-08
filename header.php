@@ -105,6 +105,6 @@
 </div>
 <div class="for-header"></div>
 <!-- telstra ad -->
-<IMG class="1" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22693725.248627340;dc_trk_aid=444812293;dc_trk_cid=117185844;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
-<IMG class="2" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22693725.248630784;dc_trk_aid=444812293;dc_trk_cid=117185844;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
+<IMG class="1" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250969977;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
+<IMG class="2" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250968558;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
 <script>jQuery(document).ready(function($){if( window.innerWidth > 990 ){$(".2").css("display", "none");}else {$(".1").css("display", "none");}});</script>
