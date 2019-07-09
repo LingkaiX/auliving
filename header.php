@@ -108,3 +108,14 @@
 <IMG class="1" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250969977;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
 <IMG class="2" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250968558;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
 <script>jQuery(document).ready(function($){if( window.innerWidth > 990 ){$(".2").css("display", "none");}else {$(".1").css("display", "none");}});</script>
+<!-- fixed bottom ad -->
+<aside id="bfa" class="gam-aulv aulv-bfa">
+    <!-- /21666183985/aulv/aulv-bottom-fixed -->
+    <div id='div-gpt-ad-1562633073617-0'>
+        <span onclick="document.getElementById('bfa').style.display='none'" 
+            class="ad-close-button">&times;</span>
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1562633073617-0'); });
+        </script>
+    </div>
+</aside>

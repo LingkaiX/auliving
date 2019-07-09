@@ -47,7 +47,8 @@
         defineSizeMapping(mapping2).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-l1', [160, 600], 'div-gpt-ad-1550722293026-0').addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-r1', [160, 600], 'div-gpt-ad-1550722764755-0').addService(googletag.pubads());
-
+    googletag.defineSlot('/21666183985/aulv/aulv-bottom-fixed', [[320, 50], [728, 90]], 'div-gpt-ad-1562633073617-0').
+    defineSizeMapping(mapping1).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
