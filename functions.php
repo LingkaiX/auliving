@@ -12,7 +12,7 @@ add_filter('pre_get_posts', 'SearchFilter');
 function add_styles_and_scripts()
 {
 	wp_enqueue_style('default-style', get_stylesheet_uri(), array(), '0.0.1', 'all');
-	wp_enqueue_style('theme-style', get_template_directory_uri() . '/theme.css', array(), '0.4.9', 'all');
+	wp_enqueue_style('theme-style', get_template_directory_uri() . '/theme.css', array(), '0.5.0', 'all');
 
 	wp_enqueue_script('theme-js', get_template_directory_uri() . '/theme.js', array('jquery'), '0.0.2', true);
 
