@@ -11,7 +11,9 @@
     </aside>
 </section>
 <script>
-    setTimeout(function(){
-        document.getElementById('bfa').style.display = 'none';
-    }, 20000); 
+    $(document).ready(function(){
+        window.setTimeout(function(){
+            $('#bfa').hide();
+        }, 10000);
+    });
 </script>
