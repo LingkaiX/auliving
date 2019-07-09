@@ -11,9 +11,7 @@
     </aside>
 </section>
 <script>
-    jQuery(document).ready(function($){
-        setTimeout(function(){
-            document.getElementById('bfa').style.display = 'none';
-        }, 20000); 
-    });
+    setTimeout(function(){
+        document.getElementById('bfa').style.display = 'none';
+    }, 1000); 
 </script>
