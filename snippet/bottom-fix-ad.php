@@ -10,3 +10,10 @@
                 class="ad-close-button">&times;</span>
     </aside>
 </section>
+<script>
+    jQuery(document).ready(function($){
+        setTimeout(function(){
+            document.getElementById('bfa').style.display = 'none';
+        }, 20000); 
+    });
+</script>
