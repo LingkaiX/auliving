@@ -11,9 +11,9 @@
     </aside>
 </section>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function($){
         window.setTimeout(function(){
             $('#bfa').hide();
-        }, 20000);
+        }, 200000);
     });
 </script>
