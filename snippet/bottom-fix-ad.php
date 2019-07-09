@@ -13,5 +13,5 @@
 <script>
     setTimeout(function(){
         document.getElementById('bfa').style.display = 'none';
-    }, 1000); 
+    }, 20000); 
 </script>
