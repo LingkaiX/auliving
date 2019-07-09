@@ -14,6 +14,6 @@
     $(document).ready(function(){
         window.setTimeout(function(){
             $('#bfa').hide();
-        }, 10000);
+        }, 20000);
     });
 </script>
