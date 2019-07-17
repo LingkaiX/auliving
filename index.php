@@ -16,6 +16,7 @@
         googletag.cmd.push(function() { googletag.display('div-gpt-ad-1543362254773-0'); });
         </script>
         </div>
+        <IMG SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250570745;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
     </aside>
 </section>
 
