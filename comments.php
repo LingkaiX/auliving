@@ -10,7 +10,7 @@
             <input type="hidden" name="parent" value="0">
             <input type="hidden" name="meta[refer_info_name]" value="">
             <input type="hidden" name="meta[refer_info_id]" value="">
-            <p class="notice" style="width: 75%" ><a target="_blank" href="<?php echo getBaseUrl().'/comunity-policy' ; ?>">社区准则？</a><br>
+            <p class="notice" style="height: auto; width: 69%" ><a target="_blank" href="<?php echo getBaseUrl().'/comunity-policy' ; ?>">社区准则？</a><br>
             欢迎网友畅所欲言、各抒己见，请理性交流、互相尊重，严禁互相恶意人身攻击、谩骂等，澳洲生活网保留删除脏话、侮辱等恶意留言的权利。</p>
             <button type="submit" class="search-submit">发表评论</button>
         </form>
