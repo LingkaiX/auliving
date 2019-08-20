@@ -110,8 +110,17 @@
         // 处理视频Iframe适应窗口
         jQuery(document).ready(function($) {
             jQuery(".single-post main section.content iframe").each(function( index ) {
+              var frame_src = jQuery(this).attr('src');
+              if (frame_src.includes("//www.youtube.com/embed")) {
                 var div = jQuery("<div>", {"style": "position:relative;padding-top:56.25%;"});
                 var frame= jQuery(this).clone().css({"position":"absolute","top":0,"left":0,"width":"100%","height":"100%"});
+              } else {
+                var frame_height = parseInt(jQuery(this).attr('height'), 10);
+                frame_height = frame_height + 20;
+                frame_height = frame_height.toString() + 'px';
+                var div = jQuery("<div>", {"style": "position:relative;padding-top:"+frame_height+";"});
+                var frame= jQuery(this).clone().css({"position":"absolute","top":0,"left":0,"width":"100%","height":frame_height});
+              }
                 div = div.append(frame);
                 jQuery(this).replaceWith(div);
             });
