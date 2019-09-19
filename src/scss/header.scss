@@ -80,7 +80,15 @@
     border: none;
     line-height: 46px;
     color: $theme-gray-dark;
-    width: 100%;
+    //width: 100%;
+  }
+  .search-form #search-item{
+    width: 92%;
+  }
+  .search-form #search-submit{
+    line-height: 32px;
+    border-radius: 5px;
+    width: 56px;
   }
   .search-form input:focus {
     outline: none;
@@ -187,6 +195,9 @@
     .search-form .input-group {
       padding-right: 48px;
       border-bottom: $gray-border;
+    }
+    .search-form input,.search-form #search-submit {
+      width: 100%;
     }
     .header-menu-container-covered {
       opacity: 0.1;

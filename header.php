@@ -52,6 +52,7 @@
                     <i class="fas fa-search" style="padding: 15px;"></i>   
                     <div class="input-group">
                         <input type="text" id="search-item" name="s" placeholder="搜索文章" autocomplete="off">
+                        <input type="submit" id="search-submit" value="搜索">
                     </div>
                 </form>
                 <div class="search-button-close" id="search-button-close">
