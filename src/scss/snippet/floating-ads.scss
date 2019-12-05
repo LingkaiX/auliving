@@ -1,3 +1,30 @@
+section.popup-ad{
+    .aulv-popup-ad{
+        margin: 0 auto;
+        width: 400px;
+        height: 300px;
+        position:fixed;
+        bottom:50%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9000;
+    }
+    .ad-close-button2{
+        font-weight: bold;
+        position:absolute;
+        z-index: 9900;
+        margin-top: -1px;
+        margin-right: 1px;
+        right:0;
+        top:0;
+        cursor:pointer;
+      }
+    @include mobile {
+        .ad-close-button2 {
+            right:3.75%;
+        }
+    }
+}
 section.bfa{
     .aulv-bfa {
         margin: 0 auto;
