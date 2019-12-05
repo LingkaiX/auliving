@@ -27,9 +27,9 @@
         setTimeout(function(){
             document.getElementById("bfa").style.display = "none";
             document.getElementById("popup-ad").style.display = "initial";
-        }, 5000);
+        }, 8000);
         setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
-        }, 10000);
+        }, 16000);
     });
 </script>
