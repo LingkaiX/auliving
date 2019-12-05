@@ -26,7 +26,10 @@
    jQuery(document).ready(function($){
         setTimeout(function(){
             document.getElementById("bfa").style.display = "none";
+            document.getElementById("popup-ad").style.display = "initial";
+        }, 5000);
+        setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
-        }, 20000);
+        }, 10000);
     });
 </script>

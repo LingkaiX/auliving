@@ -4,10 +4,11 @@ section.popup-ad{
         width: 400px;
         height: 300px;
         position:fixed;
-        bottom:50%;
+        top:50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         z-index: 9000;
+        display: none;
     }
     .ad-close-button2{
         font-weight: bold;
@@ -20,8 +21,11 @@ section.popup-ad{
         cursor:pointer;
       }
     @include mobile {
-        .ad-close-button2 {
-            right:3.75%;
+        .aulv-popup-ad{
+            width: 340px;
+        }
+        #div-gpt-ad-1575507414524-0{
+            transform: translateX(-30px);
         }
     }
 }
