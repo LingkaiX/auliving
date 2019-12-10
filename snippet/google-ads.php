@@ -28,6 +28,10 @@
         addSize([adjustedWidth, 100], [468, 60]).
         addSize([0, 0], [320, 50]).
         build();
+    var mapping4 = googletag.sizeMapping().
+        addSize([adjustedWidth, 100], [1024, 768]).
+        addSize([0, 0], [320, 480]).
+        build();
 
     googletag.defineSlot('/21666183985/aulv/aulv-h1', [[320, 50], [728, 90]], 'div-gpt-ad-1543362254773-0').
         defineSizeMapping(mapping1).setCollapseEmptyDiv(true).addService(googletag.pubads());
@@ -48,8 +52,9 @@
     googletag.defineSlot('/21666183985/aulv/aulv-l1', [160, 600], 'div-gpt-ad-1550722293026-0').addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-r1', [160, 600], 'div-gpt-ad-1550722764755-0').addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-bottom-fixed', [[320, 50], [728, 90]], 'div-gpt-ad-1562633073617-0').
-    defineSizeMapping(mapping1).setCollapseEmptyDiv(true).addService(googletag.pubads());
-    googletag.defineSlot('/21666183985/aulv/float-ad', [400, 300], 'div-gpt-ad-1575507414524-0').addService(googletag.pubads());
+        defineSizeMapping(mapping1).setCollapseEmptyDiv(true).addService(googletag.pubads());
+    googletag.defineSlot('/21666183985/aulv/float-ad', [[320, 480], [1024, 768]], 'div-gpt-ad-1575955616703-0').
+        defineSizeMapping(mapping4).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });

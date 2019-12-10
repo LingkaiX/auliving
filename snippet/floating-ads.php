@@ -1,10 +1,10 @@
 <section class="popup-ad">
     <aside id="popup-ad" class="gam-aulv aulv-popup-ad">
         <!-- /21666183985/aulv/float-ad -->
-        <div id='div-gpt-ad-1575507414524-0' style='width: 400px; height: 300px;'>
-            <script>
-                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1575507414524-0'); });
-            </script>
+        <div id='div-gpt-ad-1575955616703-0'>
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1575955616703-0'); });
+        </script>
         </div>
         <span onclick="document.getElementById('popup-ad').style.display='none'" 
                 class="ad-close-button2">&times;</span>

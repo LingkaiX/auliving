@@ -1,8 +1,8 @@
 section.popup-ad{
     .aulv-popup-ad{
         margin: 0 auto;
-        width: 400px;
-        height: 300px;
+        width: 1024px;
+        height: 768px;
         position:fixed;
         top:50%;
         left: 50%;
@@ -22,10 +22,8 @@ section.popup-ad{
       }
     @include mobile {
         .aulv-popup-ad{
-            width: 340px;
-        }
-        #div-gpt-ad-1575507414524-0{
-            transform: translateX(-30px);
+            width: 320px;
+            height: 480;
         }
     }
     .ad-close-button2{
