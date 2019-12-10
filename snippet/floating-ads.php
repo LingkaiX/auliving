@@ -30,6 +30,6 @@
         }, 8000);
         setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
-        }, 16000);
+        }, 24000);
     });
 </script>
