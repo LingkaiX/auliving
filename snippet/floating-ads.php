@@ -22,8 +22,9 @@
                 class="ad-close-button">&times;</span>
     </aside>
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-   jQuery(document).ready(function($){
+   $(document).ready(function(){
         setTimeout(function(){
             document.getElementById("bfa").style.display = "none";
             document.getElementById("popup-ad").style.display = "initial";
@@ -31,5 +32,10 @@
         setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
         }, 24000);
+        if($(window).width() > 768 && $(window).height() < 768){
+            $x =(768-$(window).height())*0.5;
+            $x +='%';
+            $('.ad-close-button2').css('top',$x);
+        }
     });
 </script>
