@@ -33,8 +33,8 @@
             document.getElementById("popup-ad").style.display = "none";
         }, 24000);
         if($(window).width() > 768 && $(window).height() < 768){
-            $x =(768-$(window).height())*0.5;
-            $x +='%';
+            $x =768-$(window).height();
+            $x +='px';
             $('.ad-close-button2').css('top',$x);
         }
     });
