@@ -9,6 +9,9 @@ section.popup-ad{
         z-index: 9000;
         display: none;
     }
+    .aulv-popup-ad::-webkit-scrollbar{
+        width: 0 !important
+    }
     .ad-close-button2{
         font-weight: bold;
         position:absolute;

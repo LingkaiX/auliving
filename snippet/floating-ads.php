@@ -32,10 +32,9 @@
         setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
         }, 24000);
-        if($(window).width() > 768 && $(window).height() < 768){
-            $x =768-$(window).height();
-            $x +='px';
-            $('.ad-close-button2').css('top',$x);
+        if($(window).width() > 992 && $(window).height() < 768){
+            $h=$(window).height()-32+'px';
+            $('.aulv-popup-ad').css({"top": "32px", "transform": "translate(-50%, 0)", "height": $h,"overflow-y":"scroll"});
         }
     });
 </script>
