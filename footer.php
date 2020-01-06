@@ -4,7 +4,7 @@
         <img src="<?php echo get_template_directory_uri();?>/img/logo-light.svg" alt="logo-light">
     </a>
 </div>
-<div class="center">©2014–2018 Auliving® All rights reserved.</div>
+<div class="center">©2014–2020 Auliving® All rights reserved.</div>
 <div class="right">
     <a href="http://eepurl.com/c6325r" target="_blank">Subscribe</a>
     <a target="_blank" href="https://www.auliving.com.au/contact-us">Contact</a>
