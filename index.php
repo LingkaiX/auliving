@@ -50,6 +50,7 @@
     ?>
     </div>
     <div class="item right">
+    <p>123</p>
     <?php include 'snippet/most-viewed-posts.php'; ?>
     <?php
         wp_nav_menu( array(
