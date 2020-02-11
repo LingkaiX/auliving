@@ -24,7 +24,7 @@
 <?php endwhile; wp_reset_postdata();?>
 <?php
     wp_nav_menu( array(
-        'theme_location' => 'second-menu',
+        'theme_location' => 'top-menu',
         'menu_class'     => 'top-menu',
         'container_class'=> 'top-menu-container',
         'depth'          => 1
