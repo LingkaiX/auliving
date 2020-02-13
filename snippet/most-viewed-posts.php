@@ -1,9 +1,18 @@
 <section class="top-post-list">
 <h5 class="hot"><strong>本月关注 </strong></h5>
+<aside class="aulv-s1-outer"><div class="gam-aulv aulv-s1">
+        <!-- /21666183985/aulv/aulv-s1 -->
+        <div id='div-gpt-ad-1543363024514-0'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1543363024514-0'); });
+        </script>
+        </div>
+    </div></aside>
 <?php 
     $mostViewQuery = new WP_Query(
         array( 'meta_key' => 'views',
         'orderby' => 'meta_value_num',
+        //'orderby' => 'comment_count',
         'order' => 'DESC',
         'posts_per_page' => 10,
         //'nopaging' => true,
