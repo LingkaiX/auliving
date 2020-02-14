@@ -28,10 +28,10 @@
         setTimeout(function(){
             document.getElementById("bfa").style.display = "none";
             document.getElementById("popup-ad").style.display = "initial";
-        }, 5000);
+        }, 3000);
         setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
-        }, 20000);
+        }, 16000);
         if($(window).width() > 992 && $(window).height() < 768){
             $h=$(window).height()-32+'px';
             $('.aulv-popup-ad').css({"top": "32px", "transform": "translate(-50%, 0)", "height": $h,"overflow-y":"scroll"});
