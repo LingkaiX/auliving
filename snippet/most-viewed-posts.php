@@ -31,12 +31,4 @@
         //echo get_post_meta(get_the_ID(), 'views', true );
 ?>
 <?php endwhile; wp_reset_postdata();?>
-<?php
-    wp_nav_menu( array(
-        'theme_location' => 'second-menu',
-        'menu_class'     => 'top-menu',
-        'container_class'=> 'top-menu-container',
-        'depth'          => 1
-        ) );
-?>
 </section>
