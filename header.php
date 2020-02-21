@@ -110,4 +110,4 @@
 <IMG class="2" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250968558;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
 <script>jQuery(document).ready(function($){if( window.innerWidth > 990 ){$(".2").css("display", "none");}else {$(".1").css("display", "none");}});</script>
 <!-- fixed bottom ad -->
-<?php include "snippet/floating-ads.php"; ?>
+<?php include "snippet/floating-ads.php"; ?> 

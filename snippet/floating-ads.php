@@ -25,13 +25,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
    $(document).ready(function(){
+        document.getElementById("bfa").style.display = "none";
         setTimeout(function(){
-            document.getElementById("bfa").style.display = "none";
+            //document.getElementById("bfa").style.display = "none";
             document.getElementById("popup-ad").style.display = "initial";
         }, 3000);
         setTimeout(function(){
             document.getElementById("popup-ad").style.display = "none";
-        }, 16000);
+        }, 8000);
         if($(window).width() > 992 && $(window).height() < 768){
             $h=$(window).height()-32+'px';
             $('.aulv-popup-ad').css({"top": "32px", "transform": "translate(-50%, 0)", "height": $h,"overflow-y":"scroll"});
