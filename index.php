@@ -1,7 +1,7 @@
 
 <?php get_header(); ?>
 <main> 
-<?php //include 'snippet/side-ads.php';?>
+<?php include 'snippet/side-ads.php';?>
 <?php 
     $stickyPosts = get_field( 'sticky_posts', 'category_'.get_category_by_slug( 'top' )->term_id );
     $headSectionQuery = new WP_Query( array( 'category_name' => 'top','posts_per_page' => 8 )  );
