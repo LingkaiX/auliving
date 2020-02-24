@@ -32,13 +32,19 @@
         addSize([adjustedWidth, 100], [1024, 768]).
         addSize([0, 0], [320, 480]).
         build();
+    var mapping5 = googletag.sizeMapping().
+        addSize([adjustedWidth, 100], [468, 60]).
+        addSize([0, 0], [300, 250]).
+        build();
 
     googletag.defineSlot('/21666183985/aulv/aulv-h1', [[320, 50], [728, 90]], 'div-gpt-ad-1543362254773-0').
         defineSizeMapping(mapping1).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-lb', [[320, 50], [728, 90]], 'div-gpt-ad-1543362198289-0').
         defineSizeMapping(mapping1).setCollapseEmptyDiv(true).addService(googletag.pubads());
-    googletag.defineSlot('/21666183985/aulv/aulv-a1', [[320, 50], [468, 60]], 'div-gpt-ad-1543361528497-0').
-        defineSizeMapping(mapping3).setCollapseEmptyDiv(true).addService(googletag.pubads());
+    googletag.defineSlot('/21666183985/aulv/aulv-a1', [[300, 250], [468, 60]], 'div-gpt-ad-1582517809274-0').
+        defineSizeMapping(mapping5).setCollapseEmptyDiv(true).addService(googletag.pubads());
+    // googletag.defineSlot('/21666183985/aulv/aulv-a1', [[320, 50], [468, 60]], 'div-gpt-ad-1543361528497-0').
+    //     defineSizeMapping(mapping3).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-a2', [[300, 250], [320, 50]], 'div-gpt-ad-1543362712099-0').
         defineSizeMapping(mapping2).setCollapseEmptyDiv(true).addService(googletag.pubads());
     googletag.defineSlot('/21666183985/aulv/aulv-a3', [[300, 250], [320, 50]], 'div-gpt-ad-1543362805047-0').
