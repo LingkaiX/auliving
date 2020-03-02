@@ -13,7 +13,7 @@ if(count($headSectionQuery->posts)>=8):?>
     $stickyCount=countSafely($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;
     $lastTopPost=get_post(get_field('sp_post_id',136335));
-    echo $lastTopPost->title;
+    echo $lastTopPost->post_title;
     // $stickyIDs=array();
     //remove repeat posts in $headSectionQuery and $stickyPosts
     if($stickyCount>0&&($stickyPosts[0]['sticky_post']!=null)){
