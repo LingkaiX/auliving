@@ -12,6 +12,7 @@ if(count($headSectionQuery->posts)>=8):?>
 <?php
     $stickyCount=countSafely($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;
+    $lastTopPost=get_post(get_field('sp_post_id',136335));
     // $stickyIDs=array();
     //remove repeat posts in $headSectionQuery and $stickyPosts
     if($stickyCount>0&&($stickyPosts[0]['sticky_post']!=null)){
@@ -66,6 +67,9 @@ if(count($headSectionQuery->posts)>=8):?>
     <?php 
         for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block', 'medium_large');
         if($loopCount==8){
+            if(isset($lastTopPost)) { 
+                $selectedPosts[7]=$lastTopPost; 
+            } 
             echo '<div class="post-outer"><div class="listed-post">';
                 echo '<a class="cover-img" target="_blank" href="'.get_permalink($selectedPosts[7]).'" style="background-image:url('."'".getThumbnailUrl( $selectedPosts[7]->ID, 'thumbnail' )."'".');"></a>';
                 echo '<div class="post-info">';
