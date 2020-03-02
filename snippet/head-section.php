@@ -67,7 +67,7 @@ if(count($headSectionQuery->posts)>=8):?>
     <?php 
         for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block', 'medium_large');
         if($loopCount==8){
-            if(isset($lastTopPost)) { 
+            if(isset($lastTopPost->ID)) { 
                 $selectedPosts[7]=$lastTopPost; 
             } 
             echo '<div class="post-outer"><div class="listed-post">';
