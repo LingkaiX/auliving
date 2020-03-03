@@ -12,7 +12,7 @@ if(count($headSectionQuery->posts)>=8):?>
 <?php
     $stickyCount=countSafely($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;
-    if(null!==get_field('sp_post_id',136335)) { 
+    if(get_field('sp_post_id',136335)!=null) { 
         $selectedPosts[7]=get_post(get_field('sp_post_id',136335)); 
     }
     // $stickyIDs=array();
