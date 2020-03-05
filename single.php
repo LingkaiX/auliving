@@ -66,6 +66,7 @@
                 </div>
             </aside>
             <section class="content">
+                        <p>看我改了什么</p>
                 <?php the_content(); ?>
             </section>
             <section class="footer">
