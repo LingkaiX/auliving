@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </section>
-            <aside class=" aulv-a1">
+            <aside class="gam-aulv aulv-a1">
                 <!-- /21666183985/aulv/aulv-a1 -->
                 <div id='div-gpt-ad-1582517809274-0'>
                     <script>
