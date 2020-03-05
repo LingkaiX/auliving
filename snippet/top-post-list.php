@@ -3,7 +3,7 @@
 <?php 
     $hotPostQuery = new WP_Query(
         array( 'meta_key' => 'views',
-        'orderby' => 'meta_value_num',
+        'orderby' => 'meta_ value_num',
         'order' => 'DESC',
         'posts_per_page' => 10,
         //'nopaging' => true,
@@ -11,7 +11,7 @@
         'date_query' => array(
             array(
                 'column' => 'post_modified_gmt',
-                'after'  => '1 day ago',
+                'after'  => '2 week ago',
             ),
         ),
     ));
