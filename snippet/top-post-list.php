@@ -11,7 +11,7 @@
         'date_query' => array(
             array(
                 'column' => 'post_modified_gmt',
-                'after'  => '2 week ago',
+                'after'  => '1 day ago',
             ),
         ),
     ));

@@ -62,7 +62,6 @@ function aulv_setup()
 	register_nav_menus(array(
 		'primary' => 'Header Navigation',
 		'top-menu' => 'Top News List',
-		'second-menu' => 'Most View Post',
 		'column-list' => '专栏列表'
 	));
     
