@@ -3,7 +3,7 @@
     <!-- /21666183985/aulv/aulv-lb -->
     <div id='div-gpt-ad-1543362198289-0'>
     <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1543362198289-0'); });
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1543362198289-0'); });
     </script>
     </div>
 </aside>
@@ -66,7 +66,6 @@
                 </div>
             </aside>
             <section class="content">
-                        <p>看我改了什么</p>
                 <?php the_content(); ?>
             </section>
             <section class="footer">
