@@ -2,8 +2,8 @@
 <h5 class="hot"><strong>热门推荐 </strong></h5>
 <?php 
     $hotPostQuery = new WP_Query(
-        array( 'meta_key' => 'views',
-        'orderby' => 'meta_ value_num',
+        array( 'meta_key' => 'sw_post_views_count',
+        'orderby' => 'meta_value_num',
         'order' => 'DESC',
         'posts_per_page' => 10,
         //'nopaging' => true,
@@ -18,7 +18,7 @@
     //print_r($hotPostQuery);
     while($hotPostQuery->have_posts()):$hotPostQuery->the_post();
         the_title('<h5><a href="'.get_the_permalink().'">', '</a></h5>');
-        //echo get_post_meta(get_the_ID(), 'views', true );
+        echo get_post_meta(get_the_ID(), 'views', true );
 ?>
 <?php endwhile; wp_reset_postdata();?>
 <?php
