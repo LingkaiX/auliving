@@ -2,7 +2,7 @@
 <h5 class="hot"><strong>热门推荐 </strong></h5>
 <?php 
     $hotPostQuery = new WP_Query(
-        array( 'meta_key' => 'sw_post_views_count',
+        array( 'meta_key' => 'views',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
         'posts_per_page' => 10,
