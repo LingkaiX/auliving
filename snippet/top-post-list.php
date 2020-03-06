@@ -18,7 +18,7 @@
     //print_r($hotPostQuery);
     while($hotPostQuery->have_posts()):$hotPostQuery->the_post();
         the_title('<h5><a href="'.get_the_permalink().'">', '</a></h5>');
-        echo get_post_meta(get_the_ID(), 'views', true );
+        //echo get_post_meta(get_the_ID(), 'views', true );
 ?>
 <?php endwhile; wp_reset_postdata();?>
 <?php
