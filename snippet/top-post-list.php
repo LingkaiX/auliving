@@ -1,6 +1,5 @@
 <section class="top-post-list">
 <h5 class="hot"><strong>热门推荐 </strong></h5>
-<p>asdf sdf </p>
 <?php 
     $hotPostQuery = new WP_Query(
         array( 'meta_key' => 'views',
