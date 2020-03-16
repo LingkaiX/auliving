@@ -1,5 +1,6 @@
 <section class="top-post-list">
 <h5 class="hot"><strong>热门推荐 </strong></h5>
+<p>asdf sdf </p>
 <?php 
     $hotPostQuery = new WP_Query(
         array( 'meta_key' => 'views',
@@ -10,7 +11,8 @@
         'ignore_sticky_posts' => 1,
         'date_query' => array(
             array(
-                'column' => 'post_modified_gmt',
+                //'column' => 'post_modified_gmt',
+                'column' => 'post_date_gmt',
                 'after'  => '2 week ago',
             ),
         ),
