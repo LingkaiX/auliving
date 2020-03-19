@@ -1,29 +1,112 @@
+
 <?php get_header(); ?>
-<main>    
-
+<main> 
+<?php include 'snippet/side-ads.php';?>
 <?php 
-    //echo get_query_var( 'category_name' );
-    //echo "cat:" . get_query_var( 'cat' );
-
     $stickyPosts = get_field( 'sticky_posts', 'category_'.get_category_by_slug( 'top' )->term_id );
-    $headSectionQuery = new WP_Query( array( 'category_name' => 'top','posts_per_page' => 8 )  );
-    if($stickyPosts){print_r($stickyPosts[0]['sticky_post']->ID);}
-    print_r($headSectionQuery->posts);
-    $count=0;
-    while (have_posts()) : the_post();
-    $count++;
-    if($count==25){
-        $query_top = new WP_Query( array( 'category_name' => 'c7','posts_per_page' => 8 )  );
+    $headSectionQuery = new WP_Query( array( 'category_name' => 'top', 'posts_per_page' => 8 )  );
+    include 'snippet/head-section.php';
+    //print_r(get_taxonomy( 'top' ));
+?>
+<section class="first-section container">
+    <aside class="gam-aulv aulv-h1">
+        <!-- /21666183985/aulv/aulv-h1 -->
+        <div id='div-gpt-ad-1543362254773-0'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1543362254773-0'); });
+        </script>
+        </div>
+        <IMG class="2-0" SRC="https://ad.doubleclick.net/ddm/trackimp/N34201.3110851VISIONCHINATIMES/B22930316.250570745;dc_trk_aid=447019433;dc_trk_cid=118570025;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=?" BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
+        <script>jQuery(document).ready(function($){if( window.innerWidth < 1481 ){$(".2-0").css("display", "none");}});</script>
+    </aside>
+</section>
 
-        while ( $query_top->have_posts() ) {
-            $query_top->the_post();
-            echo '<li>' . get_the_title() . '</li>';
-        }
-        wp_reset_postdata();
-    }
-            the_title('<p>', '</p>');
-            endwhile;
+<section class="first-section container">
+    <div class="item left post-list">
+    <?php 
+        $firstPage=5; //get_option('posts_per_page', 4);
+        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'posts_per_page' => $firstPage, 'ignore_sticky_posts' => true ) );
+        while (have_posts()) : the_post();
+            include 'snippet/listed-post.php';
+        endwhile;
     ?>
-</main>
-<?php get_footer(); ?>
+    </div>
+    <div class="item right top-post-list-container">
+        <?php include 'snippet/top-post-list.php'; ?>
+    </div>
+</section>
+<?php 
+    $stickyColumns = get_field( 'sticky_columns', 'category_'.get_category_by_slug( 'special-column' )->term_id );
+    include 'snippet/sticky-column-section.php';
+?>
+<section class="second-section container">
+    <div class="item left post-list">
+    <?php 
+        $secondPage=19;
+        query_posts( array( 'post_type' => 'post', 'post__not_in' =>$headSectionPostIds, 'offset' => $firstPage, 'posts_per_page' => $secondPage ) );
+        while (have_posts()) : the_post();
+            include 'snippet/listed-post.php';
+        endwhile;
+    ?>
+    </div>
+    <div class="item right">
+    <?php include 'snippet/most-viewed-posts.php'; ?>
+    <?php
+        wp_nav_menu( array(
+            'theme_location' => 'column-list',
+            'menu_class'     => 'column-list',
+            'container_class'=> 'column-list-container',
+            'depth'          => 1
+            ) );
+    ?>
+    </div>
+</section>
+<section class="extended-section container">
+    <div class="item left">
+        <div id="more-articles-here"></div>
+    </div>
+    <div class="item right"></div>
+</section>
+<div id="load-more-articles-outer">
+    <button id="load-more-articles" data-offset="<?php echo ($firstPage+$secondPage); ?>" data-nomore="false" data-loading="false">
+    <span class="loaded">更多文章<span></button>
+</div>
+<script>
+    var variant = IsTCN ? "&variant=zh-tw" : "";
+    var perPage=10;
+    var queryUrl = "<?php echo home_url(); ?>" + "/wp-json/wp/v2/posts?per_page=" + perPage + "&exclude=" + headSectionPostIds + variant;
+    jQuery(document).ready(function($){
+        jQuery("#load-more-articles").click(function(){
+            loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, '<?php echo '加载中'; ?>', '<?php echo '更多文章'; ?>');
+        });
 
+        function loop() {
+        　　var scrollTop = jQuery(this).scrollTop();
+        　　var scrollHeight = jQuery(document).height();
+        　　var windowHeight = jQuery(this).height();
+        　　if(scrollTop + windowHeight +160 >= scrollHeight){
+                if(!jQuery("#load-more-articles").data("nomore")&&parseInt(jQuery("#load-more-articles").data("offset"))<50)
+                    loadMoreArticles("#load-more-articles", "#more-articles-here", perPage, queryUrl, '<?php echo '加载中'; ?>', '<?php echo '更多文章'; ?>');
+                //console.log("yes!!!!!!!!!!!!")
+            }else{
+                //console.log("No")
+            }
+            requestAnimationFrame( loop );
+        }
+        loop();
+        // var c=0;
+        // function loop() {
+        //     // Avoid calculations if not needed
+        //     console.log(c)
+        //     c++;
+        //     requestAnimationFrame( loop );
+        // }
+        // loop();
+    });
+
+</script>
+</main>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<?php get_footer(); ?>

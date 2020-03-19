@@ -4,11 +4,24 @@ $breakpoint-laptop: 992px; //960
 $breakpoint-desktop: 1200px; //1140
 
 $theme-blue: #003366;
+$theme-blue-dark: #001120;
 $theme-blue-a2: rgba(0, 51, 102, 0.2);
+$theme-blue-a5: rgba(0, 51, 102, 0.5);
 $theme-blue-a8: rgba(0, 51, 102, 0.8);
 $theme-red: #cc0033;
 $theme-red-a2: rgba(204, 0, 51, 0.2);
+$theme-red-a5: rgba(204, 0, 51, 0.5);
 $theme-red-a8: rgba(204, 0, 51, 0.8);
+$theme-gray-dark: #777; //#888
+$theme-gray: #dadada;
+$theme-gray-light: #eee; //=#eeeeee
+
+$gray-border: 1px solid $theme-gray-light; //dotted #dadada  #f4f4f4
+$gray-border-dark: 1px solid $theme-gray; //aaa
+$blue-border: 2px solid $theme-blue;
+$blue-border-a5: 2px solid $theme-blue-a5;
+$red-border: 1px solid $theme-red;
+$red-border-a5: 2px solid $theme-red-a5;
 
 @mixin desktop {
   @media (min-width: $breakpoint-desktop) {
@@ -16,20 +29,106 @@ $theme-red-a8: rgba(204, 0, 51, 0.8);
   }
 }
 @mixin laptop {
-  @media (min-width: $breakpoint-laptop) and (max-width: ( $breakpoint-desktop)-0.01) {
+  @media (min-width: $breakpoint-laptop) and (max-width: ( $breakpoint-desktop)-0.1) {
     @content;
   }
 }
 @mixin mobile {
-  @media (max-width: ( $breakpoint-laptop)-0.01) {
+  @media (max-width: ( $breakpoint-laptop)-0.1) {
     @content;
   }
 }
-
+@mixin screen-640 {
+  @media (max-width: 639.9px) {
+    @content;
+  }
+}
+@mixin screen-480 {
+  @media (max-width: 479.9px) {
+    @content;
+  }
+}
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+@mixin addicon($content, $before: true) {
+  @if $before {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: $content;
+      display: inline;
+      padding-right: 8px;
+    }
+  } @else {
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: $content;
+      display: inline;
+      padding-left: 8px;
+    }
+  }
+}
+@mixin font-small($size: 14px) {
+  color: $theme-gray-dark;
+  font-size: $size;
+  &:hover,
+  &:focus {
+    color: auto;
+  }
+}
+@mixin text-ellipsis($line: 2, $max-height: 36px) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  max-height: $max-height;
+}
+@mixin img-bg($alpha: 0.2) {
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // transition: background-size 0.5s ease;
+  &:hover,
+  &:focus {
+    // background-size: 110%;
+    // transition: background-size 0.5s ease;
+    // transform: scale(1.2);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, $alpha);
+    transition: all cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.4s;
+  }
+  &:hover:before,
+  &:focus:before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
 .container {
   display: flex;
   margin: 0 auto;
   position: relative;
+  max-width: 100vw;
+  overflow: hidden;
+  word-wrap: break-word;
+  //justify-content: space-around;
+}
+.container .item {
+  min-width: 0px; //refer: https://stackoverflow.com/a/36150764
 }
 @include desktop {
   .container {
@@ -44,5 +143,48 @@ $theme-red-a8: rgba(204, 0, 51, 0.8);
 @include mobile {
   .container {
     max-width: 800px;
+  }
+}
+@media (max-width: 824px) {
+  .container {
+    // margin-left: 1rem;
+    // margin-right: 1rem;
+  }
+}
+.animate-shake {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-name: shake;
+}
+@keyframes shake {
+  0%,
+  to {
+    transform: translateZ(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+.animate-flash-out {
+  animation-fill-mode: both;
+  animation-duration: 2s;
+  animation-name: flash-out;
+}
+@keyframes flash-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -1,0 +1,62 @@
+section.popup-ad{
+    .aulv-popup-ad{
+        margin: 0 auto;
+        width: 1024px;
+        position:fixed;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9000;
+        display: none;
+    }
+    .aulv-popup-ad::-webkit-scrollbar{
+        width: 0 !important
+    }
+    .ad-close-button2{
+        font-weight: bold;
+        position:absolute;
+        z-index: 9900;
+        margin-top: -1px;
+        margin-right: 1px;
+        right:0;
+        top:0;
+        cursor:pointer;
+      }
+    @include mobile {
+        .aulv-popup-ad{
+            width: 320px;
+            height: 480;
+        }
+    }
+    .ad-close-button2{
+        font-size: 32px;
+    }
+}
+section.bfa{
+    .aulv-bfa {
+        margin: 0 auto;
+        width: 728px;
+        height: 90px;
+        position:fixed;
+        bottom:0%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+      .ad-close-button{
+        position:absolute;
+        z-index: 2000;
+        margin-top: -1px;
+        margin-right: 1px;
+        right:0;
+        top:0;
+        cursor:pointer;
+      }
+    @include mobile {
+        .aulv-bfa {
+            margin: 0 auto;
+            width: 320px;
+            height: 50px;
+        }
+    }
+}

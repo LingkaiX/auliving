@@ -1,43 +1,117 @@
-body.home {
-  background-color: yellow;
-
-  main {
-    margin: 10px auto;
-  }
-  .pic {
-    margin: 0 10px 0 10px;
-    display: inline-block;
-  }
-  .left {
-    width: 305px;
-    height: 360px;
-    background-color: #e3e3e3;
-  }
-  .right {
-    width: 175px;
-    height: 360px;
-    background-color: #e3e3e3;
-  }
-  .b1 {
-    width: 305px;
-    height: 110px;
-    background-color: lightblue;
-    display: inline-block;
-  }
-  .b2 {
-    width: 175px;
-    height: 175px;
-    background-color: lightblue;
-    display: inline-block;
-  }
-  .center {
-  }
-
-  @include laptop {
-    .right {
-      width: 175px;
-      height: 360px;
-      background-color: #e3e3e3;
+body.home main {
+  // margin: 10px auto;
+  @media (max-width: 832px) {
+    .container {
+      margin: 0 1rem;
+    }
+    .head-section {
+      margin: 0;
+      max-width: 100vw;
     }
   }
+  .first-section {
+    margin-top: 1rem;
+    .left {
+      margin-right: 2.5rem;
+      flex-grow: 1;
+    }
+    .top-post-list-container {
+      min-width: 300px;
+      max-width: 300px;
+      padding-top: 0.5rem;
+    }
+  }
+  .second-section {
+    .left {
+      margin-right: 2.5rem;
+      flex-grow: 1;
+    }
+    .right {
+      min-width: 300px;
+      max-width: 300px;
+      .column-list {
+        margin-top: 0.75rem;
+        padding-left: 1.2rem;
+        color: $theme-blue;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+    }
+  }
+  .extended-section {
+    .left {
+      margin-right: 2.5rem;
+      flex-grow: 1;
+    }
+    .right {
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+  .side-ads{
+    
+  }
+  .aulv-h1 {
+    margin: 0 auto;
+    width: 728px;
+    height: 90px;
+    //margin-bottom: -8px;
+    margin-top: 4px;
+    z-index: 1000;
+  }
+  @include laptop {
+    .first-section {
+      .left {
+        margin-right: 1.25rem;
+      }
+    }
+    .second-section {
+      .left {
+        margin-right: 1.25rem;
+      }
+      .right {
+      }
+    }
+    .extended-section {
+      .left {
+        margin-right: 1.25rem;
+      }
+      .right {
+      }
+    }
+  }
+  @include mobile {
+    .first-section {
+      .left {
+        margin-right: 0;
+      }
+    }
+    .second-section {
+      .left {
+        margin-right: 0;
+      }
+      .right {
+        display: none;
+      }
+    }
+    .extended-section {
+      .left {
+        margin-right: 0;
+      }
+      .right {
+        display: none;
+      }
+    }
+    .top-post-list-container {
+      display: none;
+    }
+    .aulv-h1 {
+      margin: 0 auto;
+      width: 320px;
+      height: 50px;
+    }
+  }
+}
+.home .back-button {
+  display: none !important;
 }

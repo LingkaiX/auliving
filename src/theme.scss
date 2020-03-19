@@ -1,7 +1,25 @@
 @import "scss/normalize.scss";
 @import "scss/framework.scss";
-@import "scss/WordPress Core.scss";
+@import "scss/wordpress-core.scss";
+
+@import "scss/global.scss";
+
+@import "scss/header.scss";
+@import "scss/footer.scss";
 @import "scss/index.scss";
 @import "scss/single.scss";
-@import "scss/header.scss";
-@import "scss/relatedPost.scss";
+@import "scss/comments.scss";
+@import "scss/search.scss";
+@import "scss/archive.scss";
+
+@import "scss/snippet/head-section.scss";
+@import "scss/snippet/listed-post.scss";
+@import "scss/snippet/sticky-column-section.scss";
+@import "scss/snippet/top-post-list.scss";
+
+@import "scss/snippet/single-sidebar.scss";
+@import "scss/snippet/side-ads.scss";
+
+@import "scss/specialcolumn.scss";
+@import "scss/snippet/column-cate-desc.scss";
+@import "scss/snippet/floating-ads.scss";

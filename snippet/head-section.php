@@ -1,57 +1,100 @@
 <?php
-/* Need data: 
-    WP_Query: headSectionQuery；
-    Array<WP_Post>: stickyPosts;
+/* 
+Need data: 
+    WP_Query: $headSectionQuery；
+    Array<WP_Post>: $stickyPosts;
+Output data:
+    Array<Post_ID>: $headSectionPostIds;
+    JS: Array<Post_ID>: headSectionPostIds;
 */
-?>    
+if(count($headSectionQuery->posts)>=8):?>    
 <section class="container head-section">
-<?php 
-    $loopCount=0;
-    $topPosts=array($headSectionQuery->posts[3]->ID,$headSectionQuery->posts[4]->ID,$headSectionQuery->posts[5]->ID);
-    echo '<div class="left">';
-
-    echo '</div> <div class="center">';
-    
-    echo '</div> <div class="right">';
-
-    echo '</div>';
-    while ( $headSectionQuer->have_posts() ) {
-        $loopCount++;
-        if($stickyPosts){
-            if($loopCount==4&&(count($stickyPosts)>0)){
-                if(!in_array($stickyPosts[0]['sticky_post']->ID,$topPosts)){
-                    //
-                    continue;
-
-                }else{
-
-                }
-            }
-            if($loopCount==5&&(count($stickyPosts)>1)){
-
-                continue;
-            }
-            if($loopCount==6&&(count($stickyPosts)>2)){
-
-                continue;
+<?php
+    $stickyCount=countSafely($stickyPosts);
+    $selectedPosts=$headSectionQuery->posts;
+    if(get_field('sp_post_id',136335)!=null) { 
+        $selectedPosts[7]=get_post(get_field('sp_post_id',136335)); 
+    }
+    // $stickyIDs=array();
+    //remove repeat posts in $headSectionQuery and $stickyPosts
+    if($stickyCount>0&&($stickyPosts[0]['sticky_post']!=null)){
+        for($i=0; $i<$stickyCount; $i++){
+            if($stickyPosts[$i]['sticky_post']!=null)
+                array_splice($selectedPosts, 3, 0, array($stickyPosts[$i]['sticky_post']) ); 
+        }
+        for($i=0; $i<count($selectedPosts); $i++){
+            for($j=$i+1; $j<count($selectedPosts); $j++){
+                if($selectedPosts[$i]->ID==$selectedPosts[$j]->ID)
+                    array_splice($selectedPosts, $j, 1 ); 
             }
         }
-        //center *3
-        $headSectionQuer->the_post();
-        echo '<li>' . get_the_title() . '</li>';
+        // for($i=0; $i<$stickyCount; $i++){
+        //     $stickyIDs[$i]=$stickyPosts[$i]['sticky_post']->ID;
+        // }
+    }
+    $headSectionPostIds=array();
+    for($i=0; $i<8; $i++){
+        array_push($headSectionPostIds, $selectedPosts[$i]->ID);
     }
 ?>
-    <div class="left">
-        <div class="b1" style="margin-bottom:10px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
-        <div class="b1" style="margin-bottom:10px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展1</div>
-        <div class="b1" style="height:120px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
-    </div>
+<script>
+    <?php echo "var headSectionPostIds = ". json_encode($headSectionPostIds) . ";\n"; ?>
+    //console.log(headSectionPostIds.toString());
+</script>
+<?php
+    function echoBlock($post, $classNames='', $coverSize='thumbnail', $isStickyPost=false){
+        echo '<div class="block '.$classNames.'">';
+        echo '<a class="cover-img" style="background-image:url('."'".getThumbnailUrl( $post->ID, $coverSize )."'".');" target="_blank" href="'.get_permalink($post).'">';
+            echo '<div class="info-container">';
+                echo '<h4 class="title">'.$post->post_title.'</h4>';
+                //echo '<span class="date-info">'.timeElapsedString($post->post_date_gmt).'</span>';
+            echo '</div>';
+        echo '</a></div>';
+    }
+    $loopCount=0;
+?>
     <div class="center">
-        <img src="https://xenforo.com/community/media/kingfish.2125/full" alt="" width="640" height="360" class="pic">
+        <div id="owl-head" class="owl-carousel owl-theme">
+        <?php 
+            for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block', 'large');
+        ?>
+        </div>
     </div>
     <div class="right">
-        <div class="b2" style="margin-bottom:10px;">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
-        <div class="b2">【悉尼活动】悉尼婚礼展 时尚集市 悉尼茶节 悉尼皇家植物园花卉展</div>
+    <?php 
+        for($loopCount; $loopCount<5; $loopCount++) echoBlock($selectedPosts[$loopCount], 'right-block', 'medium_large');  
+    ?>
+    </div>
+    <div class="left">
+    <?php 
+        for($loopCount; $loopCount<8; $loopCount++) echoBlock($selectedPosts[$loopCount], 'left-block', 'medium_large');
+        if($loopCount==8){
+            echo '<div class="post-outer"><div class="listed-post">';
+                echo '<a class="cover-img" target="_blank" href="'.get_permalink($selectedPosts[7]).'" style="background-image:url('."'".getThumbnailUrl( $selectedPosts[7]->ID, 'thumbnail' )."'".');"></a>';
+                echo '<div class="post-info">';
+                    echo '<a target="_blank" href="'.get_permalink($selectedPosts[7]).'"><h4 class="title">'.$selectedPosts[7]->post_title.'</h4></a>';
+                    echo '<h6 class="sub-title">'.strip_tags($selectedPosts[7]->post_excerpt),'</h6>';
+                    echo '<span class="date-info">'.timeElapsedString($selectedPosts[7]->post_date_gmt).'</span>';
+                echo '</div>';
+            echo '</div></div>';
+        }
+    ?>
     </div>
 </section>
-<?php wp_reset_postdata(); ?>
+<?php endif; wp_reset_postdata(); ?>
+<script>
+    var owlHead
+    jQuery(document).ready(function($){
+        owlHead=jQuery('#owl-head');
+        owlHead.owlCarousel({
+            loop:true,
+            margin:0,
+            center:false,
+            dots:true,
+            items:1
+        })
+        setInterval(function(){ 
+            owlHead.trigger('next.owl.carousel');
+        }, 5000);
+    });
+</script>

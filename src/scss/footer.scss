@@ -1,0 +1,44 @@
+.body-footer {
+  margin-top: -10rem;
+  min-height: 10rem;
+  padding-top: 2rem;
+  background-color: white;
+  color: $theme-gray-dark;
+  .container {
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 12px;
+  }
+  .left {
+    flex-grow: 1;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    img {
+      height: 2rem;
+    }
+  }
+  .center {
+    flex-grow: 2;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 0.25rem;
+  }
+  .right {
+    flex-grow: 1;
+    min-width: 100%;
+    max-width: 100%;
+    a {
+      color: $theme-gray-dark;
+      &:nth-child(2) {
+        @include addicon("\f111");
+        @include addicon("\f111", false);
+        &:before,
+        &:after {
+          font-size: 4px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

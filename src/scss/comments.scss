@@ -1,0 +1,206 @@
+section.comment-section {
+  margin-top: 1.25rem;
+  .comment-and-subcomment {
+    border-bottom: $gray-border-dark;
+    &:first-child {
+      border-top: $red-border;
+    }
+  }
+  .comment-form {
+    position: relative;
+    margin: 2rem 0 1rem 0;
+    .textarea-mirror {
+      width: 100%;
+      border-bottom: $blue-border-a5;
+      margin: 8px 0;
+      padding-top: 8px;
+      min-height: 30px;
+    }
+    .input-content {
+      display: none;
+    }
+    .input-name,
+    .input-email {
+      border: none;
+      border-bottom: $blue-border-a5;
+      color: $theme-gray-dark;
+      font-size: 15px;
+      height: 24px;
+    }
+    .textarea-mirror:focus,
+    .input-name:focus,
+    .input-email:focus {
+      border-bottom: $blue-border;
+      outline: none;
+    }
+    .error-field {
+      border-bottom: $red-border-a5;
+      &:focus {
+        border-bottom: $red-border;
+      }
+    }
+    @media (max-width: 540px) {
+      .input-name,
+      .input-email {
+        display: block;
+      }
+    }
+    .search-submit {
+      position: absolute;
+      bottom: -12px;
+      right: 0;
+      font-weight: 700;
+    }
+    .notice {
+      font-size: 14px;
+      color: $theme-red;
+      margin: 1rem 0 !important;
+      height: 1rem;
+    }
+  }
+  #comments {
+    .comment {
+      margin-left: 48px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .subcomment {
+      border-top: $gray-border;
+    }
+    .portrait {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-left: -48px;
+    }
+    .subcomment .portrait {
+      width: 36px;
+      height: 36px;
+      margin-left: -36px;
+    }
+    .comment-content {
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 4px;
+      width: 100%;
+    }
+    .comment-content p {
+      margin: 8px 0;
+    }
+    .author-name,
+    .date-info {
+      color: $theme-gray-dark;
+      font-size: 14px;
+      line-height: 24px;
+      display: block;
+    }
+    .subcomment .author-name,
+    .subcomment .date-info {
+      line-height: 18px;
+      font-size: 13px;
+    }
+    .thumb-up-and-down {
+      display: inline;
+    }
+    .thumb-up,
+    .thumb-down {
+      color: $theme-gray-dark;
+      font-size: 14px;
+      padding: 4px 24px 4px 0;
+      &:hover,
+      &:focus {
+        color: $theme-red-a8;
+        cursor: pointer;
+      }
+      i {
+        margin-right: 4px;
+      }
+    }
+    .thumb-up-and-down .done {
+      color: $theme-red;
+    }
+    .close-open {
+      position: relative;
+      display: inline-block;
+      button {
+        padding: 0 8px;
+        background-color: transparent;
+        font-size: 14px;
+        color: $theme-red-a8;
+        &:hover,
+        &:focus {
+          color: $theme-blue;
+        }
+      }
+    }
+    .refered-author {
+      @include font-small;
+      text-decoration: underline;
+    }
+  }
+  #comments-outer {
+    position: relative;
+    transition: height 1s;
+    .open-comments {
+      position: absolute;
+      bottom: 0;
+      height: 4rem;
+      left: 0;
+      right: 0;
+      display: none;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), white);
+      line-height: 6rem;
+      text-align: center;
+      cursor: pointer;
+      @include addicon("\f103", false);
+      &:hover,
+      &:focus {
+        color: $theme-red;
+      }
+    }
+    .load-more-comments {
+      display: none;
+      margin-bottom: 1rem;
+      height: 4rem;
+      line-height: 4rem;
+      text-align: center;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        color: $theme-red;
+      }
+      &.loading {
+        @include addicon("\f141", false);
+      }
+      &.loaded {
+        @include addicon("\f103", false);
+      }
+    }
+    &.comments-close {
+      height: 20rem;
+      overflow: hidden;
+      .open-comments {
+        display: block;
+      }
+    }
+    &.comments-open {
+      height: auto;
+      .open-comments {
+        display: none;
+      }
+      .load-more-comments {
+        display: block;
+      }
+    }
+    &.comments-none {
+      &:afare {
+        content: "";
+      }
+    }
+  }
+  @include mobile {
+    & {
+      margin: 0.5rem 1rem;
+    }
+  }
+}

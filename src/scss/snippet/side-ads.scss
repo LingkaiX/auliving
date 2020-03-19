@@ -1,0 +1,27 @@
+section.side-ads {
+    @media (max-width: 1480px) {
+        display: none;
+    }
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content:center;
+    .box{
+        width: 1564px;
+        min-width: 1480px;
+        display: flex;
+        justify-content:center;
+    }
+    .adleft{
+        width: 160px;
+        height: 600px;
+    }
+    .adcenter{
+        flex-grow: 1;
+        height:10px;
+    }
+    .adright{
+        width: 160px;
+        height: 600px;
+    }
+}

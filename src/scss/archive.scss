@@ -1,0 +1,28 @@
+body.archive main {
+  @media (max-width: 832px) {
+    .container {
+      margin: 0 1rem;
+    }
+  }
+  .left {
+    margin-right: 2.5rem;
+    flex-grow: 1;
+  }
+  .right {
+    min-width: 300px;
+    max-width: 300px;
+  }
+  @include laptop {
+    .left {
+      margin-right: 1.25rem;
+    }
+  }
+  @include mobile {
+    .left {
+      margin-right: 0;
+    }
+    .right {
+      display: none;
+    }
+  }
+}

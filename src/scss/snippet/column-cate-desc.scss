@@ -1,0 +1,35 @@
+section.cate-info{
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+    .cover-img {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      @include img-bg;
+      float: left;
+      margin-right: 0.75rem;
+    }
+    .title {
+      margin: 0.75rem 0;
+      font-size: 20px;
+      color: $theme-blue;
+    }
+    .desc{
+      margin:10px 0 0.75rem;
+      padding-left: 84px;
+      min-height: 36px;
+      p{
+        margin-bottom: 0;
+      }
+      .contact-info{
+        p{
+          margin-top: 5px;
+        }
+      }
+    }
+    @include mobile {
+      .desc{
+        padding-left: 0;
+      }
+    }
+}
