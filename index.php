@@ -50,7 +50,7 @@
     ?>
     </div>
     <div class="item right">
-    <?php //include 'snippet/most-viewed-posts.php'; ?>
+    <?php include 'snippet/most-viewed-posts.php'; ?>
     <?php
         wp_nav_menu( array(
             'theme_location' => 'column-list',
