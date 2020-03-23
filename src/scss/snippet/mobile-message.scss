@@ -1,0 +1,45 @@
+section.mobile-message{
+    display: none; 
+}
+@include mobile {
+    section.mobile-message{
+        display:block;
+        margin: 0 auto;
+        width: 320px;
+        text-align: center;
+        position:fixed;
+        bottom:11px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: white;
+        box-shadow: 1px 1px 5px 1px #888888;
+        border-radius: .4em;
+        .close-button{
+            position:absolute;
+            z-index: 2000;
+            margin-top: -1px;
+            margin-right: 1px;
+            right:0;
+            top:0;
+            cursor:pointer;
+          }
+        img{
+            vertical-align: bottom;
+          }
+    }
+    .mobile-message:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top-color: #888888;
+        border-bottom: 0;
+        border-left: 0;
+        margin-left: -5px;
+        margin-bottom: -10px;
+    }
+}
