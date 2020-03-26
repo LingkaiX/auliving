@@ -56,8 +56,18 @@ if(count($headSectionQuery->posts)>=8):?>
 ?>
     <div class="center">
         <div id="owl-head" class="owl-carousel owl-theme">
-        <?php 
-            for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block', 'large');
+        <?php
+            if($has_slider){
+                for($loopCount; $loopCount<3; $loopCount++) echoBlock($selectedPosts[$loopCount], 'center-block', 'large');
+            }
+            else{
+                $cbPost_id=get_post(get_field('center_block_post_id',136335));
+                if($cbPost_id!=null) { 
+                    echoBlock($cbPost_id, 'center-block', 'large');
+                }
+                else echoBlock($selectedPosts[$loopCount], 'center-block', 'large');
+            }
+                
         ?>
         </div>
     </div>
