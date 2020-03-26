@@ -10,6 +10,7 @@ Output data:
 if(count($headSectionQuery->posts)>=8):?>    
 <section class="container head-section">
 <?php
+    $has_slider=get_field('has_slider',136335);
     $stickyCount=countSafely($stickyPosts);
     $selectedPosts=$headSectionQuery->posts;
     if(get_field('sp_post_id',136335)!=null) { 
